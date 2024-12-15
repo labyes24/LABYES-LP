@@ -1,3 +1,5 @@
+import { Footer } from '@/components/foorter'
+import { Header } from '@/components/header'
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
 import './globals.css'
@@ -22,7 +24,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt-BR">
-            <body className={`${dmSans.variable} antialiased`}>{children}</body>
+            <body className={`${dmSans.variable} antialiased`}>
+                <Header />
+                <main>{children}</main>
+                <Footer />
+            </body>
         </html>
     )
 }
