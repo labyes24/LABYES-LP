@@ -1,5 +1,8 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
-
+export const metadata: Metadata = {
+    title: 'Contatos',
+}
 export default function ContactsPage() {
     return (
         <>
