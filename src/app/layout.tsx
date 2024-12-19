@@ -1,4 +1,4 @@
-import { Footer } from '@/components/foorter'
+import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
