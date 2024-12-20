@@ -1,12 +1,10 @@
 import { Menu } from 'lucide-react'
 import Image from 'next/image'
 import logoLabYes from '../../public/logo.svg'
-import { NavigationLink } from './navigation-link'
+import { MenuNavigationLink } from './menu-navigation-link'
 import { Button } from './ui/button'
-
 import {
     Sheet,
-    SheetClose,
     SheetContent,
     SheetDescription,
     SheetFooter,
@@ -49,45 +47,42 @@ export function MenuNavigationMobile() {
                         </SheetDescription>
                     </SheetHeader>
                     <div>
-                        <SheetClose asChild>
-                            <NavigationLink
-                                href="/"
-                                title="Home"
-                                type="mobile"
-                            />
-                        </SheetClose>
-                        <SheetClose asChild>
-                            <NavigationLink
-                                href="/quemsomos"
-                                title="Quem somos"
-                                type="mobile"
-                            />
-                        </SheetClose>
-                        <SheetClose asChild>
-                            <NavigationLink
-                                href="/conexoes"
-                                title="Conexões"
-                                type="mobile"
-                            />
-                        </SheetClose>
-                        <SheetClose asChild>
-                            <NavigationLink
-                                href="/projetos"
-                                title="Projetos"
-                                type="mobile"
-                            />
-                        </SheetClose>
+                        <MenuNavigationLink
+                            href="/"
+                            title="Home"
+                            type="mobile"
+                        />
+
+                        <MenuNavigationLink
+                            href="/quemsomos"
+                            title="Quem somos"
+                            type="mobile"
+                        />
+                        <MenuNavigationLink
+                            href="/conexoes"
+                            title="Conexões"
+                            type="mobile"
+                        />
+                        <MenuNavigationLink
+                            href="/projetos"
+                            title="Projetos"
+                            type="mobile"
+                        />
                     </div>
                     <SheetFooter>
-                        <SheetClose asChild>
-                            <Button
-                                type="button"
-                                className="rounded-full bg-ly-orange-400 text-base font-bold text-ly-white hover:bg-ly-orange-500"
-                                size={'lg'}
-                            >
-                                Fale conosco
-                            </Button>
-                        </SheetClose>
+                        <Button
+                            type="button"
+                            className="rounded-full bg-ly-orange-400 text-base font-bold text-ly-white hover:bg-ly-orange-500"
+                            size={'lg'}
+                            asChild
+                        >
+                            {/* Quando a classe pai possui estilização, a classe pai concatena com sua estilização com o da classe filha */}
+                            <MenuNavigationLink
+                                href="/contato"
+                                title="Fale conosco"
+                                type="mobile"
+                            />
+                        </Button>
                     </SheetFooter>
                 </SheetContent>
             </Sheet>

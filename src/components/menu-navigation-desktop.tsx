@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { NavigationLink } from './navigation-link'
+import { MenuNavigationLink } from './menu-navigation-link'
 import { Button } from './ui/button'
 import {
     NavigationMenu,
@@ -13,16 +13,19 @@ export function MenuNavigationDesktop() {
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationLink href="/" title="Home" />
+                        <MenuNavigationLink href="/" title="Home" />
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationLink href="/quemsomos" title="Quem somos" />
+                        <MenuNavigationLink
+                            href="/quemsomos"
+                            title="Quem somos"
+                        />
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationLink href="/conexoes" title="Conexões" />
+                        <MenuNavigationLink href="/conexoes" title="Conexões" />
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationLink href="/projetos" title="Projetos" />
+                        <MenuNavigationLink href="/projetos" title="Projetos" />
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
