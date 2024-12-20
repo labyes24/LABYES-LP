@@ -9,7 +9,7 @@ import {
 
 export function MenuNavigationDesktop() {
     return (
-        <div className="hidden items-center justify-center gap-4 md:flex">
+        <div className="hidden items-center justify-center gap-4 lg:flex">
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>

@@ -15,7 +15,7 @@ import {
 
 export function MenuNavigationMobile() {
     return (
-        <div className="flex md:hidden">
+        <div className="flex lg:hidden">
             <Sheet>
                 <SheetTrigger asChild>
                     <Button asChild className="p-0" variant={'ghost'}>
@@ -27,11 +27,11 @@ export function MenuNavigationMobile() {
                 </SheetTrigger>
                 <SheetContent className="flex flex-col gap-6">
                     <SheetHeader>
-                        <SheetTitle>
+                        <SheetTitle className="flex justify-center">
                             <Button
                                 asChild
                                 variant={'link'}
-                                className="h-4 w-fit select-none p-0 hover:cursor-pointer hover:bg-transparent md:h-8"
+                                className="h-4 w-fit select-none p-0 hover:cursor-pointer hover:bg-transparent"
                             >
                                 <Image
                                     src={logoLabYes}
@@ -42,7 +42,7 @@ export function MenuNavigationMobile() {
                                 />
                             </Button>
                         </SheetTitle>
-                        <SheetDescription>
+                        <SheetDescription className="flex justify-center">
                             Navegue pelas nossas páginas, através do menu.
                         </SheetDescription>
                     </SheetHeader>
@@ -69,10 +69,10 @@ export function MenuNavigationMobile() {
                             type="mobile"
                         />
                     </div>
-                    <SheetFooter>
+                    <SheetFooter className="flex flex-row">
                         <Button
                             type="button"
-                            className="rounded-full bg-ly-orange-400 text-base font-bold text-ly-white hover:bg-ly-orange-500"
+                            className="w-full rounded-full bg-ly-orange-400 text-base font-bold text-ly-white hover:bg-ly-orange-500"
                             size={'lg'}
                             asChild
                         >
