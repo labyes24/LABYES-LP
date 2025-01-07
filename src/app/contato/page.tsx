@@ -1,78 +1,76 @@
 import { Metadata } from 'next'
-
-import { ContactForm } from '@/components/contact-form'
-import { IconEmpresa } from '../../components/svg/icon-empresa'
-import { IconTalentos } from '../../components/svg/icon-talentos'
-
-// import Wave from '@/assets/contact-wave.svg'
+import Form from 'next/form'
 export const metadata: Metadata = {
     title: 'Contatos',
 }
 export default function ContactsPage() {
     return (
-        <div
-            className="m-auto mt-14 flex w-full flex-col items-center justify-center"
-            style={{
-                backgroundImage: `url(${Wave.src}),url(${BgImg.src}) `,
-                backgroundRepeat: 'no-repeat, no-repeat',
-                backgroundPosition: 'bottom 0px left -32px, top 417px left 0px',
-            }}
-        >
-            <section className="mb-56 w-full max-w-md items-center font-sans">
-                <div className="mb-6 text-center">
-                    <h2 className="mb-3 text-2xl font-bold text-ly-dark-azure-600">
-                        Título da Sessão
-                    </h2>
-                    <p className="mb-6 text-ly-dark-azure-600">
-                        By creating a visual guide along the way, the designer
-                        or developer can get input from the other people
-                        involved in the website such as the customer, their
-                        manager.
+        <div className="content-wrapper">
+            <section className="section-wrapper">
+                <div className="section-info">
+                    <h2>Titulo da Sessão</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit.
                     </p>
                 </div>
-                <div className="mb-8 flex w-full flex-col items-center gap-3">
-                    <div className="flex items-center justify-center gap-2">
-                        <IconEmpresa />
-                        <strong className="text-center text-2xl text-ly-dark-azure-600">
-                            Empresa
-                        </strong>
-                    </div>
-                    <p className="text-ly-dark-azure-600">
-                        The effect of different scenarios on the display
-                    </p>
-                    <div className="flex items-center justify-center gap-2">
-                        <IconTalentos />
-                        <strong className="text-center text-2xl text-ly-dark-azure-600">
-                            Talentos
-                        </strong>
-                    </div>
-                    <p className="text-ly-dark-azure-600">
-                        The effect of different scenarios on the display
-                    </p>
+                <div className="empresa-info">
+                    <span></span>
+                    <strong>Empresa</strong>
+                </div>
+                <div className="talentos-info">
+                    <span></span>
+                    <strong>Talentos</strong>
                 </div>
             </section>
-
-            <ContactForm />
-
-            <section className="mb-20 flex w-full max-w-md flex-col items-center gap-3">
-                <div className="flex flex-col gap-2 text-center">
-                    <h2 className="text-center text-xl font-bold text-ly-white">
-                        Endereço
-                    </h2>
-                    <p className="text-center text-lg text-ly-white">
-                        58 Middle Point Rd <br /> San Francisco, 94124
-                    </p>
+            <Form action="/">
+                <div className="buttons-wrapper">
+                    <button>Empresa</button>
+                    <button>Dev junior</button>
                 </div>
-                <div className="mb-4 flex flex-col gap-2 text-center">
-                    <h2 className="text-center text-xl font-bold text-ly-white">
-                        Contatos
-                    </h2>
-                    <p className="text-center text-lg text-ly-white">
-                        (12) 3456-7890
-                    </p>
-                    <p className="text-center text-lg text-ly-white">
-                        contato@email.com
-                    </p>
+                <h3>Entre em contato</h3>
+                <p>Queremos ouvir você</p>
+
+                <div>
+                    <label htmlFor="name"></label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Nome"
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="email"></label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="E-mail"
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="message"></label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Digite sua mensagem"
+                        required
+                    ></textarea>
+                </div>
+                <button type="submit">Enviar mensagem</button>
+            </Form>
+            <section className="contact-info">
+                <div className="adress">
+                    <h2>Endereço</h2>
+                    <p>58 Middle Point Rd San Francisco, 94124</p>
+                </div>
+                <div className="contact">
+                    <h2>Contatos</h2>
+                    <p>(12)3456-7890</p>
+                    <p>contato@email.com</p>
                 </div>
             </section>
         </div>
