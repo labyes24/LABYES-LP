@@ -147,6 +147,8 @@ export default function ContactsPage() {
                     </p>
                 </div>
             </section>
+            {/* <Image src={bgImg} alt="Imagem de fundo" /> */}
+            {/* <Image src={wave} alt="Imagem de fundo" /> */}
         </div>
     )
 }
