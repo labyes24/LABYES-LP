@@ -10,14 +10,16 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
     return (
-        <section className="relative flex min-h-[80vh] flex-col items-center overflow-hidden pt-16 font-['DM_Sans'] text-ly-dark-azure-600">
-            <img src={TopLeft.src} className="absolute left-0 top-0 -z-10" />
-            <img
-                src={BottomRight.src}
-                className="absolute bottom-0 right-0 -z-10"
-            />
-
+        <section
+            style={{
+                backgroundImage: `url(${TopLeft.src}), url(${BottomRight.src})`,
+                backgroundRepeat: 'no-repeat, no-repeat',
+                backgroundPosition: 'top left, bottom right',
+            }}
+            className="flex min-h-[80vh] flex-col items-center pt-16 font-['DM_Sans'] text-ly-dark-azure-600"
+        >
             <h2 className="text-3xl font-bold">Projetos</h2>
+
             <p className="mb-9 mt-4 px-4 text-center leading-7">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit semper
                 dalar elementum tempus hac tellus libero accumsan.
