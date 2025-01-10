@@ -1,6 +1,8 @@
 import HeroLoopGif from '@/assets/home_hero_image_loop.gif'
+
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from './ui/button'
 
 export function HomeHero() {
@@ -21,9 +23,12 @@ export function HomeHero() {
                 <Button
                     className="mx-auto w-fit rounded-full py-6 font-bold lg:mx-0 lg:text-lg"
                     size={'lg'}
+                    asChild
                 >
-                    Quero Participar{' '}
-                    <ArrowRight className="!h-5 !w-5 lg:!h-7 lg:!w-7" />
+                    <Link href={'/contato'}>
+                        Quero Participar
+                        <ArrowRight className="!h-5 !w-5 lg:!h-7 lg:!w-7" />
+                    </Link>
                 </Button>
             </div>
             <Image
