@@ -22,22 +22,22 @@ export default function Home() {
                 <h2 className="mb-28 text-3xl font-bold">Apoiadores</h2>
 
                 <ul className="grid grid-cols-2 justify-center gap-x-16 gap-y-20 px-8 lg:flex">
-                    <li>
+                    <li className="flex justify-center">
                         <img src={Supporter01.src} alt="" />
                     </li>
-                    <li>
+                    <li className="flex justify-center">
                         <img src={Supporter02.src} alt="" />
                     </li>
-                    <li>
+                    <li className="flex justify-center">
                         <img src={Supporter03.src} alt="" />
                     </li>
-                    <li>
+                    <li className="flex justify-center">
                         <img src={Supporter04.src} alt="" />
                     </li>
-                    <li>
+                    <li className="flex justify-center">
                         <img src={Supporter05.src} alt="" />
                     </li>
-                    <li>
+                    <li className="flex justify-center">
                         <img src={Supporter06.src} alt="" />
                     </li>
                 </ul>
