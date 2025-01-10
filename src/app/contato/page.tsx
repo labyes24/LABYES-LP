@@ -3,7 +3,6 @@ import Form from 'next/form'
 import { IconEmpresa } from '../../components/svg/icon-empresa'
 import { IconTalentos } from '../../components/svg/icon-talentos'
 import { Button } from '../../components/ui/button'
-// import BgImage from '@/assets/contact-bg-img.png'
 
 // import Wave from '@/assets/contact-wave.svg'
 export const metadata: Metadata = {
