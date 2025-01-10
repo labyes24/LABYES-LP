@@ -3,7 +3,6 @@ import Form from 'next/form'
 import { IconEmpresa } from '../../components/svg/icon-empresa'
 import { IconTalentos } from '../../components/svg/icon-talentos'
 import { Button } from '../../components/ui/button'
-// import BgImage from '@/assets/contact-bg-img.png'
 
 // import Wave from '@/assets/contact-wave.svg'
 export const metadata: Metadata = {
@@ -79,7 +78,7 @@ export default function ContactsPage() {
                         type="text"
                         id="name"
                         name="name"
-                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base text-ly-gray-50"
+                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base text-ly-gray-50 focus:outline-none focus:ring focus:ring-ly-orange-500"
                         placeholder="Nome"
                         required
                     />
@@ -90,7 +89,7 @@ export default function ContactsPage() {
                         type="email"
                         id="email"
                         name="email"
-                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base text-ly-gray-50"
+                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base text-ly-gray-50 focus:outline-none focus:ring focus:ring-ly-orange-500"
                         placeholder="E-mail"
                         required
                     />
