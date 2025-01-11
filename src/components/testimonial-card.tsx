@@ -5,9 +5,8 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
-
-import PlaceholderImage from '@/assets/project_card_placeholder.svg'
-import Underline from '@/assets/project_card_underline.svg'
+import { cn } from '@/lib/utils'
+import { UserRound } from 'lucide-react'
 
 interface TestimonialCardProps {
     quote: string
@@ -16,9 +15,11 @@ interface TestimonialCardProps {
     role: string
     company: string
     image?: string
+    positionCard: number
 }
 
 export function TestimonialCard({
+    positionCard,
     quote,
     description,
     image,
@@ -26,22 +27,45 @@ export function TestimonialCard({
     company,
     role,
 }: TestimonialCardProps) {
-    const imageUrl = image ?? PlaceholderImage.src
+    const borders = [
+        'border-ly-green-500',
+        'border-ly-red',
+        'border-ly-orange-500',
+    ]
+    const colorsPlaceholder = [
+        'bg-ly-green-500',
+        'bg-ly-red',
+        'bg-ly-orange-500',
+    ]
+    const colorSelected = image
+        ? borders[positionCard % borders.length]
+        : colorsPlaceholder[positionCard % colorsPlaceholder.length]
 
     return (
-        <Card>
+        <Card className="bg-background py-5 text-ly-dark-azure-600">
             <CardHeader>
-                <CardTitle className="">
-                    <img src={Underline.src} alt="" />
+                <div
+                    className={cn(
+                        `mb-6 flex h-20 w-20 items-end justify-center rounded-full border-4`,
+                        `${colorSelected}`
+                    )}
+                >
+                    {image ? (
+                        <div>imagem</div>
+                    ) : (
+                        <UserRound className={`h-14 w-14 text-background`} />
+                    )}
+                </div>
+                <CardTitle className="font-bold">
                     <span>{quote}</span>
                 </CardTitle>
             </CardHeader>
-            <CardContent className="text-center leading-7">
+            <CardContent className="leading-7 tracking-wide">
                 <p>{description}</p>
             </CardContent>
             <CardFooter className="w-full">
-                <div className="flex gap-3">
-                    <span>{author}</span>
+                <div className="flex flex-col gap-1">
+                    <span className="font-semibold">{author}</span>
                     <div>
                         <span>{role}</span>, <span>{company}</span>
                     </div>
