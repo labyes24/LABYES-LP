@@ -28,7 +28,7 @@ export default function RootLayout({
                 className={`${dmSans.variable} mx-auto flex min-h-screen max-w-[1440px] flex-col bg-ly-white antialiased`}
             >
                 <Header />
-                <main className="flex-grow px-8 py-3">{children}</main>
+                <main className="flex-grow">{children}</main>
                 <Footer />
             </body>
         </html>
