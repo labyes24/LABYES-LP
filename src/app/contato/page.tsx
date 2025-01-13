@@ -4,13 +4,15 @@ import { IconEmpresa } from '../../components/svg/icon-empresa'
 import { IconTalentos } from '../../components/svg/icon-talentos'
 import { Button } from '../../components/ui/button'
 
-// import Wave from '@/assets/contact-wave.svg'
+import BgImg from '@/assets/contact-bg-img.png'
+
+import Wave from '@/assets/contact-wave.svg'
 export const metadata: Metadata = {
     title: 'Contatos',
 }
 export default function ContactsPage() {
     return (
-        <div className="mt-3 flex w-full flex-col items-center p-4">
+        <div className="mt-3 flex w-full flex-col items-center">
             <section className="w-full max-w-md items-center font-sans">
                 <div className="mb-6 text-center">
                     <h2 className="mb-3 text-2xl font-bold text-ly-dark-azure-600">
@@ -47,7 +49,12 @@ export default function ContactsPage() {
 
             <Form
                 action="/"
-                className="mb-12 flex w-full flex-col justify-center rounded-md bg-ly-gray-100 p-8"
+                className="mb-12 flex w-full flex-col justify-center rounded-md p-8"
+                style={{
+                    backgroundImage: `url(${BgImg.src})`,
+                    backgroundRepeat: 'no-repeat, no-repeat',
+                    backgroundSize: 'cover',
+                }}
             >
                 <div className="mb-5 flex w-full flex-row items-center gap-2">
                     <Button
@@ -112,8 +119,15 @@ export default function ContactsPage() {
                 </button>
             </Form>
 
-            <section className="mb-12 flex w-full flex-col items-center gap-3">
-                <div className="flex flex-col gap-2 text-start">
+            <section
+                className="flex w-full flex-col items-center gap-3"
+                style={{
+                    backgroundImage: `url(${Wave.src})`,
+                    backgroundRepeat: 'no-repeat, no-repeat',
+                    // backgroundSize: 'cover',
+                }}
+            >
+                <div className="mb-12 flex flex-col gap-2 text-start">
                     <h2 className="text-center text-xl font-bold text-ly-dark-azure-600">
                         Endereço
                     </h2>
