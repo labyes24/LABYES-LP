@@ -15,7 +15,7 @@ export default function ContactsPage() {
             style={{
                 backgroundImage: `url(${Wave.src}),url(${BgImg.src}) `,
                 backgroundRepeat: 'no-repeat, no-repeat',
-                backgroundPosition: 'bottom 0px left -32px, top 387px left 0px',
+                backgroundPosition: 'bottom 0px left -32px, top 417px left 0px',
             }}
         >
             <section className="mb-56 w-full max-w-md items-center font-sans">
