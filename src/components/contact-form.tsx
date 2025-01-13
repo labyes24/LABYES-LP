@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Button } from './ui/button'
 
 export function ContactForm() {
-    const [activeButton, setActiveButton] = useState<string | null>('dev')
+    const [activeButton, setActiveButton] = useState<string | null>('empresa')
 
     return (
         <Form
@@ -16,18 +16,6 @@ export function ContactForm() {
                 <Button
                     type="button"
                     className={`w-full rounded-l-full ${
-                        activeButton === 'dev'
-                            ? 'bg-ly-brown'
-                            : 'bg-ly-orange-400'
-                    } p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500`}
-                    onClick={() => setActiveButton('dev')}
-                    size={'sm'}
-                >
-                    Dev Junior
-                </Button>
-                <Button
-                    type="button"
-                    className={`w-full rounded-r-full ${
                         activeButton === 'empresa'
                             ? 'bg-ly-brown'
                             : 'bg-ly-orange-400'
@@ -36,6 +24,18 @@ export function ContactForm() {
                     size={'sm'}
                 >
                     Empresa
+                </Button>
+                <Button
+                    type="button"
+                    className={`w-full rounded-l-full ${
+                        activeButton === 'dev'
+                            ? 'bg-ly-brown'
+                            : 'bg-ly-orange-400'
+                    } p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500`}
+                    onClick={() => setActiveButton('dev')}
+                    size={'sm'}
+                >
+                    Dev junior
                 </Button>
             </div>
             <h3 className="mb-2 text-start font-sans text-2xl font-bold text-ly-dark-azure-600">
