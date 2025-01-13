@@ -34,6 +34,7 @@ export function HomeHero() {
             <Image
                 src={HeroLoopGif}
                 alt="Video chamadas em loop"
+                priority
                 unoptimized
                 width={650}
                 height={520}
