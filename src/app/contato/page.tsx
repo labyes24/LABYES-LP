@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
-import Form from 'next/form'
+
+import { ContactForm } from '@/components/contact-form'
 import { IconEmpresa } from '../../components/svg/icon-empresa'
 import { IconTalentos } from '../../components/svg/icon-talentos'
-import { Button } from '../../components/ui/button'
 
 // import Wave from '@/assets/contact-wave.svg'
 export const metadata: Metadata = {
@@ -10,8 +10,16 @@ export const metadata: Metadata = {
 }
 export default function ContactsPage() {
     return (
-        <div className="mt-3 flex w-full flex-col items-center">
-            <section className="w-full max-w-md items-center font-sans">
+        <div
+            className="m-auto mt-14 flex w-full flex-col items-center justify-center"
+            style={{
+                backgroundImage: `url(${Wave.src}),url(${BgImg.src}) `,
+                backgroundRepeat: 'no-repeat, no-repeat',
+                backgroundPosition:
+                    'bottom 0px left -832px, top 320px left 0px',
+            }}
+        >
+            <section className="mb-56 w-full max-w-md items-center font-sans">
                 <div className="mb-6 text-center">
                     <h2 className="mb-3 text-2xl font-bold text-ly-dark-azure-600">
                         Título da Sessão
@@ -45,95 +53,25 @@ export default function ContactsPage() {
                 </div>
             </section>
 
-            <Form
-                action="/"
-                className="mb-12 flex w-full flex-col justify-center rounded-md p-8"
-                style={{
-                    backgroundImage: `url(${BgImg.src})`,
-                    backgroundRepeat: 'no-repeat, no-repeat',
-                    backgroundSize: 'cover',
-                }}
-            >
-                <div className="mb-5 flex w-full flex-row items-center gap-2">
-                    <Button
-                        type="button"
-                        className="w-full rounded-l-full bg-ly-brown p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500"
-                        size={'sm'}
-                    >
-                        Empresa
-                    </Button>
-                    <Button
-                        type="button"
-                        className="w-full rounded-r-full bg-ly-orange-400 text-base font-bold text-ly-white hover:bg-ly-orange-500"
-                        size={'sm'}
-                    >
-                        Dev junior
-                    </Button>
-                </div>
-                <h3 className="mb-2 text-start font-sans text-2xl font-bold text-ly-dark-azure-600">
-                    Entre em contato
-                </h3>
-                <p className="mb-8 text-start font-sans text-base text-ly-dark-azure-600">
-                    Queremos ouvir você
-                </p>
+            <ContactForm />
 
-                <div className="mb-6 flex w-full flex-col justify-center">
-                    <label htmlFor="name"></label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base text-ly-gray-50 focus:outline-none focus:ring focus:ring-ly-orange-500"
-                        placeholder="Nome"
-                        required
-                    />
-                </div>
-                <div className="mb-6 flex w-full flex-col justify-center">
-                    <label htmlFor="email"></label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base text-ly-gray-50 focus:outline-none focus:ring focus:ring-ly-orange-500"
-                        placeholder="E-mail"
-                        required
-                    />
-                </div>
-                <div className="mb-8 flex w-full flex-col justify-center">
-                    <label htmlFor="message"></label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Digite sua mensagem"
-                        className="w-full resize-none appearance-none rounded-2xl border border-none border-gray-300 bg-input px-3 py-4 text-start text-base text-ly-gray-50 outline-none focus:ring-2 focus:ring-ly-orange-500"
-                        required
-                    ></textarea>
-                </div>
-                <button
-                    type="submit"
-                    className="w-full rounded-full bg-ly-orange-400 p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500"
-                >
-                    Enviar mensagem
-                </button>
-            </Form>
-
-            <section className="mb-12 flex w-full flex-col items-center gap-3">
-                <div className="flex flex-col gap-2 text-start">
-                    <h2 className="text-center text-xl font-bold text-ly-dark-azure-600">
+            <section className="mb-20 flex w-full max-w-md flex-col items-center gap-3">
+                <div className="flex flex-col gap-2 text-center">
+                    <h2 className="text-center text-xl font-bold text-ly-white">
                         Endereço
                     </h2>
-                    <p className="text-start text-lg text-ly-dark-azure-600">
+                    <p className="text-center text-lg text-ly-white">
                         58 Middle Point Rd <br /> San Francisco, 94124
                     </p>
                 </div>
-                <div className="flex flex-col gap-2 text-start">
-                    <h2 className="text-center text-xl font-bold text-ly-dark-azure-600">
+                <div className="mb-4 flex flex-col gap-2 text-center">
+                    <h2 className="text-center text-xl font-bold text-ly-white">
                         Contatos
                     </h2>
-                    <p className="text-start text-lg text-ly-dark-azure-600">
+                    <p className="text-center text-lg text-ly-white">
                         (12) 3456-7890
                     </p>
-                    <p className="text-start text-lg text-ly-dark-azure-600">
+                    <p className="text-center text-lg text-ly-white">
                         contato@email.com
                     </p>
                 </div>
