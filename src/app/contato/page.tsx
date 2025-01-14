@@ -33,7 +33,7 @@ export default function ContactsPage() {
                 <div className="mb-8 flex w-full flex-col items-center gap-3">
                     <div className="flex items-center justify-center gap-2">
                         <IconEmpresa />
-                        <strong className="text-center text-2xl">
+                        <strong className="text-center text-2xl text-ly-dark-azure-600">
                             Empresa
                         </strong>
                     </div>
@@ -42,7 +42,7 @@ export default function ContactsPage() {
                     </p>
                     <div className="flex items-center justify-center gap-2">
                         <IconTalentos />
-                        <strong className="text-center text-2xl">
+                        <strong className="text-center text-2xl text-ly-dark-azure-600">
                             Talentos
                         </strong>
                     </div>
