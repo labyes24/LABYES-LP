@@ -3,8 +3,8 @@ import { Metadata } from 'next'
 import BgImg from '@/assets/contact-bg-img.png'
 import Wave from '@/assets/contact-wave.svg'
 import { ContactForm } from '@/components/contact-form'
-import { IconEmpresa } from '../../components/svg/icon-empresa'
-import { IconTalentos } from '../../components/svg/icon-talentos'
+import { IconEnterprise } from '../../components/svg/icon-enterprise'
+import { IconTalents } from '../../components/svg/icon-talents'
 export const metadata: Metadata = {
     title: 'Contatos',
 }
@@ -32,7 +32,7 @@ export default function ContactsPage() {
                 </div>
                 <div className="mb-8 flex w-full flex-col items-center gap-3">
                     <div className="flex items-center justify-center gap-2">
-                        <IconEmpresa />
+                        <IconEnterprise />
                         <strong className="text-center text-2xl text-ly-dark-azure-600">
                             Empresa
                         </strong>
@@ -41,7 +41,7 @@ export default function ContactsPage() {
                         The effect of different scenarios on the display
                     </p>
                     <div className="flex items-center justify-center gap-2">
-                        <IconTalentos />
+                        <IconTalents />
                         <strong className="text-center text-2xl text-ly-dark-azure-600">
                             Talentos
                         </strong>

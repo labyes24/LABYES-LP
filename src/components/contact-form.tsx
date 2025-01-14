@@ -28,11 +28,11 @@ export function ContactForm() {
                 <Button
                     type="button"
                     className={`w-full rounded-r-full ${
-                        activeButton === 'empresa'
+                        activeButton === 'enterprise'
                             ? 'bg-ly-orange-400'
                             : 'bg-ly-brown'
                     } p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500`}
-                    onClick={() => setActiveButton('empresa')}
+                    onClick={() => setActiveButton('enterprise')}
                     size={'sm'}
                 >
                     Empresa
