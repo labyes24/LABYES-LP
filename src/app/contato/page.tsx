@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 
+import BgImg from '@/assets/contact-bg-img.png'
+import Wave from '@/assets/contact-wave.svg'
 import { ContactForm } from '@/components/contact-form'
 import { IconEmpresa } from '../../components/svg/icon-empresa'
 import { IconTalentos } from '../../components/svg/icon-talentos'
-
-// import Wave from '@/assets/contact-wave.svg'
 export const metadata: Metadata = {
     title: 'Contatos',
 }
