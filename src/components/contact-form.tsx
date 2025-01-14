@@ -17,8 +17,8 @@ export function ContactForm() {
                     type="button"
                     className={`w-full rounded-l-full ${
                         activeButton === 'dev'
-                            ? 'bg-ly-brown'
-                            : 'bg-ly-orange-400'
+                            ? 'bg-ly-orange-400'
+                            : 'bg-ly-brown'
                     } p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500`}
                     onClick={() => setActiveButton('dev')}
                     size={'sm'}
@@ -29,8 +29,8 @@ export function ContactForm() {
                     type="button"
                     className={`w-full rounded-r-full ${
                         activeButton === 'empresa'
-                            ? 'bg-ly-brown'
-                            : 'bg-ly-orange-400'
+                            ? 'bg-ly-orange-400'
+                            : 'bg-ly-brown'
                     } p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500`}
                     onClick={() => setActiveButton('empresa')}
                     size={'sm'}
