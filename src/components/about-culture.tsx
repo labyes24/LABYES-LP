@@ -10,10 +10,10 @@ export function AboutCulture() {
                 src={backgroundImage}
                 priority={true}
                 unoptimized
-                alt="Fundo de profissional da programação programando."
+                alt="Fundo com pessoa em mesa de trabalho com um livro na mão em frente a um computador."
                 fill={true}
                 sizes="100%"
-                className="-z-20 rounded-lg object-cover"
+                className="-z-20 object-cover"
             />
             <div className="mx-auto flex max-w-[630px] flex-col items-center justify-center text-center text-ly-white">
                 <strong className="mb-2 mt-52 flex flex-col text-pretty font-sans text-[28px]/[38px] font-bold text-ly-white lg:text-3xl">
