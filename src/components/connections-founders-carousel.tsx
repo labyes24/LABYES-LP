@@ -51,12 +51,17 @@ export function ConnectionsFoundersCarousel() {
     return (
         <div className="relative py-20">
             <Carousel
+                // opts={{ loop: true }}
                 plugins={[plugin.current]}
                 className="mx-auto w-4/5"
                 onMouseEnter={plugin.current.stop}
                 onMouseLeave={plugin.current.reset}
             >
-                <div className="absolute -top-14 right-12 w-5">
+                <div className="absolute -bottom-14 right-1/2 w-5 translate-x-1/2 text-ly-dark-azure-600 lg:hidden">
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </div>
+                <div className="hidden w-5 text-ly-dark-azure-600 lg:absolute lg:-top-14 lg:right-12 lg:flex">
                     <CarouselPrevious />
                     <CarouselNext />
                 </div>
