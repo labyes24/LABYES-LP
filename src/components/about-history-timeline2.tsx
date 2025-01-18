@@ -33,7 +33,7 @@ export function AboutHistoryTimeline2() {
                 type: 'start',
                 icon: Presentation,
             },
-            className: 'mb-14',
+            className: 'ml-7 lg:ml-0 lg:mb-14',
         },
         {
             indexItem: 2,
@@ -57,11 +57,11 @@ export function AboutHistoryTimeline2() {
                 type: 'end',
                 icon: PackageCheck,
             },
-            className: 'mb-28',
+            className: 'ml-14 lg:ml-0 lg:mb-28',
         },
     ]
     return (
-        <div className="mb-8 mt-40 flex items-end justify-center px-8">
+        <div className="mb-8 mt-56 flex flex-col items-start justify-start text-center lg:flex-row lg:items-end lg:justify-center lg:px-8">
             {timelineData.map((data, index) => (
                 <AboutHistoryTimelineLine2
                     key={index}

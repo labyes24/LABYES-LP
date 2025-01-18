@@ -1,4 +1,3 @@
-import { AboutHistoryTimeline } from './about-history-timeline'
 import { AboutHistoryTimeline2 } from './about-history-timeline2'
 
 export function AboutHistory() {
@@ -12,7 +11,7 @@ export function AboutHistory() {
                 </p>
             </div>
             <AboutHistoryTimeline2 />
-            <AboutHistoryTimeline />
+            {/* <AboutHistoryTimeline /> */}
         </section>
     )
 }
