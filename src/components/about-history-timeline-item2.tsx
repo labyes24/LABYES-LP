@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import { Redo } from 'lucide-react'
 
-export interface AboutHistoryTimelineItemProps {
+export interface AboutHistoryTimelineItem2Props {
     title: string
     description: string
     date: string
@@ -17,7 +17,7 @@ export function AboutHistoryTimelineItem2({
     date,
     type,
     icon: Icon,
-}: AboutHistoryTimelineItemProps) {
+}: AboutHistoryTimelineItem2Props) {
     const position =
         type === 'start'
             ? 'absolute z-10 -top-44 -left-32'
@@ -36,12 +36,12 @@ export function AboutHistoryTimelineItem2({
                 )}
             >
                 {Icon ? (
-                    <Icon className="h-8 w-8" strokeWidth={3} />
+                    <Icon className="h-8 w-8" strokeWidth={2.5} />
                 ) : (
-                    <Redo className="h-8 w-8" strokeWidth={3} />
+                    <Redo className="h-8 w-8" strokeWidth={2.5} />
                 )}
             </span>
-            <div className="flex w-60 flex-col items-center justify-end gap-2">
+            <div className="flex w-60 flex-col items-center justify-end gap-2 px-6">
                 <h3 className="font-semibold text-ly-dark-azure-600">
                     {title}
                 </h3>

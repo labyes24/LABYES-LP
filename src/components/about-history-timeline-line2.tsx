@@ -10,7 +10,7 @@ export interface AboutHistoryTimelineItemDetails {
     icon?: React.ElementType
 }
 
-export interface AboutHistoryTimelineLineProps {
+export interface AboutHistoryTimelineLine2Props {
     indexItem: number
     startColor: string
     endColor: string
@@ -26,7 +26,7 @@ export function AboutHistoryTimelineLine2({
     startPoint,
     endPoint,
     className,
-}: AboutHistoryTimelineLineProps) {
+}: AboutHistoryTimelineLine2Props) {
     const hexStartColor = startColor.replace('bg-[', '').replace(']', '')
     const hexEndColor = endColor.replace('bg-[', '').replace(']', '')
     return (
