@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { AboutHistoryTimelineItem } from './about-history-timeline-item'
+import { AboutHistoryTimelineItem2 } from './about-history-timeline-item2'
 
 export interface AboutHistoryTimelineItemDetails {
     title: string
@@ -19,7 +19,7 @@ export interface AboutHistoryTimelineLineProps {
     className?: string
 }
 
-export function AboutHistoryTimelineLine({
+export function AboutHistoryTimelineLine2({
     indexItem,
     startColor,
     endColor,
@@ -38,7 +38,7 @@ export function AboutHistoryTimelineLine({
             )}
         >
             {startPoint && (
-                <AboutHistoryTimelineItem
+                <AboutHistoryTimelineItem2
                     color={startPoint.color}
                     date={startPoint.date}
                     title={startPoint.title}
@@ -48,7 +48,7 @@ export function AboutHistoryTimelineLine({
                 />
             )}
             {endPoint && (
-                <AboutHistoryTimelineItem
+                <AboutHistoryTimelineItem2
                     color={endPoint.color}
                     date={endPoint.date}
                     title={endPoint.title}

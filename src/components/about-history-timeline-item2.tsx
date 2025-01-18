@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils'
 import { Redo } from 'lucide-react'
-// import { Icon, Redo } from 'lucide-react'
 
 export interface AboutHistoryTimelineItemProps {
     title: string
@@ -11,7 +10,7 @@ export interface AboutHistoryTimelineItemProps {
     icon?: React.ElementType
 }
 
-export function AboutHistoryTimelineItem({
+export function AboutHistoryTimelineItem2({
     description,
     title,
     color,
