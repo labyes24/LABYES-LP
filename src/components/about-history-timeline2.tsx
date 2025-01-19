@@ -33,7 +33,8 @@ export function AboutHistoryTimeline2() {
                 type: 'start',
                 icon: Presentation,
             },
-            className: 'ml-7 lg:ml-0 lg:mb-14',
+
+            className: ' lg:mb-14',
         },
         {
             indexItem: 2,
@@ -48,6 +49,7 @@ export function AboutHistoryTimeline2() {
                 type: 'start',
                 icon: UsersRound,
             },
+
             endPoint: {
                 title: 'Primeiros Projetos',
                 description:
@@ -57,11 +59,11 @@ export function AboutHistoryTimeline2() {
                 type: 'end',
                 icon: PackageCheck,
             },
-            className: 'ml-14 lg:ml-0 lg:mb-28',
+            className: 'lg:mb-28',
         },
     ]
     return (
-        <div className="mb-8 mt-56 flex flex-col items-start justify-start text-center lg:flex-row lg:items-end lg:justify-center lg:px-8">
+        <div className="mb-8 mt-56 flex flex-col items-center justify-center lg:flex-row lg:items-end lg:justify-center lg:px-8">
             {timelineData.map((data, index) => (
                 <AboutHistoryTimelineLine2
                     key={index}

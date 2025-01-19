@@ -20,8 +20,8 @@ export function AboutHistoryTimelineItem2({
 }: AboutHistoryTimelineItem2Props) {
     const position =
         type === 'start'
-            ? 'absolute z-10 -top-[230px] left-6 lg:-top-44 lg:-left-32'
-            : 'absolute z-10 -bottom-7 left-12 lg:-bottom-auto lg:left-auto lg:-top-56 lg:-right-32'
+            ? 'absolute z-10 -top-[232px] left-6 lg:-top-44 lg:-left-32'
+            : 'absolute z-10 -bottom-6 left-6 lg:-bottom-auto lg:left-auto lg:-top-56 lg:-right-32'
     return (
         <div
             className={cn(
