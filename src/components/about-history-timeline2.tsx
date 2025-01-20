@@ -3,6 +3,8 @@ import {
     AboutHistoryTimelineLine2,
     AboutHistoryTimelineLine2Props,
 } from './about-history-timeline-line2'
+import { AboutHistorySunDoodle } from './svg/about-history-sun-doodle'
+import { AboutHistoryWritingDoodle } from './svg/about-history-writing-doodle'
 
 export function AboutHistoryTimeline2() {
     const timelineData: AboutHistoryTimelineLine2Props[] = [
@@ -63,18 +65,22 @@ export function AboutHistoryTimeline2() {
         },
     ]
     return (
-        <div className="mb-8 mt-56 flex flex-col items-center justify-center lg:flex-row lg:items-end lg:justify-center lg:px-8">
-            {timelineData.map((data, index) => (
-                <AboutHistoryTimelineLine2
-                    key={index}
-                    indexItem={data.indexItem}
-                    startColor={data.startColor}
-                    endColor={data.endColor}
-                    startPoint={data.startPoint}
-                    endPoint={data.endPoint}
-                    className={data.className}
-                />
-            ))}
+        <div className="relative">
+            <AboutHistoryWritingDoodle className="absolute -bottom-10 right-8 lg:bottom-0 lg:right-16" />
+            <AboutHistorySunDoodle className="absolute left-24" />
+            <div className="mb-8 mt-56 flex flex-col items-center justify-center lg:flex-row lg:items-end lg:justify-center lg:px-8">
+                {timelineData.map((data, index) => (
+                    <AboutHistoryTimelineLine2
+                        key={index}
+                        indexItem={data.indexItem}
+                        startColor={data.startColor}
+                        endColor={data.endColor}
+                        startPoint={data.startPoint}
+                        endPoint={data.endPoint}
+                        className={data.className}
+                    />
+                ))}
+            </div>
         </div>
     )
 }
