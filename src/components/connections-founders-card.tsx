@@ -13,7 +13,7 @@ export function ConnectionsFoundersCard({
         <Card className="relative h-[760px] cursor-grab rounded-3xl border-none">
             <CardContent className="flex flex-col items-stretch justify-between p-0 lg:flex-row">
                 <Image
-                    src={founder.image}
+                    src={image}
                     alt="Fundador imagem"
                     priority
                     width={550}
