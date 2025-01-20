@@ -66,8 +66,7 @@ export function AboutHistoryTimeline2() {
     ]
     return (
         <div className="relative">
-            <AboutHistoryWritingDoodle className="absolute -bottom-10 right-8 lg:bottom-0 lg:right-16" />
-            <AboutHistorySunDoodle className="absolute left-24" />
+            <AboutHistorySunDoodle className="absolute left-8 lg:left-24" />
             <div className="mb-8 mt-56 flex flex-col items-center justify-center lg:flex-row lg:items-end lg:justify-center lg:px-8">
                 {timelineData.map((data, index) => (
                     <AboutHistoryTimelineLine2
@@ -81,6 +80,7 @@ export function AboutHistoryTimeline2() {
                     />
                 ))}
             </div>
+            <AboutHistoryWritingDoodle className="absolute -bottom-10 right-8 lg:bottom-0 lg:right-16" />
         </div>
     )
 }
