@@ -1,6 +1,7 @@
 import 'server-only'
 
 import { HtmlFileHandler } from '@/providers/html-handler'
+import path from 'node:path'
 import nodemailer from 'nodemailer'
 
 interface PlaceholdersParams {
@@ -28,16 +29,21 @@ const transporter = nodemailer.createTransport({
     },
 })
 
-const NOTIFICATION_TEMPLATE_PATH =
-    'C://Users//Ylderlan//Documents//LabYes//LABYES-LP//src//components//templates//notification.html'
-//  path.join(
-//     __dirname,
-//     '..',
-//     '..',
-//     'components',
-//     'templates',
-//     'notification.html'
-// )
+const NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH = path.resolve(
+    process.cwd(),
+    'src',
+    'components',
+    'templates',
+    'notification-team-email.html'
+)
+const CONFIRMATION_USER_EMAIL_TEMPLATE_PATH = path.resolve(
+    process.cwd(),
+    'src',
+    'components',
+    'templates',
+    'confirmation-user-email.html'
+)
+// 'C://Users//Ylderlan//Documents//LabYes//LABYES-LP//src//components//templates//notification.html'
 
 async function sendNotificationEmail({
     templatePath,
@@ -59,7 +65,7 @@ async function sendNotificationEmail({
         })
 
         await transporter.sendMail({
-            from: `Lab Yes! <${process.env.APPLICATION_EMAIL}>`,
+            from: `Team Lab Yes! <${process.env.APPLICATION_EMAIL}>`,
             to: toEmail,
             subject,
             text: subject,
@@ -71,5 +77,9 @@ async function sendNotificationEmail({
     }
 }
 
-export { NOTIFICATION_TEMPLATE_PATH, sendNotificationEmail }
+export {
+    CONFIRMATION_USER_EMAIL_TEMPLATE_PATH,
+    NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
+    sendNotificationEmail,
+}
 export type { NotificationEmailParams, PlaceholdersParams }
