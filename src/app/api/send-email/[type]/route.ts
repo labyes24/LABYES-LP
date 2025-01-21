@@ -6,12 +6,23 @@ import {
 import { generateRandomToken } from '@/lib/utils'
 import { NextRequest, NextResponse } from 'next/server'
 
+const userTypeMap = {
+    enterprise: 'Empresa',
+    dev: 'Dev Junior',
+}
+
 export async function POST(request: NextRequest) {
+    const { pathname } = request.nextUrl
+
     const formData = await request.formData()
 
     const name = formData.get('name') as string
     const email = formData.get('email') as string
     const message = formData.get('message') as string
+
+    const pathParts = pathname.split('/')
+    const userTypeKey = pathParts[3] as keyof typeof userTypeMap
+    const userType = userTypeMap[userTypeKey] || ''
 
     const randomToken = generateRandomToken()
 
@@ -24,7 +35,7 @@ export async function POST(request: NextRequest) {
             name,
             message,
             sender_name: name,
-            dev_enterprise: name,
+            dev_enterprise: userType,
         },
         subject: subjectTeam,
         templatePath: NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
@@ -37,7 +48,7 @@ export async function POST(request: NextRequest) {
             name,
             message,
             sender_name: name,
-            dev_enterprise: name,
+            dev_enterprise: userType,
         },
         subject: subjectUser,
         templatePath: CONFIRMATION_USER_EMAIL_TEMPLATE_PATH,
