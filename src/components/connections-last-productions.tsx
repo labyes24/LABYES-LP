@@ -15,7 +15,7 @@ export function ConnectionsLastProduction() {
                     volutpat gravida malesuada quam commodo id integer nam.
                 </p>
             </div>
-            <div className="mx-auto mb-6 flex max-w-[430px] flex-col items-center justify-center text-center text-ly-dark-azure-600">
+            <div className="mx-auto mb-6 flex w-full max-w-[430px] flex-col items-center justify-center text-center text-ly-dark-azure-600">
                 <LastProductionItem
                     title="Projeto 1"
                     description="Lorem ipsum dolor sit"

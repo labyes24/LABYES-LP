@@ -16,7 +16,7 @@ export function LastProductionItem({
     const imageUrl = image ?? PlaceholderImage.src
     return (
         <>
-            <div className="mb-6 flex w-[380px] flex-row items-center justify-start gap-4 rounded-3xl border-[1px] border-ly-dark-azure-600 p-4">
+            <div className="mb-6 flex w-full flex-row items-center justify-start gap-4 rounded-3xl border-[1px] border-ly-dark-azure-600 p-8">
                 <Image
                     src={imageUrl}
                     priority={true}
