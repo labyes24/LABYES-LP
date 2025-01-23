@@ -28,20 +28,20 @@ export function ConnectionsFoundersCard({
                         className="absolute h-full rounded-t-3xl object-cover lg:hidden lg:rounded-l-3xl"
                     />
                 </div>
-                <div className="flex h-[380px] select-none justify-center rounded-b-3xl bg-ly-dark-azure-600/5 px-6 py-12 text-ly-dark-azure-600 lg:h-[620px] lg:items-center lg:rounded-r-3xl lg:p-20">
+                <div className="flex h-[380px] select-none items-center justify-center rounded-b-3xl bg-ly-dark-azure-600/5 px-6 py-12 text-center text-ly-dark-azure-600 lg:h-[620px] lg:rounded-r-3xl lg:p-20 lg:text-start">
                     <div className="flex flex-col gap-5 lg:gap-10">
-                        <h3 className="text-2xl font-bold">
+                        <h3 className="text-lg font-bold lg:text-2xl">
                             &quot;{quote}&quot;
                         </h3>
-                        <p className="text-xl leading-relaxed lg:leading-loose">
+                        <p className="text-sm leading-relaxed lg:text-xl lg:leading-loose">
                             {description}
                         </p>
                         <div className="flex flex-col gap-1">
-                            <span className="text-lg font-semibold">
+                            <span className="text-base font-semibold lg:text-lg">
                                 {name}
                             </span>
 
-                            <span className="text-base">{role}</span>
+                            <span className="text-sm lg:text-base">{role}</span>
                         </div>
                     </div>
                 </div>
