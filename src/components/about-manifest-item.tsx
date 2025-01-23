@@ -15,7 +15,7 @@ export function AboutManifestItem({
 }: AboutManifestItemProps) {
     const imageUrl = image ?? PlaceholderImage.src
     return (
-        <>
+        <div className="flex flex-col items-center justify-center">
             <Image
                 src={imageUrl}
                 priority={true}
@@ -28,9 +28,9 @@ export function AboutManifestItem({
             <h3 className="mb-[10px] font-sans text-lg/6 font-bold text-ly-dark-azure-600">
                 {title}
             </h3>
-            <p className="mb-9 text-pretty font-sans text-base/[28px] font-normal text-ly-dark-azure-600">
+            <p className="text-pretty font-sans text-base/[28px] font-normal text-ly-dark-azure-600">
                 {description}
             </p>
-        </>
+        </div>
     )
 }

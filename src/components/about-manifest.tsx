@@ -2,9 +2,9 @@ import { AboutManifestItem } from '@/components/about-manifest-item'
 
 export function AboutManifest() {
     return (
-        <section className="flex w-full flex-col items-center justify-center gap-9 px-6">
+        <section className="my-[60px] flex w-full flex-col items-center justify-center gap-9 px-6">
             <div className="mx-auto flex max-w-[430px] flex-col items-center justify-center text-center text-ly-dark-azure-600">
-                <strong className="mb-4 mt-14 flex flex-col text-pretty font-sans text-[18px]/[20px] font-bold uppercase tracking-widest text-ly-dark-azure-600">
+                <strong className="mb-4 flex flex-col text-pretty font-sans text-[18px]/[20px] font-bold uppercase tracking-widest text-ly-dark-azure-600">
                     Our process
                 </strong>
                 <h2 className="mb-4 text-pretty font-sans text-[28px]/[38px] font-bold">
@@ -16,7 +16,7 @@ export function AboutManifest() {
                     sit phasellus mollis.
                 </p>
             </div>
-            <div className="mx-auto mb-6 flex max-w-[430px] flex-col items-center justify-center text-center text-ly-dark-azure-600">
+            <div className="mx-auto flex max-w-[430px] flex-col items-center justify-center gap-9 text-center text-ly-dark-azure-600">
                 <AboutManifestItem
                     title="Download our free app"
                     description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar consectur elementum tempus hac."
