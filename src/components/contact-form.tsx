@@ -5,11 +5,15 @@ import { AlertTriangle, LoaderCircle, Send } from 'lucide-react'
 import Form from 'next/form'
 import { useActionState, useState } from 'react'
 import { Button } from './ui/button'
+import { Input } from './ui/input'
+import { Textarea } from './ui/textarea'
+
 export interface FormStateType {
     data: string
     success?: boolean
     error?: string
 }
+
 const INITIAL_STATE: FormStateType = { data: '' }
 
 export function ContactForm() {
@@ -23,121 +27,117 @@ export function ContactForm() {
         undefined
     )
 
-    console.log(formState)
+    const isDev = activeButton === 'dev'
+
+    const getMessagePlaceholder = () =>
+        isDev
+            ? 'Conte-nos sobre sua experiência ou dúvidas'
+            : 'Descreva o que você precisa'
+
+    const getFeedbackMessage = () => {
+        if (pending) {
+            return isDev
+                ? 'Estamos aqui para te apoiar no início da sua carreira!'
+                : 'Estamos prontos para ajudar sua empresa a inovar e crescer!'
+        }
+        if (formState.success) {
+            return (
+                <span className="flex items-center justify-center gap-2 text-ly-green-500">
+                    <Send className="size-3.5" /> Sua mensagem foi enviada com
+                    sucesso!
+                </span>
+            )
+        }
+        if (formState.error) {
+            return (
+                <span className="flex items-center justify-center gap-2 text-ly-red">
+                    <AlertTriangle className="size-3.5" /> Ocorreu um erro ao
+                    enviar sua mensagem.
+                </span>
+            )
+        }
+        return isDev
+            ? 'Estamos aqui para te apoiar no início da sua carreira!'
+            : 'Estamos prontos para ajudar sua empresa a inovar e crescer!'
+    }
 
     return (
-        <div className="mb-12 flex w-3/4 max-w-md flex-col items-center justify-center rounded-2xl bg-ly-white p-8">
-            <div className="mb-5 flex w-full flex-row items-center gap-2">
-                <Button
-                    type="button"
-                    className={`w-full rounded-l-full ${
-                        activeButton === 'dev'
-                            ? 'bg-ly-orange-400'
-                            : 'bg-ly-brown'
-                    } p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500`}
-                    onClick={() => setActiveButton('dev')}
-                    size={'sm'}
-                >
-                    Dev Junior
-                </Button>
-                <Button
-                    type="button"
-                    className={`w-full rounded-r-full ${
-                        activeButton === 'enterprise'
-                            ? 'bg-ly-orange-400'
-                            : 'bg-ly-brown'
-                    } p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500`}
-                    onClick={() => setActiveButton('enterprise')}
-                    size={'sm'}
-                >
-                    Empresa
-                </Button>
+        <div className="mx-auto mb-10 flex w-11/12 max-w-[390px] flex-col items-center justify-start gap-7 rounded-2xl bg-ly-white p-8 lg:justify-center lg:p-12">
+            <div className="flex w-full flex-row items-center gap-2">
+                {['dev', 'enterprise'].map((type) => (
+                    <Button
+                        key={type}
+                        type="button"
+                        className={cn(
+                            'flex h-fit w-full items-center justify-center py-1 font-semibold text-ly-white hover:bg-ly-orange-500',
+                            {
+                                'bg-ly-orange-400': activeButton === type,
+                                'bg-ly-brown': activeButton !== type,
+                                'rounded-l-full': type === 'dev',
+                                'rounded-r-full': type === 'enterprise',
+                            }
+                        )}
+                        onClick={() =>
+                            setActiveButton(type as 'dev' | 'enterprise')
+                        }
+                    >
+                        {type === 'dev' ? 'Dev Junior' : 'Empresa'}
+                    </Button>
+                ))}
             </div>
-            <h3 className="mb-2 text-start font-sans text-2xl font-bold text-ly-dark-azure-600">
-                Entre em contato
-            </h3>
-            <p className="mb-8 text-start font-sans text-ly-dark-azure-600">
-                {activeButton === 'dev' ? (
-                    <>Queremos ajudar na sua jornada!</>
-                ) : (
-                    <>Vamos transformar ideias em soluções!</>
-                )}
-            </p>
-            <Form action={formAction} className="w-full text-ly-dark-azure-600">
-                <div className="mb-6 flex w-full flex-col justify-center">
-                    <label htmlFor="name"></label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base focus:outline-none focus:ring focus:ring-ly-orange-500"
-                        placeholder="Nome"
-                        required
-                    />
-                </div>
-                <div className="mb-6 flex w-full flex-col justify-center">
-                    <label htmlFor="email"></label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full rounded-full bg-input px-3 py-4 text-start text-base focus:outline-none focus:ring focus:ring-ly-orange-500"
-                        placeholder="E-mail"
-                        required
-                    />
-                </div>
-                <div className="mb-4 flex w-full flex-col justify-center">
+            <div className="flex w-full flex-col items-start justify-center gap-1 leading-none">
+                <h3 className="font-sans text-xl font-bold text-ly-dark-azure-600 lg:text-2xl">
+                    Entre em contato
+                </h3>
+                <p className="text-start font-sans text-sm leading-tight text-ly-dark-azure-700/50">
+                    {isDev
+                        ? 'Queremos ajudar na sua jornada!'
+                        : 'Transformamos ideias em soluções!'}
+                </p>
+            </div>
+
+            <Form
+                action={formAction}
+                className="flex w-full flex-col gap-6 text-ly-dark-azure-600"
+            >
+                {['name', 'email'].map((field) => (
+                    <div
+                        key={field}
+                        className="flex w-full flex-col justify-center"
+                    >
+                        <label htmlFor={field}></label>
+                        <Input
+                            type={field === 'email' ? 'email' : 'text'}
+                            id={field}
+                            name={field}
+                            className="w-full rounded-full bg-input p-5 text-sm !placeholder-gray-400 lg:text-base"
+                            placeholder={field === 'email' ? 'E-mail' : 'Nome'}
+                            required
+                        />
+                    </div>
+                ))}
+
+                <div className="flex w-full flex-col justify-center">
                     <label htmlFor="message"></label>
-                    <textarea
+                    <Textarea
                         id="message"
                         name="message"
-                        placeholder={
-                            activeButton === 'dev'
-                                ? 'Conte-nos sobre sua experiência ou dúvidas'
-                                : 'Descreva o que você precisa'
-                        }
-                        className="w-full resize-none appearance-none rounded-2xl border border-none border-gray-300 bg-input px-3 py-4 text-start text-base outline-none focus:ring-2 focus:ring-ly-orange-500"
+                        placeholder={getMessagePlaceholder()}
+                        className="h-28 w-full resize-none rounded-2xl bg-input p-3 text-sm text-foreground !placeholder-gray-400 lg:text-base"
                         required
-                    ></textarea>
+                    />
                 </div>
-                <p
-                    className={cn(
-                        'mb-4 text-center font-sans text-sm text-ly-dark-azure-600',
-                        formState.success
-                            ? 'text-ly-green-400'
-                            : formState.error
-                              ? 'text-ly-red'
-                              : 'text-ly-dark-azure-600'
-                    )}
-                >
-                    {formState.success ? (
-                        <span className="flex items-center justify-center gap-2">
-                            <Send className="size-3.5" /> Sua mensagem foi
-                            enviada com sucesso!
-                        </span>
-                    ) : formState.error ? (
-                        <span className="flex items-center justify-center gap-2">
-                            <AlertTriangle className="size-3.5" /> Ocorreu um
-                            erro ao enviar sua mensagem.
-                        </span>
-                    ) : activeButton === 'dev' ? (
-                        <span className="flex items-center justify-center gap-2">
-                            Estamos aqui para te apoiar no início da sua
-                            carreira!
-                        </span>
-                    ) : (
-                        <span className="flex items-center justify-center gap-2">
-                            Estamos prontos para ajudar sua empresa a inovar e
-                            crescer!
-                        </span>
-                    )}
+
+                <p className="text-center font-sans text-sm text-ly-dark-azure-600">
+                    {getFeedbackMessage()}
                 </p>
+
                 <div className={cn(pending && 'cursor-not-allowed')}>
                     <Button
                         type="submit"
                         disabled={pending}
                         className={cn(
-                            'w-full rounded-full p-7 text-lg font-bold',
+                            'flex w-full items-center justify-center rounded-full text-sm font-semibold',
                             pending && 'pointer-events-none'
                         )}
                         size={'lg'}
