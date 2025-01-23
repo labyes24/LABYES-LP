@@ -1,4 +1,5 @@
 'use client'
+import { sendEmail } from '@/app/actions/send-email'
 import Form from 'next/form'
 import { useState } from 'react'
 import { Button } from './ui/button'
@@ -7,7 +8,7 @@ export function ContactForm() {
     const [activeButton, setActiveButton] = useState<'dev' | 'enterprise'>(
         'dev'
     )
-
+    const sendEmailByUserType = sendEmail.bind(null, activeButton)
     return (
         <div className="mb-12 flex w-3/4 max-w-md flex-col items-center justify-center rounded-2xl bg-ly-white p-8">
             <div className="mb-5 flex w-full flex-row items-center gap-2">
@@ -46,7 +47,10 @@ export function ContactForm() {
                     <>Vamos transformar ideias em soluções!</>
                 )}
             </p>
-            <Form action="/" className="w-full text-ly-dark-azure-600">
+            <Form
+                action={sendEmailByUserType}
+                className="w-full text-ly-dark-azure-600"
+            >
                 <div className="mb-6 flex w-full flex-col justify-center">
                     <label htmlFor="name"></label>
                     <input

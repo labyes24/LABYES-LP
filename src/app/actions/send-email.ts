@@ -1,27 +1,24 @@
+'use server'
 import {
     CONFIRMATION_USER_EMAIL_TEMPLATE_PATH,
     NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
     sendNotificationEmail,
 } from '@/lib/node-mailer'
 import { generateRandomToken } from '@/lib/utils'
-import { NextRequest, NextResponse } from 'next/server'
 
 const userTypeMap = {
     enterprise: 'Empresa',
     dev: 'Dev Junior',
 }
 
-export async function POST(request: NextRequest) {
-    const { pathname } = request.nextUrl
-
-    const formData = await request.formData()
-
+export async function sendEmail(
+    userTypeKey: 'enterprise' | 'dev',
+    formData: FormData
+) {
     const name = formData.get('name') as string
     const email = formData.get('email') as string
     const message = formData.get('message') as string
 
-    const pathParts = pathname.split('/')
-    const userTypeKey = pathParts[3] as keyof typeof userTypeMap
     const userType = userTypeMap[userTypeKey] || ''
 
     const randomToken = generateRandomToken()
@@ -54,5 +51,4 @@ export async function POST(request: NextRequest) {
         templatePath: CONFIRMATION_USER_EMAIL_TEMPLATE_PATH,
         toEmail: email,
     })
-    return NextResponse.json({})
 }
