@@ -1,4 +1,4 @@
-import backgroundImage from '@/assets/home-testimonials-background.webp'
+import backgroundImage from '@/assets/background-1.webp'
 import Image from 'next/image'
 import { DoodleUnderline } from './svg/doodle-underline'
 import { TestimonialCard } from './testimonial-card'
