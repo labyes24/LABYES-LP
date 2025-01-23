@@ -1,15 +1,21 @@
 import { FlatCompat } from '@eslint/eslintrc'
-import js from '@eslint/js'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+import eslintConfigPrettier from 'eslint-config-prettier'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
-    baseDirectory: import.meta.dirname,
-    recommendedConfig: js.configs.recommended,
+    baseDirectory: __dirname,
 })
 
 const eslintConfig = [
-    ...compat.config({
-        extends: ['eslint:recommended', 'next'],
-    }),
+    ...compat.extends('next/core-web-vitals', 'next/typescript'),
+    eslintPluginPrettierRecommended,
+    eslintConfigPrettier,
 ]
 
 export default eslintConfig
