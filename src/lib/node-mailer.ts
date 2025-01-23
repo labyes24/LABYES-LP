@@ -43,22 +43,19 @@ const CONFIRMATION_USER_EMAIL_TEMPLATE_PATH = path.resolve(
     'templates',
     'confirmation-user-email.html'
 )
-// 'C://Users//Ylderlan//Documents//LabYes//LABYES-LP//src//components//templates//notification.html'
 
 async function sendNotificationEmail({
     templatePath,
     placeholders,
     toEmail,
     subject,
-}: NotificationEmailParams): Promise<void> {
+}: NotificationEmailParams): Promise<{ success: boolean; error?: string }> {
     try {
         if (!templatePath || !placeholders || !toEmail || !subject) {
-            console.log('Parâmetros incompletos.')
             throw new Error('Parâmetros incompletos.')
         }
 
         const htmlTemplate = await HtmlFileHandler.readHTMLFile(templatePath)
-
         const htmlToSend = HtmlFileHandler.updateHTMLContent({
             htmlString: htmlTemplate,
             placeholders,
@@ -71,9 +68,11 @@ async function sendNotificationEmail({
             text: subject,
             html: htmlToSend,
         })
+
+        return { success: true }
     } catch (error) {
         console.log(error)
-        throw new Error(`Erro ao enviar e-mail: ${error}`)
+        return { success: false, error: `Erro ao enviar e-mail: ${error}` }
     }
 }
 

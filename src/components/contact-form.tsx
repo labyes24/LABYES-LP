@@ -1,14 +1,30 @@
 'use client'
 import { sendEmail } from '@/app/actions/send-email'
+import { cn } from '@/lib/utils'
+import { AlertTriangle, LoaderCircle, Send } from 'lucide-react'
 import Form from 'next/form'
-import { useState } from 'react'
+import { useActionState, useState } from 'react'
 import { Button } from './ui/button'
+export interface FormStateType {
+    data: string
+    success?: boolean
+    error?: string
+}
+const INITIAL_STATE: FormStateType = { data: '' }
 
 export function ContactForm() {
     const [activeButton, setActiveButton] = useState<'dev' | 'enterprise'>(
         'dev'
     )
-    const sendEmailByUserType = sendEmail.bind(null, activeButton)
+    const [formState, formAction, pending] = useActionState(
+        (state: FormStateType, formData: FormData) =>
+            sendEmail(state, formData, activeButton),
+        INITIAL_STATE,
+        undefined
+    )
+
+    console.log(formState)
+
     return (
         <div className="mb-12 flex w-3/4 max-w-md flex-col items-center justify-center rounded-2xl bg-ly-white p-8">
             <div className="mb-5 flex w-full flex-row items-center gap-2">
@@ -47,10 +63,7 @@ export function ContactForm() {
                     <>Vamos transformar ideias em soluções!</>
                 )}
             </p>
-            <Form
-                action={sendEmailByUserType}
-                className="w-full text-ly-dark-azure-600"
-            >
+            <Form action={formAction} className="w-full text-ly-dark-azure-600">
                 <div className="mb-6 flex w-full flex-col justify-center">
                     <label htmlFor="name"></label>
                     <input
@@ -87,25 +100,53 @@ export function ContactForm() {
                         required
                     ></textarea>
                 </div>
-                <p className="mb-4 text-center font-sans text-sm text-ly-dark-azure-600">
-                    {activeButton === 'dev' ? (
-                        <>
+                <p
+                    className={cn(
+                        'mb-4 text-center font-sans text-sm text-ly-dark-azure-600',
+                        formState.success
+                            ? 'text-ly-green-400'
+                            : formState.error
+                              ? 'text-ly-red'
+                              : 'text-ly-dark-azure-600'
+                    )}
+                >
+                    {formState.success ? (
+                        <span className="flex items-center justify-center gap-2">
+                            <Send className="size-3.5" /> Sua mensagem foi
+                            enviada com sucesso!
+                        </span>
+                    ) : formState.error ? (
+                        <span className="flex items-center justify-center gap-2">
+                            <AlertTriangle className="size-3.5" /> Ocorreu um
+                            erro ao enviar sua mensagem.
+                        </span>
+                    ) : activeButton === 'dev' ? (
+                        <span className="flex items-center justify-center gap-2">
                             Estamos aqui para te apoiar no início da sua
                             carreira!
-                        </>
+                        </span>
                     ) : (
-                        <>
+                        <span className="flex items-center justify-center gap-2">
                             Estamos prontos para ajudar sua empresa a inovar e
                             crescer!
-                        </>
+                        </span>
                     )}
                 </p>
-                <button
-                    type="submit"
-                    className="w-full rounded-full bg-ly-orange-400 p-4 text-base font-bold text-ly-white hover:bg-ly-orange-500"
-                >
-                    Enviar mensagem
-                </button>
+                <div className={cn(pending && 'cursor-not-allowed')}>
+                    <Button
+                        type="submit"
+                        disabled={pending}
+                        className={cn(
+                            'w-full rounded-full p-7 text-lg font-bold',
+                            pending && 'pointer-events-none'
+                        )}
+                        size={'lg'}
+                        variant={pending ? 'outline' : 'default'}
+                    >
+                        {pending && <LoaderCircle className="animate-spin" />}
+                        Enviar mensagem
+                    </Button>
+                </div>
             </Form>
         </div>
     )
