@@ -2,7 +2,7 @@ import { AboutManifestItem } from '@/components/about-manifest-item'
 
 export function AboutManifest() {
     return (
-        <section className="mb-16 flex w-full flex-col items-center justify-center gap-9 p-4">
+        <section className="mb-16 flex w-full flex-col items-center justify-center gap-9 px-6">
             <div className="mx-auto flex max-w-[430px] flex-col items-center justify-center text-center text-ly-dark-azure-600">
                 <strong className="mb-4 mt-14 flex flex-col text-pretty font-sans text-[18px]/[20px] font-bold uppercase tracking-widest text-ly-dark-azure-600">
                     Our process
