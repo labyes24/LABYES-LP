@@ -58,6 +58,10 @@ export async function sendEmail(
 
         return { ...prevState, success: true }
     } catch (error) {
-        return { ...prevState, success: false, error: 'Erro ao enviar email.' }
+        return {
+            ...prevState,
+            success: false,
+            error: `Erro ao enviar email. ${error}`,
+        }
     }
 }
