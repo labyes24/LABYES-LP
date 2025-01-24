@@ -3,7 +3,7 @@ import { sendEmail } from '@/app/actions/send-email'
 import { cn } from '@/lib/utils'
 import { AlertTriangle, LoaderCircle, Send } from 'lucide-react'
 import Form from 'next/form'
-import { useActionState, useState } from 'react'
+import { useActionState, useEffect, useState } from 'react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
@@ -16,6 +16,24 @@ export interface FormStateType {
 
 const INITIAL_STATE: FormStateType = { data: '' }
 
+const DEFAULT_MESSAGES = {
+    dev: <>Estamos prontos para ajudar você a alcançar seus objetivos!</>,
+    enterprise: (
+        <>Estamos prontos para ajudar você a alcançar seus objetivos!</>
+    ),
+    success: (
+        <span className="flex items-center justify-center gap-2 text-ly-green-500">
+            <Send className="size-3.5" /> Sua mensagem foi enviada com sucesso!
+        </span>
+    ),
+    error: (
+        <span className="flex items-center justify-center gap-2 text-ly-red">
+            <AlertTriangle className="size-3.5" /> Ocorreu um erro ao enviar sua
+            mensagem.
+        </span>
+    ),
+}
+
 export function ContactForm() {
     const [activeButton, setActiveButton] = useState<'dev' | 'enterprise'>(
         'dev'
@@ -26,6 +44,10 @@ export function ContactForm() {
         INITIAL_STATE,
         undefined
     )
+    const [feedbackMessage, setFeedbackMessage] = useState(
+        DEFAULT_MESSAGES[activeButton]
+    )
+    const [shouldResetMessage, setShouldResetMessage] = useState(false)
 
     const isDev = activeButton === 'dev'
 
@@ -34,32 +56,38 @@ export function ContactForm() {
             ? 'Conte-nos sobre sua experiência ou dúvidas'
             : 'Descreva o que você precisa'
 
-    const getFeedbackMessage = () => {
-        if (pending) {
-            return isDev
-                ? 'Estamos aqui para te apoiar no início da sua carreira!'
-                : 'Estamos prontos para ajudar sua empresa a inovar e crescer!'
-        }
-        if (formState.success) {
-            return (
-                <span className="flex items-center justify-center gap-2 text-ly-green-500">
-                    <Send className="size-3.5" /> Sua mensagem foi enviada com
-                    sucesso!
-                </span>
-            )
-        }
-        if (formState.error) {
-            return (
-                <span className="flex items-center justify-center gap-2 text-ly-red">
-                    <AlertTriangle className="size-3.5" /> Ocorreu um erro ao
-                    enviar sua mensagem.
-                </span>
-            )
-        }
-        return isDev
-            ? 'Estamos aqui para te apoiar no início da sua carreira!'
-            : 'Estamos prontos para ajudar sua empresa a inovar e crescer!'
+    const resetFeedbackMessage = () => {
+        setFeedbackMessage(DEFAULT_MESSAGES[activeButton])
     }
+
+    const handleClickButton = (type: 'dev' | 'enterprise') => {
+        setActiveButton(type)
+        setFeedbackMessage(DEFAULT_MESSAGES[type])
+        handleClickOrFocus()
+    }
+
+    const handleClickOrFocus = () => {
+        if (shouldResetMessage) {
+            resetFeedbackMessage()
+            setShouldResetMessage(false)
+        }
+    }
+
+    useEffect(() => {
+        if (pending) {
+            setShouldResetMessage(true)
+        }
+    }, [pending])
+
+    useEffect(() => {
+        if (!pending && shouldResetMessage) {
+            setFeedbackMessage(
+                formState.success
+                    ? DEFAULT_MESSAGES.success
+                    : DEFAULT_MESSAGES.error
+            )
+        }
+    }, [pending, shouldResetMessage, formState.success])
 
     return (
         <div className="mx-auto mb-10 flex w-11/12 max-w-[390px] flex-col items-center justify-start gap-7 rounded-2xl bg-ly-white p-8 lg:justify-center lg:p-12">
@@ -78,7 +106,7 @@ export function ContactForm() {
                             }
                         )}
                         onClick={() =>
-                            setActiveButton(type as 'dev' | 'enterprise')
+                            handleClickButton(type as 'dev' | 'enterprise')
                         }
                     >
                         {type === 'dev' ? 'Dev Junior' : 'Empresa'}
@@ -113,6 +141,7 @@ export function ContactForm() {
                             className="w-full rounded-full bg-input p-5 text-sm !placeholder-gray-400 lg:text-base"
                             placeholder={field === 'email' ? 'E-mail' : 'Nome'}
                             required
+                            onFocus={handleClickOrFocus}
                         />
                     </div>
                 ))}
@@ -125,11 +154,12 @@ export function ContactForm() {
                         placeholder={getMessagePlaceholder()}
                         className="h-28 w-full resize-none rounded-2xl bg-input p-3 text-sm text-foreground !placeholder-gray-400 lg:text-base"
                         required
+                        onFocus={handleClickOrFocus}
                     />
                 </div>
 
                 <p className="text-center font-sans text-sm text-ly-dark-azure-600">
-                    {getFeedbackMessage()}
+                    {feedbackMessage}
                 </p>
 
                 <div className={cn(pending && 'cursor-not-allowed')}>
