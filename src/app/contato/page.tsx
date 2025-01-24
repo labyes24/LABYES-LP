@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 export default function ContactsPage() {
     return (
         <div
-            className="m-auto mt-14 flex w-full flex-col items-center justify-center"
+            className="h-full"
             style={{
                 backgroundImage: `url(${Wave.src}),url(${BgImg.src}) `,
                 backgroundRepeat: 'no-repeat, no-repeat',
-                backgroundPosition: 'bottom 0px left -32px, top 417px left 0px',
+                backgroundPosition: 'bottom 0px left -32px, top 420px left 0px',
             }}
         >
-            <section className="mb-56 w-full max-w-md items-center font-sans">
+            <section className="mx-auto mb-56 w-full max-w-md font-sans">
                 <div className="mb-6 text-center">
                     <h2 className="mb-3 text-2xl font-bold text-ly-dark-azure-600">
                         Título da Sessão
@@ -54,7 +54,7 @@ export default function ContactsPage() {
 
             <ContactForm />
 
-            <section className="mb-20 flex w-full max-w-md flex-col items-center gap-3">
+            <section className="mx-auto flex w-full max-w-md flex-col items-center gap-3">
                 <div className="flex flex-col gap-2 text-center">
                     <h2 className="text-center text-xl font-bold text-ly-white">
                         Endereço
