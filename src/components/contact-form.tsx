@@ -171,7 +171,7 @@ export function ContactForm() {
                             pending && 'pointer-events-none'
                         )}
                         size={'lg'}
-                        variant={pending ? 'outline' : 'default'}
+                        variant={pending ? 'secondary' : 'default'}
                     >
                         {pending && <LoaderCircle className="animate-spin" />}
                         Enviar mensagem
