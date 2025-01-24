@@ -1,3 +1,4 @@
+import { AboutManifest } from '@/components/about-manifest'
 import { Metadata } from 'next'
 
 import { AboutCulture } from '@/components/about-culture'
@@ -8,6 +9,7 @@ export default function AboutUsPage() {
     return (
         <>
             <AboutCulture />
+            <AboutManifest />
         </>
     )
 }
