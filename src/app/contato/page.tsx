@@ -5,6 +5,7 @@ import Wave from '@/assets/contact-wave.svg'
 import { ContactForm } from '@/components/contact-form'
 import { IconEnterprise } from '../../components/svg/icon-enterprise'
 import { IconTalents } from '../../components/svg/icon-talents'
+import { sendEmail } from '../actions/send-email'
 export const metadata: Metadata = {
     title: 'Contatos',
 }
@@ -52,7 +53,7 @@ export default function ContactsPage() {
                 </div>
             </section>
 
-            <ContactForm />
+            <ContactForm sendEmailAction={sendEmail} />
 
             <section className="mx-auto flex w-full max-w-md flex-col items-center gap-3">
                 <div className="flex flex-col gap-2 text-center">

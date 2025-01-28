@@ -1,9 +1,11 @@
 'use client'
-import { sendEmail } from '@/app/actions/send-email'
-import { cn } from '@/lib/utils'
+
 import { AlertTriangle, LoaderCircle, Send } from 'lucide-react'
 import Form from 'next/form'
 import { useActionState, useEffect, useState } from 'react'
+
+import { type sendEmail } from '@/app/actions/send-email'
+import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
@@ -34,13 +36,17 @@ const DEFAULT_MESSAGES = {
     ),
 }
 
-export function ContactForm() {
+interface ContactFormProps {
+    sendEmailAction: typeof sendEmail
+}
+
+export function ContactForm({ sendEmailAction }: ContactFormProps) {
     const [activeButton, setActiveButton] = useState<'dev' | 'enterprise'>(
         'dev'
     )
     const [formState, formAction, pending] = useActionState(
         (state: FormStateType, formData: FormData) =>
-            sendEmail(state, formData, activeButton),
+            sendEmailAction(state, formData, activeButton),
         INITIAL_STATE,
         undefined
     )
