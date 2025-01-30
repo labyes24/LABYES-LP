@@ -16,7 +16,7 @@ export function LastProductionItem({
     const imageUrl = image ?? PlaceholderImage.src
     return (
         <>
-            <article className="mb-6 flex w-full flex-row items-center justify-start gap-4 rounded-3xl border-[1px] border-ly-dark-azure-600 px-8 py-10">
+            <article className="flex w-full flex-row items-center justify-start gap-4 rounded-3xl border-[1px] border-ly-dark-azure-600 px-8 py-10 md:w-[calc(50%-20px)] lg:w-[calc(33.33%-20px)] lg:flex-initial">
                 <Image
                     src={imageUrl}
                     priority={true}
@@ -31,7 +31,7 @@ export function LastProductionItem({
                     <h3 className="text-start font-sans text-[22px]/[28px] font-bold text-ly-dark-azure-600">
                         {title}
                     </h3>
-                    <p className="text-pretty font-sans text-base/[28px] font-normal text-ly-dark-azure-600">
+                    <p className="w-full text-pretty font-sans text-base/[28px] font-normal text-ly-dark-azure-600">
                         {description}
                     </p>
                 </div>
