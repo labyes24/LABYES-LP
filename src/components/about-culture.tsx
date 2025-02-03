@@ -4,7 +4,7 @@ import { DoodleUnderline } from './svg/doodle-underline'
 
 export function AboutCulture() {
     return (
-        <section className="lg:align-center relative flex w-full flex-col gap-10 p-7">
+        <section className="relative mx-auto flex w-full flex-col items-center justify-center gap-10 p-7">
             <div className="absolute bottom-0 right-0 -z-10 size-full bg-ly-dark-azure-transparent fill-inherit" />
             <Image
                 src={backgroundImage}
@@ -15,7 +15,7 @@ export function AboutCulture() {
                 sizes="100%"
                 className="-z-20 object-cover"
             />
-            <div className="flex max-w-[630px] flex-col items-center justify-center text-center text-ly-white lg:mx-auto lg:grid lg:w-full lg:max-w-none lg:grid-cols-[2fr_1fr] lg:grid-rows-1 lg:items-start lg:gap-8 lg:p-16">
+            <div className="mx-auto flex max-w-[630px] flex-col items-center justify-center text-center text-ly-white lg:grid lg:w-full lg:max-w-none lg:grid-cols-[2fr_1fr] lg:grid-rows-1 lg:items-start lg:gap-8 lg:p-16">
                 <div className="mt-52 flex flex-col lg:mt-0 lg:max-w-[630px] lg:text-start">
                     <strong className="mb-2 flex flex-col text-pretty font-sans text-[28px]/[38px] font-bold text-ly-white lg:text-4xl">
                         Exceptional materials. The most durable glass ever in a
