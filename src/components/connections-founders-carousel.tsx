@@ -1,10 +1,11 @@
 'use client'
 
+import Autoplay from 'embla-carousel-autoplay'
+import { StaticImageData } from 'next/image'
+import { useRef } from 'react'
+
 import AvatarBlue from '@/assets/avatar-blue.webp'
 import AvatarOrange from '@/assets/avatar-orange.webp'
-import Autoplay from 'embla-carousel-autoplay'
-import * as React from 'react'
-
 import {
     Carousel,
     CarouselContent,
@@ -12,7 +13,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel'
-import { StaticImageData } from 'next/image'
 import { ConnectionsFoundersCard } from './connections-founders-card'
 
 export interface Founder {
@@ -24,9 +24,7 @@ export interface Founder {
 }
 
 export function ConnectionsFoundersCarousel() {
-    const plugin = React.useRef(
-        Autoplay({ delay: 5000, stopOnInteraction: true })
-    )
+    const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
 
     // Fundadores
     const founders: Founder[] = [
@@ -49,7 +47,7 @@ export function ConnectionsFoundersCarousel() {
     ]
 
     return (
-        <div className="relative py-20">
+        <div className="relative pb-32 pt-11 lg:pb-28">
             <Carousel
                 // opts={{ loop: true }}
                 plugins={[plugin.current]}
@@ -61,12 +59,12 @@ export function ConnectionsFoundersCarousel() {
                     <CarouselPrevious />
                     <CarouselNext />
                 </div>
-                <div className="hidden w-5 text-ly-dark-azure-600 lg:absolute lg:-top-14 lg:right-12 lg:flex">
+                <div className="hidden w-5 text-ly-dark-azure-600 lg:absolute lg:-top-16 lg:right-12 lg:flex">
                     <CarouselPrevious />
                     <CarouselNext />
                 </div>
 
-                <CarouselContent className="p-0">
+                <CarouselContent>
                     {founders.map((founder, index) => (
                         <CarouselItem key={index}>
                             <ConnectionsFoundersCard founder={founder} />

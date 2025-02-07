@@ -3,8 +3,10 @@ import { DoodleUnderline } from './svg/doodle-underline'
 
 export function ConnectionsFounders() {
     return (
-        <section className="relative h-[1176px] lg:h-[1086px]">
-            <div className="absolute z-0 flex w-full flex-col items-center gap-2 bg-ly-dark-azure-700 px-3 pb-40 pt-24 text-center text-ly-white lg:items-start lg:gap-4 lg:px-20 lg:text-start">
+        <section className="relative">
+            <div className="absolute left-0 top-0 -z-10 h-[28rem] w-full bg-ly-dark-azure-700" />
+
+            <div className="flex w-full flex-col items-center gap-2 px-5 pb-0 pt-16 text-center text-ly-white lg:items-start lg:gap-4 lg:px-32 lg:pt-24 lg:text-start">
                 <h2 className="flex flex-col pb-2.5 text-center text-3xl font-bold lg:pb-4">
                     Fundadores
                     <DoodleUnderline color="default" size="thin" />
@@ -14,9 +16,8 @@ export function ConnectionsFounders() {
                     semper dalar elementum tempus hac tellus libero accumsan.
                 </p>
             </div>
-            <div className="absolute top-56 z-10">
-                <ConnectionsFoundersCarousel />
-            </div>
+
+            <ConnectionsFoundersCarousel />
         </section>
     )
 }
