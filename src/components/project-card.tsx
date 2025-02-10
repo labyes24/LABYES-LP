@@ -30,7 +30,7 @@ export function ProjectCard({
     const imageUrl = image ?? PlaceholderImage.src
 
     return (
-        <Card className="relative mb-6 flex max-w-96 flex-col items-center p-3 text-ly-dark-azure-600 last:mb-24">
+        <Card className="relative mb-6 flex max-w-96 flex-col items-center p-3 text-ly-dark-azure-600">
             {finished ? (
                 <img
                     src={Ribbon.src}
@@ -42,12 +42,12 @@ export function ProjectCard({
             <img src={imageUrl} alt={title} className="mt-8 size-['172px']" />
 
             <CardHeader>
-                <CardTitle className="flex flex-col items-center text-2xl font-bold">
+                <CardTitle className="flex flex-col items-center text-2xl font-bold lg:text-[28px]/[38px]">
                     <span>{title}</span>
                     <img src={Underline.src} alt="" />
                 </CardTitle>
             </CardHeader>
-            <CardContent className="text-center leading-7">
+            <CardContent className="text-center leading-7 lg:text-lg">
                 <p>{description}</p>
             </CardContent>
             <CardFooter className="w-full">
