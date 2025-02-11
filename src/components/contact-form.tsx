@@ -36,11 +36,11 @@ const DEFAULT_MESSAGES = {
     ),
 }
 
-interface ContactFormProps {
+interface ContactFormProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
     sendEmailAction: typeof sendEmail
 }
 
-export function ContactForm({ sendEmailAction }: ContactFormProps) {
+export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
     const [activeButton, setActiveButton] = useState<'dev' | 'enterprise'>(
         'dev'
     )
@@ -96,7 +96,12 @@ export function ContactForm({ sendEmailAction }: ContactFormProps) {
     }, [pending, shouldResetMessage, formState.success])
 
     return (
-        <div className="mx-auto mb-10 flex w-11/12 max-w-[390px] flex-col items-center justify-start gap-7 rounded-2xl bg-ly-white p-8 lg:justify-center lg:p-12">
+        <div
+            className={cn(
+                'flex w-11/12 max-w-[390px] flex-col items-center justify-start gap-7 rounded-2xl bg-ly-white p-8 lg:justify-center lg:p-12',
+                className
+            )}
+        >
             <div className="flex w-full flex-row items-center gap-2">
                 {['dev', 'enterprise'].map((type) => (
                     <Button
