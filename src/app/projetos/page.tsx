@@ -28,7 +28,7 @@ export default function ProjectsPage() {
                 dalar elementum tempus hac tellus libero accumsan.
             </p>
 
-            <div className="mb-28 flex flex-col items-center font-['DM_Sans'] text-ly-dark-azure-600 lg:mb-48 lg:flex-row lg:gap-7">
+            <div className="mb-28 flex flex-col items-center font-['DM_Sans'] text-ly-dark-azure-600 lg:mb-48 lg:flex-row lg:gap-7 lg:p-7">
                 <ProjectCard
                     title="Mobile App"
                     description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
