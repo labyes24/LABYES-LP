@@ -10,7 +10,7 @@ body {
     .bg-contact-large {
         /* Applies two images to the background */
         background-image:
-            url('@/assets/wave.svg'), url('@/assets/contact-bg-img.png');
+            url('../assets/wave.svg'), url('../assets/contact-bg-img.png');
         background-repeat: no-repeat, no-repeat;
         background-position:
             bottom right,
@@ -19,7 +19,7 @@ body {
 
     .bg-contact-small {
         background-image:
-            url('@/assets/wave-short.svg'), url('@/assets/contact-bg-img.png');
+            url('../assets/wave-short.svg'), url('../assets/contact-bg-img.png');
         background-repeat: no-repeat, no-repeat;
         background-position:
             bottom right,
