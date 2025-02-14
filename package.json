@@ -11,6 +11,7 @@
     "format:fix": "prettier --write  \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@next/third-parties": "^15.1.7",
     "@radix-ui/react-dialog": "^1.1.3",
     "@radix-ui/react-navigation-menu": "^1.2.2",
     "@radix-ui/react-separator": "^1.1.1",
