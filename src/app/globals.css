@@ -6,6 +6,27 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer utilities {
+    .bg-contact-large {
+        /* Applies two images to the background */
+        background-image:
+            url('../assets/wave.svg'), url('../assets/contact-bg-img.png');
+        background-repeat: no-repeat, no-repeat;
+        background-position:
+            bottom right,
+            top center;
+    }
+
+    .bg-contact-small {
+        background-image:
+            url('../assets/wave-short.svg'), url('../assets/contact-bg-img.png');
+        background-repeat: no-repeat, no-repeat;
+        background-position:
+            bottom right,
+            45% 55%;
+    }
+}
+
 @layer base {
     :root {
         --background: 0 0% 99.2%;
