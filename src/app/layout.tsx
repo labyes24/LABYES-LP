@@ -25,7 +25,6 @@ export const metadata: Metadata = {
         description:
             'Conseguir a primeira vaga em tecnologia pode ser desafiador, mas com o apoio certo, esse processo pode ser muito mais tranquilo.',
         siteName: 'Lab Yes!',
-        url: 'https://lab-yes.com',
         type: 'website',
         images: ['/opengraph-image.png'],
     },
