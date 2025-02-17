@@ -11,7 +11,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
     title: {
-        template: '%s | Lab Yes! | Lapidando talentos',
+        template: '%s | Lab Yes!',
         default: 'Lab Yes!',
     },
     description: 'Lapidando o Dev Jr para a primeira vaga',
