@@ -19,13 +19,7 @@ export const metadata: Metadata = {
         title: 'Lab Yes! | Lapidando talentos',
         description:
             'Conseguir a primeira vaga em tecnologia pode ser desafiador, mas com o apoio certo, esse processo pode ser muito mais tranquilo.',
-        images: [
-            {
-                url: '/public/og-img.jpg',
-                width: 800,
-                height: 600,
-            },
-        ],
+        images: ['/opengraph-image.png'],
     },
 }
 
