@@ -15,10 +15,15 @@ export const metadata: Metadata = {
         default: 'Lab Yes!',
     },
     description: 'Lapidando o Dev Jr para a primeira vaga',
+    keywords:
+        'primeira vaga. dev jr, transição de carreira, softskills, team work',
+    authors: [{ name: 'Lab Yes!' }],
     openGraph: {
         title: 'Lab Yes! | Lapidando talentos',
         description:
             'Conseguir a primeira vaga em tecnologia pode ser desafiador, mas com o apoio certo, esse processo pode ser muito mais tranquilo.',
+        siteName: 'Lab Yes!',
+        type: 'website',
         images: ['/opengraph-image.png'],
     },
 }
