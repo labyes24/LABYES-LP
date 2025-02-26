@@ -1,6 +1,6 @@
 import { Menu } from 'lucide-react'
 import { MenuNavigationLink } from './menu-navigation-link'
-import { LogoLabYes } from './svg/logo-lab-yes'
+import { LogoLabYesLight } from './svg/logo-lab-yes-light'
 import { Button } from './ui/button'
 import {
     Sheet,
@@ -19,7 +19,7 @@ export function MenuNavigationMobile() {
                 <SheetTrigger asChild>
                     <Button asChild className="p-0" variant={'ghost'}>
                         <Menu
-                            className="h-8 w-8 flex-shrink-0 text-ly-dark-azure-700"
+                            className="h-8 w-8 flex-shrink-0 text-foreground"
                             strokeWidth={2}
                         />
                     </Button>
@@ -27,7 +27,7 @@ export function MenuNavigationMobile() {
                 <SheetContent className="flex flex-col gap-6">
                     <SheetHeader>
                         <SheetTitle className="flex justify-center">
-                            <LogoLabYes className="md:h-6 md:w-32" />
+                            <LogoLabYesLight className="md:h-6 md:w-32" />
                         </SheetTitle>
                         <SheetDescription className="flex justify-center">
                             Navegue pelas nossas páginas, através do menu.
@@ -59,7 +59,7 @@ export function MenuNavigationMobile() {
                     <SheetFooter className="flex flex-row">
                         <Button
                             type="button"
-                            className="w-full rounded-full bg-ly-orange-400 text-base font-bold text-ly-white hover:bg-ly-orange-500"
+                            className="w-full rounded-full bg-primary text-base font-bold text-primary-foreground"
                             size={'lg'}
                             asChild
                         >

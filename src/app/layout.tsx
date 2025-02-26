@@ -40,7 +40,7 @@ export default function RootLayout({
     return (
         <html lang="pt-BR">
             <body
-                className={`${dmSans.variable} mx-auto flex min-h-screen max-w-[1440px] flex-col bg-ly-white antialiased`}
+                className={`${dmSans.variable} mx-auto flex min-h-screen max-w-[1440px] flex-col antialiased`}
             >
                 <Header />
                 <main className="flex-grow">{children}</main>
