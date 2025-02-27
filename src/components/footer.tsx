@@ -8,7 +8,7 @@ import { Button } from './ui/button'
 
 export function Footer() {
     return (
-        <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-muted py-16 text-foreground md:flex md:h-fit md:justify-between md:gap-6 md:px-36 md:py-8">
+        <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-t border-t-foreground/10 py-16 text-foreground md:flex md:h-fit md:justify-between md:gap-6 md:px-36 md:py-8">
             <Link
                 href={'/'}
                 className="row-start-1 mx-auto w-fit select-none p-0 hover:cursor-pointer md:mx-0"
