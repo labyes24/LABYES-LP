@@ -4,7 +4,7 @@ import { type ClassValue } from 'clsx'
 export function ConnectionsSection() {
     return (
         <>
-            <section className="flex min-h-[50vh] flex-col items-center pb-[49px] pt-[75px] font-['DM_Sans'] text-ly-dark-azure-600 lg:pb-32 lg:pt-12">
+            <section className="flex min-h-[50vh] flex-col items-center bg-section-light pb-[49px] pt-[75px] font-['DM_Sans'] text-section-light-foreground lg:pb-32 lg:pt-12">
                 <Emojis />
                 <h2 className="text-[28px] font-bold leading-8">Conexões</h2>
 
