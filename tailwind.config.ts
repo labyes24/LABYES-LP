@@ -49,6 +49,12 @@ export default {
                         foreground: 'hsl(var(--section-dark-foreground))',
                     },
                 },
+                form: {
+                    DEFAULT: 'hsl(var(--form))',
+                    foreground: 'hsl(var(--form-foreground))',
+                    success: 'hsl(var(--form-success))',
+                    error: 'hsl(var(--form-error))',
+                },
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
                     foreground: 'hsl(var(--primary-foreground))',
