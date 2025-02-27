@@ -48,7 +48,7 @@ const partners = [
 export function PartnersSection() {
     return (
         <>
-            <section className="flex min-h-[300px] flex-col items-center justify-center bg-ly-gray-100 px-7 py-16 font-['DM_Sans'] text-ly-dark-azure-600">
+            <section className="flex min-h-[300px] flex-col items-center justify-center bg-section-dark px-7 py-16 font-['DM_Sans'] text-section-dark-foreground">
                 <ul className="grid grid-cols-2 justify-center gap-x-16 gap-y-20 px-8 align-middle lg:flex">
                     {partners.map((partner) => (
                         <li
