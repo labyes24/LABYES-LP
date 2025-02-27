@@ -1,9 +1,9 @@
-import Partner01 from '@/assets/supporter_01.svg'
-import Partner02 from '@/assets/supporter_02.svg'
-import Partner03 from '@/assets/supporter_03.svg'
-import Partner04 from '@/assets/supporter_04.svg'
-import Partner05 from '@/assets/supporter_05.svg'
-import Partner06 from '@/assets/supporter_06.svg'
+import Partner01 from '@/assets/supporter_01_light.svg'
+import Partner02 from '@/assets/supporter_02_light.svg'
+import Partner03 from '@/assets/supporter_03_light.svg'
+import Partner04 from '@/assets/supporter_04_light.svg'
+import Partner05 from '@/assets/supporter_05_light.svg'
+import Partner06 from '@/assets/supporter_06_light.svg'
 import Image from 'next/image'
 
 const partners = [
