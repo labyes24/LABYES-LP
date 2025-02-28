@@ -12,7 +12,7 @@ export function ConnectionsFoundersCard({
 }: ConnectionsFoundersCardProps) {
     const { image, description, name, quote, role } = founder
     return (
-        <Card className="relative cursor-grab overflow-hidden rounded-3xl border-none">
+        <Card className="relative cursor-grab overflow-hidden rounded-3xl border-none bg-card text-card-foreground">
             <CardContent className="flex flex-col items-stretch justify-between p-0 lg:flex-row">
                 <Image
                     src={image}
@@ -23,7 +23,7 @@ export function ConnectionsFoundersCard({
                     className="h-[382px] w-full object-cover lg:flex lg:h-auto lg:w-[45%] lg:rounded-l-3xl"
                 />
 
-                <div className="flex select-none items-center justify-center bg-ly-dark-azure-600/5 px-6 py-12 text-center text-ly-dark-azure-600 lg:min-h-[620px] lg:rounded-r-3xl lg:p-20 lg:text-start">
+                <div className="flex select-none items-center justify-center bg-card px-6 py-12 text-center text-card-foreground lg:min-h-[620px] lg:rounded-r-3xl lg:p-20 lg:text-start">
                     <div className="flex min-h-60 flex-col gap-5 lg:gap-10">
                         <h3 className="text-lg font-bold lg:text-2xl">
                             &quot;{quote}&quot;
