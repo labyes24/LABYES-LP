@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
     return (
-        <section className="relative flex min-h-[80vh] flex-col items-center p-4 pt-16 font-['DM_Sans'] text-ly-dark-azure-600 lg:p-0">
+        <section className="relative flex min-h-[80vh] flex-col items-center bg-section-medium p-4 pt-16 font-['DM_Sans'] text-section-medium-foreground lg:p-0">
             <div
                 style={{
                     backgroundImage: `url(${topDoodle.src})`,
@@ -28,7 +28,7 @@ export default function ProjectsPage() {
                 dalar elementum tempus hac tellus libero accumsan.
             </p>
 
-            <div className="mb-28 flex flex-col items-center font-['DM_Sans'] text-ly-dark-azure-600 lg:mb-48 lg:flex-row lg:gap-7 lg:p-7">
+            <div className="mb-28 flex flex-col items-center font-['DM_Sans'] lg:mb-48 lg:flex-row lg:gap-7 lg:p-7">
                 <ProjectCard
                     title="Mobile App"
                     description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
