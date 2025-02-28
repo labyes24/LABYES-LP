@@ -21,7 +21,9 @@ export default function ProjectsPage() {
                 className="absolute left-[2px] top-[1px] h-[112px] w-[70px] lg:left-[2px] lg:top-[1px] lg:h-[224px] lg:w-[140px]"
             />
 
-            <h2 className="text-3xl font-bold lg:text-4xl/[46px]">Projetos</h2>
+            <h2 className="mt-10 text-3xl font-bold lg:text-4xl/[46px]">
+                Projetos
+            </h2>
 
             <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit semper
