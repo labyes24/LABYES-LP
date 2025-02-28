@@ -20,6 +20,10 @@ body {
         --section-medium-foreground: 0 0% 99.22%;
         --section-light: 210 40% 94%;
         --section-light-foreground: 210 28% 28%;
+        --form: 0 0% 99.22%;
+        --form-foreground: 210 28% 28%;
+        --form-success: 145 71% 39%;
+        --form-error: 8 60% 42%;
         --primary: 35 100% 50%;
         --primary-foreground: 60 9.1% 97.8%;
         --secondary: 60 4.8% 95.9%;

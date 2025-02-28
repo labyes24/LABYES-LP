@@ -24,12 +24,12 @@ const DEFAULT_MESSAGES = {
         <>Estamos prontos para ajudar você a alcançar seus objetivos!</>
     ),
     success: (
-        <span className="flex items-center justify-center gap-2 text-ly-green-500">
+        <span className="flex items-center justify-center gap-2 text-form-success">
             <Send className="size-3.5" /> Sua mensagem foi enviada com sucesso!
         </span>
     ),
     error: (
-        <span className="flex items-center justify-center gap-2 text-ly-red">
+        <span className="flex items-center justify-center gap-2 text-form-error">
             <AlertTriangle className="size-3.5" /> Ocorreu um erro ao enviar sua
             mensagem.
         </span>
@@ -98,7 +98,7 @@ export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
     return (
         <div
             className={cn(
-                'flex w-11/12 max-w-[390px] flex-col items-center justify-start gap-7 rounded-2xl bg-ly-white p-8 lg:justify-center lg:p-12',
+                'flex w-11/12 max-w-[390px] flex-col items-center justify-start gap-7 rounded-2xl bg-form p-8 text-form-foreground lg:justify-center lg:p-12',
                 className
             )}
         >
@@ -108,7 +108,7 @@ export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
                         key={type}
                         type="button"
                         className={cn(
-                            'flex h-fit w-full items-center justify-center py-1 font-semibold text-ly-white hover:bg-ly-orange-500',
+                            'flex h-fit w-full items-center justify-center py-1 font-semibold text-primary-foreground hover:bg-primary',
                             {
                                 'bg-ly-orange-400': activeButton === type,
                                 'bg-ly-brown': activeButton !== type,
@@ -125,20 +125,17 @@ export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
                 ))}
             </div>
             <div className="flex w-full flex-col items-start justify-center gap-1 leading-none">
-                <h3 className="font-sans text-xl font-bold text-ly-dark-azure-600 lg:text-2xl">
+                <h3 className="font-sans text-xl font-bold lg:text-2xl">
                     Entre em contato
                 </h3>
-                <p className="text-start font-sans text-sm leading-tight text-ly-dark-azure-700/50">
+                <p className="text-start font-sans text-sm leading-tight">
                     {isDev
                         ? 'Queremos ajudar na sua jornada!'
                         : 'Transformamos ideias em soluções!'}
                 </p>
             </div>
 
-            <Form
-                action={formAction}
-                className="flex w-full flex-col gap-6 text-ly-dark-azure-600"
-            >
+            <Form action={formAction} className="flex w-full flex-col gap-6">
                 {['name', 'email'].map((field) => (
                     <div
                         key={field}
@@ -149,7 +146,7 @@ export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
                             type={field === 'email' ? 'email' : 'text'}
                             id={field}
                             name={field}
-                            className="w-full rounded-full bg-input p-5 text-sm !placeholder-gray-400 lg:text-base"
+                            className="w-full rounded-full bg-input p-5 text-sm !placeholder-muted/50 lg:text-base"
                             placeholder={field === 'email' ? 'E-mail' : 'Nome'}
                             required
                             onFocus={handleClickOrFocus}
@@ -163,13 +160,13 @@ export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
                         id="message"
                         name="message"
                         placeholder={getMessagePlaceholder()}
-                        className="h-28 w-full resize-none rounded-2xl bg-input p-3 text-sm text-foreground !placeholder-gray-400 lg:text-base"
+                        className="h-28 w-full resize-none rounded-2xl bg-input p-3 text-sm !placeholder-muted/50 lg:text-base"
                         required
                         onFocus={handleClickOrFocus}
                     />
                 </div>
 
-                <p className="text-center font-sans text-sm text-ly-dark-azure-600">
+                <p className="text-center font-sans text-sm">
                     {feedbackMessage}
                 </p>
 
