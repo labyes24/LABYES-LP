@@ -10,7 +10,7 @@ export function SupportersSection() {
     return (
         <>
             <section
-                className="flex min-h-[50vh] flex-col items-center pb-36 pt-20 font-['DM_Sans'] text-ly-dark-azure-600"
+                className="flex min-h-[50vh] flex-col items-center bg-section-light pb-36 pt-20 font-['DM_Sans'] text-section-light-foreground"
                 style={{
                     backgroundImage: `url(${Doodle.src})`,
                     backgroundRepeat: 'no-repeat',
