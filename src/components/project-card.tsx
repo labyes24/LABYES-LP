@@ -30,7 +30,7 @@ export function ProjectCard({
     const imageUrl = image ?? PlaceholderImage.src
 
     return (
-        <Card className="relative mb-6 flex max-w-96 flex-col items-center p-3 text-ly-dark-azure-600">
+        <Card className="relative mb-6 flex max-w-96 flex-col items-center p-3 text-section-light-foreground">
             {finished ? (
                 <img
                     src={Ribbon.src}
@@ -52,7 +52,7 @@ export function ProjectCard({
             </CardContent>
             <CardFooter className="w-full">
                 <a href={link} className="w-full">
-                    <Button className="h-16 w-full rounded-full bg-ly-dark-azure-700 text-lg font-semibold leading-5 text-ly-white hover:bg-ly-dark-azure-600">
+                    <Button className="h-16 w-full rounded-full bg-background text-lg font-semibold leading-5 text-foreground hover:bg-accent">
                         Saiba mais
                     </Button>
                 </a>
