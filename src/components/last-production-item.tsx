@@ -16,7 +16,7 @@ export function LastProductionItem({
     const imageUrl = image ?? PlaceholderImage.src
     return (
         <>
-            <article className="flex w-full flex-row items-center justify-start gap-4 rounded-3xl border-[1px] border-ly-dark-azure-600 px-8 py-10 md:w-[calc(50%-20px)] lg:w-[calc(33.33%-20px)] lg:flex-initial">
+            <article className="flex w-full flex-row items-center justify-start gap-4 rounded-3xl border-[1px] border-ly-dark-azure-600 bg-card px-8 py-10 text-card-foreground md:w-[calc(50%-20px)] lg:w-[calc(33.33%-20px)] lg:flex-initial">
                 <Image
                     src={imageUrl}
                     priority={true}

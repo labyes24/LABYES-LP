@@ -7,7 +7,7 @@ import { Button } from './ui/button'
 
 export function HomeHero() {
     return (
-        <section className="flex flex-col items-center justify-between gap-10 bg-ly-dark-azure-800 px-6 py-16 text-ly-white lg:flex-row lg:gap-0 lg:px-28 lg:py-32">
+        <section className="flex flex-col items-center justify-between gap-10 bg-section-dark px-6 py-16 text-section-dark-foreground lg:flex-row lg:gap-0 lg:px-28 lg:py-32">
             <div className="flex flex-col justify-center gap-10 lg:justify-start">
                 <div className="flex max-w-[554px] flex-col justify-center gap-5 text-center lg:justify-start lg:text-start">
                     <h1 className="text-4xl font-semibold lg:text-5xl">

@@ -5,13 +5,13 @@ import { Button } from './ui/button'
 
 export function ConnectionsLastProduction() {
     return (
-        <section className="flex w-full flex-col items-center justify-center gap-12 px-6 pb-[75px] pt-16 md:pt-32">
-            <div className="mx-auto flex max-w-[430px] flex-col items-center justify-center text-center text-ly-dark-azure-600 md:max-w-[614px]">
+        <section className="flex w-full flex-col items-center justify-center gap-12 bg-section-medium px-6 pb-[75px] pt-16 md:pt-32">
+            <div className="mx-auto flex max-w-[430px] flex-col items-center justify-center text-center text-section-medium-foreground md:max-w-[614px]">
                 <h2 className="mb-4 text-pretty font-sans text-[28px]/[38px] font-bold md:text-4xl md:leading-tight">
                     Últimas produções
                 </h2>
 
-                <p className="text-pretty font-sans text-base font-normal leading-7 text-ly-dark-azure-600 md:text-lg">
+                <p className="text-pretty font-sans text-base font-normal leading-7 text-section-medium-foreground md:text-lg">
                     Lorem ipsum dolor sit amet consectetur adipiscing elit
                     volutpat gravida malesuada quam commodo id integer nam.
                 </p>

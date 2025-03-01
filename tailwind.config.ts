@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
 export default {
     darkMode: ['class'],
@@ -33,6 +34,26 @@ export default {
                 popover: {
                     DEFAULT: 'hsl(var(--popover))',
                     foreground: 'hsl(var(--popover-foreground))',
+                },
+                section: {
+                    light: {
+                        DEFAULT: 'hsl(var(--section-light))',
+                        foreground: 'hsl(var(--section-light-foreground))',
+                    },
+                    medium: {
+                        DEFAULT: 'hsl(var(--section-medium))',
+                        foreground: 'hsl(var(--section-medium-foreground))',
+                    },
+                    dark: {
+                        DEFAULT: 'hsl(var(--section-dark))',
+                        foreground: 'hsl(var(--section-dark-foreground))',
+                    },
+                },
+                form: {
+                    DEFAULT: 'hsl(var(--form))',
+                    foreground: 'hsl(var(--form-foreground))',
+                    success: 'hsl(var(--form-success))',
+                    error: 'hsl(var(--form-error))',
                 },
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
@@ -75,5 +96,5 @@ export default {
             },
         },
     },
-    plugins: [require('tailwindcss-animate')],
+    plugins: [tailwindcssAnimate],
 } satisfies Config
