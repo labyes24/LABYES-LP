@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { UserRound } from 'lucide-react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 interface TestimonialCardProps {
     quote: string
