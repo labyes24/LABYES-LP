@@ -14,10 +14,12 @@ export function HomeHero() {
                         Lapidando talentos para o{' '}
                         <span className="text-primary">mercado tech</span>
                     </h1>
-                    <p className="text-pretty text-xs font-thin leading-7 tracking-widest lg:text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipiscing eli
-                        mattis sit phasellus mollis sit aliquam sit nullam neque
-                        ultrices.
+                    <p className="text-pretty p-1 text-xs font-thin leading-7 tracking-widest lg:text-sm">
+                        Conseguir uma vaga em tecnologia pode ser um desafio,
+                        seja para quem está dando os primeiros passos ou para
+                        quem já tem alguma experiência, mas ainda busca a
+                        confiança necessária para seguir no mercado. Com o apoio
+                        certo, esse caminho pode se tornar muito mais tranquilo.
                     </p>
                 </div>
                 <Button
