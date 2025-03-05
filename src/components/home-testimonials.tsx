@@ -1,4 +1,7 @@
 import backgroundImage from '@/assets/background-1.webp'
+import cristianImg from '@/assets/cristian-sbardelotto.jpeg'
+import franciscoImg from '@/assets/francisco-ylderlan.jpeg'
+import henricoImg from '@/assets/henrico-angolera.jpeg'
 import Image from 'next/image'
 import { DoodleUnderline } from './svg/doodle-underline'
 import { TestimonialCard } from './testimonial-card'
@@ -34,24 +37,29 @@ export function HomeTestimonials() {
                     description="Desde minha entrada no Lab Yes!, vinha percebendo que era a  coisa que eu mais precisava pra sair do Network e ir pra vida real. A experiência do dia a dia me fez um desenvolvedor muito melhor e mais consciente, e devo muito da minha jornada a todos ensinamentos que obtive durante o nosso tempo juntos."
                     author="Cristian Sbardelotto"
                     role="Desenvolvedor front-end"
-                    image=""
+                    image={cristianImg}
                     company="HASH³"
+                    companyLink="https://www.linkedin.com/company/hashcubed/"
                 />
                 <TestimonialCard
                     positionCard={1}
                     quote="“O Caminho para a minha primeira vaga”"
                     description="O Lab Yes! foi fundamental na minha jornada. Muito crescimento e exposição ao aprendizado colaborativo, pude praticar, crescer profissionalmente e conquistar a minha primeira vaga, com muito mais confiança. A dedicação de Grace e Adriano foram essenciais, me proporcionando a base e confiança que eu precisava. Sou eternamente grato!"
                     author="Francisco Ylderlan"
+                    image={franciscoImg}
                     role="Software Engineer e Full Stack Developer"
                     company="TMJobs"
+                    companyLink="https://tmjobs.com.br/"
                 />
                 <TestimonialCard
                     positionCard={2}
                     quote="“Transformação através do aprendizado”"
                     description="O Lab Yes! sem dúvidas foi transformador pra mim. Foi muito bom trabalhar em equipe, conhecer pessoas incríveis e aprender mais sobre as etapas do desenvolvimento. Sem dúvidas estar no Lab Yes! me ajudou e muito a entrar no mercado, todo aprendizado de soft skills, git em grupo, lidar com pedidos de cliente, foram aprendizados fundamentais que levarei para o resto da vida."
                     author="Henrico Angolera"
+                    image={henricoImg}
                     role="Desenvolvedor Front-end júnior nível III"
                     company="Gestão DS"
+                    companyLink="https://www.gestaods.com.br/"
                 />
             </div>
         </section>
