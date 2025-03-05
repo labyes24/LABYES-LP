@@ -8,7 +8,7 @@ export function HomeIntro() {
             <DoodleHeartArrow className="absolute left-8 top-5 h-16 w-16 lg:left-[77px] lg:top-[19px] lg:h-28 lg:w-28" />
 
             <div className="mx-auto flex max-w-[720px] flex-col gap-4 text-center text-ly-dark-azure-600 lg:gap-6">
-                <h2 className="text-2xl font-bold lg:text-3xl">
+                <h2 className="mt-4 text-2xl font-bold lg:text-3xl">
                     A dificuldade da primeira vaga tech
                 </h2>
                 <p className="text-lg font-light leading-loose lg:leading-loose lg:tracking-widest">
