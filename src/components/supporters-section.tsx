@@ -7,14 +7,17 @@ const supporters = [
     {
         id: 1,
         SVG: LogoGilmar,
+        alt: 'Logo Gil Santana',
     },
     {
         id: 2,
         SVG: LogoRK,
+        alt: 'Logo RK Imóveis',
     },
     {
         id: 3,
         SVG: LogoSSIG,
+        alt: 'Logo SSIG',
     },
 ]
 
@@ -42,6 +45,8 @@ export function SupportersSection() {
                                 <SVG
                                     fill="hsl(var(--section-light-foreground))"
                                     className="h-20 lg:h-24"
+                                    alt={supporter.alt}
+                                    aria-label={supporter.alt}
                                 />
                             </li>
                         )

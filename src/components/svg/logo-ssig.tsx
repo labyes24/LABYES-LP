@@ -1,15 +1,17 @@
 import { SVGProps } from 'react'
 
-export function LogoSSIG({
-    className,
-    fill = 'white',
-}: SVGProps<SVGSVGElement>) {
+interface LogoProps extends SVGProps<SVGSVGElement> {
+    alt: string
+}
+
+export function LogoSSIG({ className, fill = 'white', alt }: LogoProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 295 132"
             className={className}
         >
+            <title>{alt}</title>
             <g fill={fill}>
                 <path
                     id="cubes"
