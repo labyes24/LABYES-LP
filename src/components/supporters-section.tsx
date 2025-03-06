@@ -32,7 +32,7 @@ export function SupportersSection() {
                     backgroundPosition: 'bottom -185px right -220px',
                 }}
             >
-                <h2 className="mb-28 text-3xl font-bold">Apoiadores</h2>
+                <h2 className="mb-28 text-3xl font-bold">Parceiros</h2>
 
                 <ul className="grid grid-cols-1 justify-center gap-x-16 gap-y-20 px-8 lg:flex lg:w-full lg:justify-around">
                     {supporters.map((supporter) => {
