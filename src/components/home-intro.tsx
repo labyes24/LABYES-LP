@@ -8,15 +8,18 @@ export function HomeIntro() {
             <DoodleHeartArrow className="absolute left-8 top-5 h-16 w-16 lg:left-[77px] lg:top-[19px] lg:h-28 lg:w-28" />
 
             <div className="mx-auto flex max-w-[720px] flex-col gap-4 text-center text-ly-dark-azure-600 lg:gap-6">
-                <h2 className="text-2xl font-bold lg:text-3xl">Introdução</h2>
+                <h2 className="mt-4 text-2xl font-bold lg:text-3xl">
+                    A dificuldade da primeira vaga tech
+                </h2>
                 <p className="text-lg font-light leading-loose lg:leading-loose lg:tracking-widest">
-                    &quot;When applied to building block a website or similar
-                    work product, a Visual Guide can be an intermediate step
-                    toward the end goal of a complete website. By creating a
-                    visual guide along the way, the designer or developer can
-                    get input from the other people involved in the website such
-                    as the customer, their manager, and other members of the
-                    team.&quot;
+                    &quot;Muitas vagas em tecnologia, em áreas como
+                    desenvolvimento web, data science, design UI/UX, engenharia
+                    de software, gestão de projetos, entre outras, costumam
+                    exigir experiência prática que muitos talentos ainda não
+                    possuem. Isso gera frustração, já que as empresas
+                    frequentemente pedem de 1 a 2 anos de experiência. Mas como
+                    um talento iniciante pode atender a essa demanda sem ter uma
+                    oportunidade para começar sua jornada no mercado?&quot;
                 </p>
             </div>
 

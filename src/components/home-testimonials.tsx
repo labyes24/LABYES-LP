@@ -1,7 +1,43 @@
 import backgroundImage from '@/assets/background-1.webp'
+import cristianImg from '@/assets/cristian-sbardelotto.png'
+import franciscoImg from '@/assets/francisco-ylderlan.jpeg'
+import henricoImg from '@/assets/henrico-angolera.jpeg'
 import Image from 'next/image'
 import { DoodleUnderline } from './svg/doodle-underline'
 import { TestimonialCard } from './testimonial-card'
+
+const testimonials = [
+    {
+        quote: '“Da promessa à realidade”',
+        description:
+            'Desde minha entrada no Lab Yes!, vinha percebendo que era a coisa que eu mais precisava pra sair do Network e ir pra vida real. A experiência do dia a dia me fez um desenvolvedor muito melhor e mais consciente, e devo muito da minha jornada a todos ensinamentos que obtive durante o nosso tempo juntos.',
+        author: 'Cristian Sbardelotto',
+        role: 'Desenvolvedor front-end',
+        image: cristianImg,
+        company: 'HASH³',
+        companyLink: 'https://www.linkedin.com/company/hashcubed/',
+    },
+    {
+        quote: '“O Caminho para a minha primeira vaga”',
+        description:
+            'O Lab Yes! foi fundamental na minha jornada. Muito crescimento e exposição ao aprendizado colaborativo, pude praticar, crescer profissionalmente e conquistar a minha primeira vaga, com muito mais confiança. A dedicação de Grace e Adriano foram essenciais, me proporcionando a base e confiança que eu precisava. Sou eternamente grato!',
+        author: 'Francisco Ylderlan',
+        role: 'Software Engineer e Full Stack Developer',
+        image: franciscoImg,
+        company: 'TMJobs',
+        companyLink: 'https://tmjobs.com.br/',
+    },
+    {
+        quote: '“Transformação através do aprendizado”',
+        description:
+            'O Lab Yes! sem dúvidas foi transformador pra mim. Foi muito bom trabalhar em equipe, conhecer pessoas incríveis e aprender mais sobre as etapas do desenvolvimento. Sem dúvidas estar no Lab Yes! me ajudou e muito a entrar no mercado, todo aprendizado de soft skills, git em grupo, lidar com pedidos de cliente, foram aprendizados fundamentais que levarei para o resto da vida.',
+        author: 'Henrico Angolera',
+        role: 'Desenvolvedor Front-end júnior nível III',
+        image: henricoImg,
+        company: 'Gestão DS',
+        companyLink: 'https://www.gestaods.com.br/',
+    },
+]
 export function HomeTestimonials() {
     return (
         <section className="relative flex w-full flex-col gap-10 px-7 py-14 lg:px-24 lg:py-28">
@@ -21,35 +57,26 @@ export function HomeTestimonials() {
                     <DoodleUnderline color="red" size="thin" />
                 </h2>
                 <p className="text-pretty leading-7 tracking-widest">
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit
-                    semper dalar elementum tempus hac tellus libero accumsan.{' '}
+                    Acreditamos que as melhores histórias são contadas por quem
+                    às vivenciou. Confira os depoimentos dos nossos voluntários
+                    e descubra o impacto da experiência do Lab Yes! em suas
+                    jornadas!{' '}
                 </p>
             </div>
             <div className="flex flex-col gap-6 lg:flex-row">
-                <TestimonialCard
-                    positionCard={0}
-                    quote="“An amazing service”"
-                    description="Lorem ipsum dolor sit ametolil col consectetur adipiscing lectus a nunc mauris scelerisque sed egestas."
-                    author="John Carter"
-                    role="Designer"
-                    company="BRIX Templates"
-                />
-                <TestimonialCard
-                    positionCard={1}
-                    quote="“One of a kind service”"
-                    description="Ultrices eros in cursus turpis massa tincidunt sem nulla pharetra diam sit amet nisl suscipit adipis."
-                    author="Sophie Moore"
-                    role="Head of Design"
-                    company="BRIX Templates"
-                />
-                <TestimonialCard
-                    positionCard={2}
-                    quote="“The best service”"
-                    description="Convallis posuere morbi leo urna molestie at elementum eu facilisis sapien pellentesque habitant."
-                    author="Andy Smith"
-                    role="Developer"
-                    company="BRIX Templates"
-                />
+                {testimonials.map((testimonial, index) => (
+                    <TestimonialCard
+                        key={index}
+                        positionCard={index}
+                        quote={testimonial.quote}
+                        description={testimonial.description}
+                        author={testimonial.author}
+                        image={testimonial.image}
+                        role={testimonial.role}
+                        company={testimonial.company}
+                        companyLink={testimonial.companyLink}
+                    />
+                ))}
             </div>
         </section>
     )
