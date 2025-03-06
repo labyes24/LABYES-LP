@@ -1,5 +1,5 @@
 import backgroundImage from '@/assets/background-1.webp'
-import cristianImg from '@/assets/cristian-sbardelotto.jpeg'
+import cristianImg from '@/assets/cristian-sbardelotto.png'
 import franciscoImg from '@/assets/francisco-ylderlan.jpeg'
 import henricoImg from '@/assets/henrico-angolera.jpeg'
 import Image from 'next/image'

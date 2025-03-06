@@ -45,11 +45,11 @@ export function TestimonialCard({
         : colorsPlaceholder[positionCard % colorsPlaceholder.length]
 
     return (
-        <Card className="bg-card py-5 text-card-foreground lg:max-w-[416px]">
+        <Card className="bg-card py-5 text-card-foreground lg:w-[416px]">
             <CardHeader>
                 <div
                     className={cn(
-                        `mb-6 flex h-20 w-20 items-end justify-center rounded-full border-4`,
+                        `mb-6 flex h-20 w-20 justify-center rounded-full border-4`,
                         `${colorSelected}`
                     )}
                 >
