@@ -25,11 +25,11 @@ export function AboutHistoryTimelineItem({
                     />
                 )}
             </span>
-            <div className="absolute -left-6 top-28 flex w-64 flex-col items-center justify-end gap-2 px-6 lg:left-auto lg:top-32">
+            <div className="absolute left-9 top-20 flex w-80 flex-col items-center justify-end gap-2 px-6 font-sans lg:left-auto lg:top-32">
                 <h3 className="font-semibold text-ly-dark-azure-600 lg:text-xl">
                     {title}
                 </h3>
-                <p className="text-center text-sm text-ly-dark-azure-700">
+                <p className="max-w-md text-center text-sm text-ly-dark-azure-700">
                     {description}
                 </p>
             </div>

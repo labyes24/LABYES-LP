@@ -5,7 +5,7 @@ export function AboutHistory() {
         <section className="flex flex-col gap-6 bg-section-light px-6 py-16 text-section-light-foreground lg:gap-16">
             <div className="flex flex-col items-center justify-center gap-7 text-center">
                 <h2 className="text-3xl font-medium lg:text-5xl">História</h2>
-                <p className="max-w-md text-pretty text-sm leading-7 tracking-widest lg:max-w-4xl lg:text-lg">
+                <p className="max-w-xl text-pretty text-sm leading-7 tracking-widest lg:max-w-4xl lg:text-lg">
                     O Lab Yes! é um espaço que valoriza o aprendizado contínuo e
                     a colaboração entre pessoas de diferentes trajetórias.
                     Acreditamos que a troca de experiências e a diversidade de
