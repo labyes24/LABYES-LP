@@ -1,11 +1,11 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 import PlaceholderImage from '@/assets/project_card_placeholder.svg'
 
 interface AboutManifestItemProps {
     title: string
     description: string
-    image?: string
+    image?: string | StaticImageData
 }
 
 export function AboutManifestItem({
