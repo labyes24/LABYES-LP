@@ -17,6 +17,10 @@ import { sendEmail } from '../actions/send-email'
 export const metadata: Metadata = {
     title: 'Contatos',
 }
+
+const EMAIL_URL = process.env.NEXT_PUBLIC_CLIENT_LINK_EMAIL || ''
+const LINKEDIN_URL = process.env.NEXT_PUBLIC_CLIENT_LINK_LINKEDIN || ''
+
 export default function ContactsPage() {
     return (
         <section className="bg-contact-small lg:bg-contact-large flex flex-col justify-center overflow-clip bg-section-light lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:gap-x-20">
@@ -218,21 +222,32 @@ export default function ContactsPage() {
                 <div className="flex flex-col gap-4 text-center lg:flex-row lg:items-start lg:justify-between lg:gap-32 lg:pl-28 lg:pt-24 lg:text-left">
                     <div className="flex flex-col gap-2 lg:pt-8 lg:align-baseline">
                         <h2 className="text-lg font-semibold lg:text-xl lg:font-bold">
-                            Endereço
-                        </h2>
-                        <p className="text-base lg:text-lg">
-                            58 Middle Point Rd <br /> San Francisco, 94124
-                        </p>
-                    </div>
-
-                    <div className="mb-4 flex flex-col gap-2">
-                        <h2 className="text-lg font-bold lg:text-xl">
                             Contatos
                         </h2>
-                        <p className="text-base lg:text-lg">(12) 3456-7890</p>
-                        <p className="text-base lg:text-lg">
-                            contato@email.com
-                        </p>
+
+                        {EMAIL_URL && (
+                            <p className="text-base lg:text-lg">
+                                <a
+                                    className="text-foreground hover:underline"
+                                    href={`mailto:${EMAIL_URL}`}
+                                >
+                                    {`${EMAIL_URL}`}
+                                </a>
+                            </p>
+                        )}
+
+                        {LINKEDIN_URL && (
+                            <p className="text-base lg:text-lg">
+                                <a
+                                    className="text-foreground hover:underline"
+                                    href={LINKEDIN_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {LINKEDIN_URL}
+                                </a>
+                            </p>
+                        )}
                     </div>
                 </div>
             </section>
