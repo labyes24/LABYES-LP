@@ -10,6 +10,8 @@ body {
     :root {
         --background: 220 21.74% 13.53%;
         --foreground: 0 0% 99.22%;
+        --logo-primary: 0 0 100%;
+        --logo-secondary: 39 100 50%;
         --card: 210 40% 94.12%;
         --card-foreground: 210 28.17% 27.84%;
         --popover: 0 0% 99.2%;
