@@ -16,7 +16,7 @@ export function AboutHistoryTimeline() {
         {
             title: 'Primeiros Devs',
             description:
-                'Francisco Ylderlan foi o primeiro dev a acreditar no projeto e a segunda pessoa impulsionadora do Lab Yes!. Em março de 2022 com uma equipe de três pessoas mais o dev senior Adriano, trilhamos o caminho para um projeto de cliente real.',
+                'Francisco Ylderlan foi o primeiro dev a acreditar no projeto e a segunda pessoa impulsionadora do Lab Yes!. Em março de 2022 com uma equipe de três pessoas mais o dev sênior Adriano, trilhamos o caminho para um projeto de cliente real.',
             icon: UsersRound,
         },
         {
