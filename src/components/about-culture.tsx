@@ -26,7 +26,7 @@ export function AboutCulture() {
                     <span className="mb-9 text-pretty font-sans text-lg/7 font-normal"></span>
                 </div>
                 <p className="mb-24 max-w-xs indent-0.5 font-sans text-[22px]/9 font-normal lg:mb-0 lg:max-w-xs lg:text-start lg:text-2xl">
-                    Seja o talento que o mercado está esperando — seja a
+                    Seja o talento que o mercado está esperando, seja a
                     transformação!
                 </p>
             </div>
