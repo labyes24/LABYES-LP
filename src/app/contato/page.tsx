@@ -22,14 +22,14 @@ export default function ContactsPage() {
         <section className="bg-contact-small lg:bg-contact-large flex flex-col justify-center overflow-clip bg-section-light lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:gap-x-20">
             <section className="mx-auto w-full max-w-md gap-5 px-6 pt-14 font-sans text-section-light-foreground lg:pl-7">
                 <div className="text-center lg:text-left">
-                    <h2 className="mb-3 text-2xl font-bold">
-                        Título da Sessão
+                    <h2 className="mb-3 text-3xl font-bold">
+                        #boraláserfeliz!
                     </h2>
                     <p className="mb-6">
-                        By creating a visual guide along the way, the designer
-                        or developer can get input from the other people
-                        involved in the website such as the customer, their
-                        manager.
+                        O Lab Yes! conecta novos desenvolvedores com o mercado
+                        real, oferecendo benefícios tanto para os novos
+                        desenvolvedores quanto para as empresas que buscam
+                        estabelecer parcerias. Aqui estão algumas das vantagens:
                     </p>
                 </div>
 
@@ -146,7 +146,7 @@ export default function ContactsPage() {
                                         </DialogTitle>
                                     </DialogHeader>
 
-                    <div className="flex flex-col gap-3">
+                                    <div className="flex flex-col gap-3">
                                         <p>Benefícios para as empresas:</p>
                                         <ol className="ml-4 list-decimal space-y-2 text-section-light-foreground marker:text-primary">
                                             <li>
