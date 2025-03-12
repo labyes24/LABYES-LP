@@ -3,8 +3,7 @@ import Link from 'next/link'
 
 import { IconGithub } from './svg/icon-github'
 import { IconLinkedin } from './svg/icon-linkedin'
-import { LogoLabYesLight } from './svg/logo-lab-yes-light'
-
+import { LogoLabYes } from './svg/logo-lab-yes'
 import { Button } from './ui/button'
 
 export function Footer() {
@@ -14,7 +13,11 @@ export function Footer() {
                 href={'/'}
                 className="row-start-1 mx-auto w-fit select-none p-0 hover:cursor-pointer md:mx-0"
             >
-                <LogoLabYesLight />
+                <LogoLabYes
+                    className="h-6 md:h-9"
+                    primaryFill="hsl(var(--logo-primary))"
+                    secondaryFill="hsl(var(--logo-secondary))"
+                />
             </Link>
 
             <div className="row-start-3 hidden leading-tight md:flex">
