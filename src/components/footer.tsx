@@ -1,9 +1,10 @@
 import { Mail } from 'lucide-react'
 import Link from 'next/link'
 
+import { IconGithub } from './svg/icon-github'
 import { IconLinkedin } from './svg/icon-linkedin'
-import { IconYoutube } from './svg/icon-youtube'
 import { LogoLabYesLight } from './svg/logo-lab-yes-light'
+
 import { Button } from './ui/button'
 
 export function Footer() {
@@ -17,10 +18,27 @@ export function Footer() {
             </Link>
 
             <div className="row-start-3 hidden leading-tight md:flex">
-                Copyright © 2025 Lab Yes! | Todos os direitos reservados.
+                Copyright © 2025
+                <a
+                    className="px-2 hover:text-ring"
+                    href="https://lab-links.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Lab Yes!
+                </a>
+                | Todos os direitos reservados.
             </div>
             <div className="row-start-3 mx-auto flex md:hidden">
-                Copyright © 2025 Lab Yes!
+                Copyright © 2025
+                <a
+                    className="ps-2 hover:text-ring"
+                    href="https://lab-links.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Lab Yes!
+                </a>
             </div>
 
             <div className="row-start-2 flex items-center justify-center gap-2 md:justify-between">
@@ -48,7 +66,7 @@ export function Footer() {
                     asChild
                 >
                     <Link
-                        href={process.env.NEXT_PUBLIC_CLIENT_LINK_LINKEDIN}
+                        href={`${process.env.NEXT_PUBLIC_CLIENT_LINK_LINKEDIN}`}
                         target="_blank"
                     >
                         <IconLinkedin />
@@ -61,9 +79,12 @@ export function Footer() {
                     variant={'link'}
                     asChild
                 >
-                    <Link href={process.env.NEXT_PUBLIC_CLIENT_LINK_YOUTUBE}>
-                        <IconYoutube />
-                        <span className="sr-only">Link do YouTube</span>
+                    <Link
+                        href={`${process.env.NEXT_PUBLIC_CLIENT_LINK_GITHUB}`}
+                        target="_blank"
+                    >
+                        <IconGithub />
+                        <span className="sr-only">Link do GitHub</span>
                     </Link>
                 </Button>
             </div>
