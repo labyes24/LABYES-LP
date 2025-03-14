@@ -18,6 +18,7 @@ interface ProjectCardProps {
     finished: boolean
     image?: string
     link: string
+    buttonTitle: string
 }
 
 export function ProjectCard({
@@ -26,6 +27,7 @@ export function ProjectCard({
     finished,
     image,
     link,
+    buttonTitle,
 }: ProjectCardProps) {
     const imageUrl = image ?? PlaceholderImage.src
 
@@ -34,7 +36,7 @@ export function ProjectCard({
             {finished ? (
                 <img
                     src={Ribbon.src}
-                    alt=""
+                    alt="Tag para projetos concluídos"
                     className="absolute right-0 top-0"
                 />
             ) : null}
@@ -51,9 +53,9 @@ export function ProjectCard({
                 <p>{description}</p>
             </CardContent>
             <CardFooter className="w-full">
-                <a href={link} className="w-full">
+                <a href={link} target="_blank" className="w-full">
                     <Button className="h-16 w-full rounded-full bg-background text-lg font-semibold leading-5 text-foreground hover:bg-accent">
-                        Saiba mais
+                        {buttonTitle}
                     </Button>
                 </a>
             </CardFooter>

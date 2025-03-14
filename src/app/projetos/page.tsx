@@ -25,31 +25,31 @@ export default function ProjectsPage() {
                 Projetos
             </h2>
 
-            <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit semper
-                dalar elementum tempus hac tellus libero accumsan.
-            </p>
+            <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]"></p>
 
             <div className="mb-28 flex flex-col items-center font-['DM_Sans'] lg:mb-48 lg:flex-row lg:gap-7 lg:p-7">
                 <ProjectCard
-                    title="Mobile App"
-                    description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
+                    title="RK Imóveis"
+                    description="Landing pages voltadas para o perfil do corretor, com design e funcionalidade pensados para facilitar a interação com o cliente, destacando as ofertas imobiliárias e serviços."
                     finished={true}
-                    link="/projetos"
+                    buttonTitle="Visite o site"
+                    link="https://rklp-caio-felipe.netlify.app/"
                 />
 
                 <ProjectCard
-                    title="Desktop App"
-                    description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
-                    finished={false}
-                    link="/projetos"
+                    title="Lab Links"
+                    description="Projeto que visa destacar os voluntários que atuaram no Lab Yes!, evidenciando a importância do trabalho colaborativo e a contribuição de cada um no sucesso das iniciativas."
+                    finished={true}
+                    buttonTitle="Visite o site"
+                    link="https://lab-links.netlify.app/"
                 />
 
                 <ProjectCard
-                    title="Multiple Users"
-                    description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
+                    title="Site Lab Yes!"
+                    description="Site desenvolvido pelo próprio time do Lab Yes! que serve como plataforma para divulgação de seus projetos e iniciativas, visando destacar o trabalho do Lab Yes! e captar novas parcerias."
                     finished={false}
-                    link="/projetos"
+                    buttonTitle="Veja a documentação"
+                    link="https://github.com/labyes24/LABYES-LP"
                 />
             </div>
             <div
