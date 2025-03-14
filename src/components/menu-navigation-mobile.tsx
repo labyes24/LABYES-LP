@@ -1,6 +1,6 @@
 import { Menu } from 'lucide-react'
 import { MenuNavigationLink } from './menu-navigation-link'
-import { LogoLabYesLight } from './svg/logo-lab-yes-light'
+import { LogoLabYes } from './svg/logo-lab-yes'
 import { Button } from './ui/button'
 import {
     Sheet,
@@ -27,7 +27,11 @@ export function MenuNavigationMobile() {
                 <SheetContent className="flex flex-col gap-6">
                     <SheetHeader>
                         <SheetTitle className="flex justify-center">
-                            <LogoLabYesLight className="md:h-6 md:w-32" />
+                            <LogoLabYes
+                                className="h-9"
+                                primaryFill="hsl(var(--logo-primary))"
+                                secondaryFill="hsl(var(--logo-secondary))"
+                            />
                         </SheetTitle>
                         <SheetDescription className="flex justify-center">
                             Navegue pelas nossas páginas, através do menu.
