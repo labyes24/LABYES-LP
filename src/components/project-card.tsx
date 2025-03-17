@@ -5,6 +5,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
+import Image, { StaticImageData } from 'next/image'
 
 import PlaceholderImage from '@/assets/project_card_placeholder.svg'
 import Ribbon from '@/assets/project_card_ribbon.svg'
@@ -16,7 +17,7 @@ interface ProjectCardProps {
     title: string
     description: string
     finished: boolean
-    image?: string
+    image?: string | StaticImageData
     link: string
     buttonTitle: string
 }
@@ -41,7 +42,7 @@ export function ProjectCard({
                 />
             ) : null}
 
-            <img src={imageUrl} alt={title} className="mt-8 size-['172px']" />
+            <Image src={imageUrl} alt={title} className="mt-8 size-['172px']" />
 
             <CardHeader>
                 <CardTitle className="flex flex-col items-center text-2xl font-bold lg:text-[28px]/[38px]">

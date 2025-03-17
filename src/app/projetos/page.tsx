@@ -1,12 +1,45 @@
 import { Metadata } from 'next'
 
+import labLinkIcon from '@/assets/lablinks-icon.svg'
+import labYesIcon from '@/assets/labyes-icon.svg'
 import bottomDoodle from '@/assets/projects_bottom_mobo.svg'
 import topDoodle from '@/assets/projects_top_mobo.svg'
+import rkIcon from '@/assets/rk-icon.svg'
 import { ProjectCard } from '@/components/project-card'
 
 export const metadata: Metadata = {
     title: 'Projetos',
 }
+
+const projects = [
+    {
+        title: 'RK Imóveis',
+        description:
+            'Landing pages voltadas para o perfil do corretor, com design e funcionalidade pensados para facilitar a interação com o cliente, destacando as ofertas imobiliárias e serviços.',
+        finished: true,
+        image: rkIcon,
+        link: 'https://rklp-caio-felipe.netlify.app/',
+        buttonTitle: 'Visite o site',
+    },
+    {
+        title: 'Lab Links',
+        description:
+            'Projeto que visa destacar os voluntários que atuaram no Lab Yes!, evidenciando a importância do trabalho colaborativo e a contribuição de cada um no sucesso das iniciativas.',
+        finished: true,
+        image: labLinkIcon,
+        link: 'https://lab-links.netlify.app/',
+        buttonTitle: 'Visite o site',
+    },
+    {
+        title: 'Site Lab Yes!',
+        description:
+            'Site desenvolvido pelo próprio time do Lab Yes! que serve como plataforma para divulgação de seus projetos e iniciativas, visando destacar o trabalho do Lab Yes! e captar novas parcerias.',
+        finished: false,
+        image: labYesIcon,
+        link: 'https://github.com/labyes24/LABYES-LP',
+        buttonTitle: 'Veja a documentação',
+    },
+]
 
 export default function ProjectsPage() {
     return (
@@ -28,29 +61,17 @@ export default function ProjectsPage() {
             <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]"></p>
 
             <div className="mb-28 flex flex-col items-center font-['DM_Sans'] lg:mb-48 lg:flex-row lg:gap-7 lg:p-7">
-                <ProjectCard
-                    title="RK Imóveis"
-                    description="Landing pages voltadas para o perfil do corretor, com design e funcionalidade pensados para facilitar a interação com o cliente, destacando as ofertas imobiliárias e serviços."
-                    finished={true}
-                    buttonTitle="Visite o site"
-                    link="https://rklp-caio-felipe.netlify.app/"
-                />
-
-                <ProjectCard
-                    title="Lab Links"
-                    description="Projeto que visa destacar os voluntários que atuaram no Lab Yes!, evidenciando a importância do trabalho colaborativo e a contribuição de cada um no sucesso das iniciativas."
-                    finished={true}
-                    buttonTitle="Visite o site"
-                    link="https://lab-links.netlify.app/"
-                />
-
-                <ProjectCard
-                    title="Site Lab Yes!"
-                    description="Site desenvolvido pelo próprio time do Lab Yes! que serve como plataforma para divulgação de seus projetos e iniciativas, visando destacar o trabalho do Lab Yes! e captar novas parcerias."
-                    finished={false}
-                    buttonTitle="Veja a documentação"
-                    link="https://github.com/labyes24/LABYES-LP"
-                />
+                {projects.map((project, index) => (
+                    <ProjectCard
+                        key={index}
+                        title={project.title}
+                        description={project.description}
+                        finished={project.finished}
+                        buttonTitle={project.buttonTitle}
+                        link={project.link}
+                        image={project.image}
+                    />
+                ))}
             </div>
             <div
                 style={{
