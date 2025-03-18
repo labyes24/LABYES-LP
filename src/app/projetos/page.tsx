@@ -34,7 +34,7 @@ const projects = [
         title: 'Site Lab Yes!',
         description:
             'Site desenvolvido pelo próprio time do Lab Yes! que serve como plataforma para divulgação de seus projetos e iniciativas, visando destacar o trabalho do Lab Yes! e captar novas parcerias.',
-        finished: false,
+        finished: true,
         image: labYesIcon,
         link: 'https://github.com/labyes24/LABYES-LP',
         buttonTitle: 'Veja a documentação',
@@ -58,7 +58,12 @@ export default function ProjectsPage() {
                 Projetos
             </h2>
 
-            <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]"></p>
+            <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]">
+                Desenvolvemos soluções personalizadas focadas nas necessidades
+                reais de nossos clientes. O Time Lab Yes! cria produtos
+                inovadores e sob medida, transformando desafios em
+                oportunidades.
+            </p>
 
             <div className="mb-28 flex flex-col items-center font-['DM_Sans'] lg:mb-48 lg:flex-row lg:gap-7 lg:p-7">
                 {projects.map((project, index) => (
