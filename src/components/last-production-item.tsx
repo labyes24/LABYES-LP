@@ -27,7 +27,7 @@ export function LastProductionItem({
                     className="items-start justify-center"
                 />
 
-                <div className="flex flex-col items-start justify-center gap-2">
+                <div className="flex flex-col items-start justify-center gap-2 text-left">
                     <h3 className="text-start font-sans text-[22px]/[28px] font-bold text-ly-dark-azure-600">
                         {title}
                     </h3>
