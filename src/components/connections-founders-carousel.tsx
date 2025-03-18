@@ -4,8 +4,9 @@ import Autoplay from 'embla-carousel-autoplay'
 import { StaticImageData } from 'next/image'
 import { useRef } from 'react'
 
-import AvatarBlue from '@/assets/avatar-blue.webp'
-import AvatarOrange from '@/assets/avatar-orange.webp'
+import Adriano from '@/assets/adriano.webp'
+import Grace from '@/assets/grace.webp'
+
 import {
     Carousel,
     CarouselContent,
@@ -23,28 +24,27 @@ export interface Founder {
     role: string
 }
 
+const founders: Founder[] = [
+    {
+        image: Grace,
+        quote: 'Conexão Entre Talentos e o Mercado',
+        description:
+            'A ideia do Lab Yes! surgiu a partir da observação do cenário em que o mercado exigia profissionais altamente capacitados, mas, ao mesmo tempo, os recém-formados enfrentavam dificuldades para se inserir. A discrepância entre as habilidades adquiridas e as exigidas era clara.',
+        name: 'Grace Kelly O. Souza',
+        role: 'Idealizadora do Lab Yes!',
+    },
+    {
+        image: Adriano,
+        quote: 'Lab Yes!: Inclusão para Talentos',
+        description:
+            'O Lab Yes! surgiu para apoiar jovens talentos no desenvolvimento profissional e conexão com o mercado. Com o tempo, tornou-se um espaço inclusivo para todas as idades, promovendo aprendizado contínuo, aprimoramento e novas oportunidades na carreira.',
+        name: 'Adriano Souza',
+        role: 'Dev Full Stack Sênior na ZPE Systems',
+    },
+]
+
 export function ConnectionsFoundersCarousel() {
     const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
-
-    // Fundadores
-    const founders: Founder[] = [
-        {
-            image: AvatarBlue,
-            quote: 'An amazing service',
-            description:
-                'Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices scelerisque mi sed interdum lacus tellus in mi orci, netus nisl laoreet phasellus. Pellentesque non nunc placerat mi quis vitae cursus ornare.',
-            name: 'John Carter',
-            role: 'Designer at BRIX Templates',
-        },
-        {
-            image: AvatarOrange,
-            quote: 'Great experience',
-            description:
-                'Netus nisl laoreet phasellus pellentesque non nunc placerat mi quis vitae cursus ornare. Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-            name: 'Jane Doe',
-            role: 'Developer at Tech Co.',
-        },
-    ]
 
     return (
         <div className="relative pb-32 pt-11 lg:pb-28">
