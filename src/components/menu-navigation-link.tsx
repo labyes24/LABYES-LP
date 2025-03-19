@@ -1,7 +1,9 @@
 'use client'
+
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
 import { buttonVariants } from './ui/button'
 import { NavigationMenuLink } from './ui/navigation-menu'
 import { SheetClose } from './ui/sheet'
@@ -25,10 +27,11 @@ export function MenuNavigationLink({
             {type === 'desktop' ? (
                 <Link href={href} legacyBehavior passHref>
                     <NavigationMenuLink
-                        className={
-                            className ||
-                            `inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-medium transition-colors hover:bg-accent focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`
-                        }
+                        data-actual={href === pathname}
+                        className={cn(
+                            `inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-medium transition-colors duration-300 hover:bg-accent focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[actual=true]:bg-accent/50`,
+                            className
+                        )}
                     >
                         {title}
                     </NavigationMenuLink>
