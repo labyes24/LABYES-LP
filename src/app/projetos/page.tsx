@@ -1,12 +1,45 @@
 import { Metadata } from 'next'
 
+import labLinkIcon from '@/assets/lablinks-icon.svg'
+import labYesIcon from '@/assets/labyes-icon.svg'
 import bottomDoodle from '@/assets/projects_bottom_mobo.svg'
 import topDoodle from '@/assets/projects_top_mobo.svg'
+import rkIcon from '@/assets/rk-icon.svg'
 import { ProjectCard } from '@/components/project-card'
 
 export const metadata: Metadata = {
     title: 'Projetos',
 }
+
+const projects = [
+    {
+        title: 'RK Imóveis',
+        description:
+            'Landing pages voltadas para o perfil do corretor, com design e funcionalidade pensados para facilitar a interação com o cliente, destacando as ofertas imobiliárias e serviços.',
+        finished: true,
+        image: rkIcon,
+        link: 'https://rklp-caio-felipe.netlify.app/',
+        buttonTitle: 'Visite o site',
+    },
+    {
+        title: 'Lab Links',
+        description:
+            'Projeto que visa destacar os voluntários que atuaram no Lab Yes!, evidenciando a importância do trabalho colaborativo e a contribuição de cada um no sucesso das iniciativas.',
+        finished: true,
+        image: labLinkIcon,
+        link: 'https://lab-links.netlify.app/',
+        buttonTitle: 'Visite o site',
+    },
+    {
+        title: 'Site Lab Yes!',
+        description:
+            'Site desenvolvido pelo próprio time do Lab Yes! que serve como plataforma para divulgação de seus projetos e iniciativas, visando destacar o trabalho do Lab Yes! e captar novas parcerias.',
+        finished: true,
+        image: labYesIcon,
+        link: 'https://github.com/labyes24/LABYES-LP',
+        buttonTitle: 'Veja a documentação',
+    },
+]
 
 export default function ProjectsPage() {
     return (
@@ -26,31 +59,24 @@ export default function ProjectsPage() {
             </h2>
 
             <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit semper
-                dalar elementum tempus hac tellus libero accumsan.
+                Desenvolvemos soluções personalizadas focadas nas necessidades
+                reais de nossos clientes. O Time Lab Yes! cria produtos
+                inovadores e sob medida, transformando desafios em
+                oportunidades.
             </p>
 
             <div className="mb-28 flex flex-col items-center font-['DM_Sans'] lg:mb-48 lg:flex-row lg:gap-7 lg:p-7">
-                <ProjectCard
-                    title="Mobile App"
-                    description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
-                    finished={true}
-                    link="/projetos"
-                />
-
-                <ProjectCard
-                    title="Desktop App"
-                    description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
-                    finished={false}
-                    link="/projetos"
-                />
-
-                <ProjectCard
-                    title="Multiple Users"
-                    description="Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalar dolor elementum tempus hac."
-                    finished={false}
-                    link="/projetos"
-                />
+                {projects.map((project, index) => (
+                    <ProjectCard
+                        key={index}
+                        title={project.title}
+                        description={project.description}
+                        finished={project.finished}
+                        buttonTitle={project.buttonTitle}
+                        link={project.link}
+                        image={project.image}
+                    />
+                ))}
             </div>
             <div
                 style={{

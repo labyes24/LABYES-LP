@@ -5,6 +5,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
+import Image, { StaticImageData } from 'next/image'
 
 import PlaceholderImage from '@/assets/project_card_placeholder.svg'
 import Ribbon from '@/assets/project_card_ribbon.svg'
@@ -16,8 +17,9 @@ interface ProjectCardProps {
     title: string
     description: string
     finished: boolean
-    image?: string
+    image?: string | StaticImageData
     link: string
+    buttonTitle: string
 }
 
 export function ProjectCard({
@@ -26,6 +28,7 @@ export function ProjectCard({
     finished,
     image,
     link,
+    buttonTitle,
 }: ProjectCardProps) {
     const imageUrl = image ?? PlaceholderImage.src
 
@@ -34,12 +37,12 @@ export function ProjectCard({
             {finished ? (
                 <img
                     src={Ribbon.src}
-                    alt=""
+                    alt="Tag para projetos concluídos"
                     className="absolute right-0 top-0"
                 />
             ) : null}
 
-            <img src={imageUrl} alt={title} className="mt-8 size-['172px']" />
+            <Image src={imageUrl} alt={title} className="mt-8 size-['172px']" />
 
             <CardHeader>
                 <CardTitle className="flex flex-col items-center text-2xl font-bold lg:text-[28px]/[38px]">
@@ -51,9 +54,9 @@ export function ProjectCard({
                 <p>{description}</p>
             </CardContent>
             <CardFooter className="w-full">
-                <a href={link} className="w-full">
+                <a href={link} target="_blank" className="w-full">
                     <Button className="h-16 w-full rounded-full bg-background text-lg font-semibold leading-5 text-foreground hover:bg-accent">
-                        Saiba mais
+                        {buttonTitle}
                     </Button>
                 </a>
             </CardFooter>
