@@ -1,22 +1,32 @@
 import { cn } from '@/lib/utils'
 import { type ClassValue } from 'clsx'
+import Image from 'next/image'
+
+import ConectionsDesktop from '@/assets/conections_desk.webp'
+import ConectionsMobile from '@/assets/conections_mobo.webp'
 
 export function ConnectionsSection() {
     return (
-        <>
-            <section className="flex min-h-[50vh] flex-col items-center bg-section-light pb-[49px] pt-[75px] font-['DM_Sans'] text-section-light-foreground lg:pb-32 lg:pt-12">
-                <Emojis />
-                <h2 className="text-[28px] font-bold leading-8">Conexões</h2>
+        <section className="flex min-h-[50vh] flex-col items-center bg-section-light pb-[49px] pt-[75px] font-['DM_Sans'] text-section-light-foreground lg:pb-32 lg:pt-12">
+            <Emojis />
+            <h2 className="text-[28px] font-bold leading-8">Conexões</h2>
 
-                <p className="max-w-[614px] px-10 py-7 text-center leading-relaxed">
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit
-                    volutpat gravida malesuada quam commodo id integer nam.
-                </p>
+            <p className="max-w-[614px] px-10 py-7 text-center leading-relaxed">
+                O Lab Yes! se fortalece por meio de conexões estratégicas,
+                unindo talentos, empresas e profissionais experientes.
+            </p>
 
-                <ConnectionsDiagramSmall className="max-w-full px-3 lg:hidden" />
-                <ConnectionsDiagramLarge className="hidden max-w-full px-3 lg:block" />
-            </section>
-        </>
+            <Image
+                className="hidden px-3 lg:block"
+                src={ConectionsDesktop}
+                alt="Imagem de Placeholder"
+            />
+            <Image
+                className="px-3 lg:hidden"
+                src={ConectionsMobile}
+                alt="Imagem de Placeholder"
+            />
+        </section>
     )
 }
 
@@ -29,6 +39,7 @@ function Emojis({ className }: ClassNameProps) {
         <svg
             width="127"
             height="27"
+            viewBox="0 0 127 27"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={cn(className)}
@@ -77,7 +88,7 @@ function Emojis({ className }: ClassNameProps) {
     )
 }
 
-function ConnectionsDiagramSmall({ className }: ClassNameProps) {
+export function ConnectionsDiagramSmall({ className }: ClassNameProps) {
     return (
         <svg
             width="391"
@@ -251,7 +262,7 @@ function ConnectionsDiagramSmall({ className }: ClassNameProps) {
     )
 }
 
-function ConnectionsDiagramLarge({ className }: ClassNameProps) {
+export function ConnectionsDiagramLarge({ className }: ClassNameProps) {
     return (
         <svg
             width="1138"

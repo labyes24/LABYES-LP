@@ -1,56 +1,36 @@
-import Partner01 from '@/assets/supporter_01_light.svg'
-import Partner02 from '@/assets/supporter_02_light.svg'
-import Partner03 from '@/assets/supporter_03_light.svg'
-import Partner04 from '@/assets/supporter_04_light.svg'
-import Partner05 from '@/assets/supporter_05_light.svg'
-import Partner06 from '@/assets/supporter_06_light.svg'
-import Image from 'next/image'
+import { LogoGilmar } from './svg/logo-gilmar'
+import { LogoRK } from './svg/logo-rk'
+import { LogoSSIG } from './svg/logo-ssig'
 
 const partners = [
     {
         id: 1,
-        src: Partner01.src,
-        alt: 'Partner 01',
-        link: '#',
+        svg: LogoRK,
+        alt: 'Logo Rk Imóveis',
+        link: 'https://www.rkimoveis.com.br/',
     },
     {
         id: 2,
-        src: Partner02.src,
-        alt: 'Partner 02',
-        link: '#',
+        svg: LogoSSIG,
+        alt: 'Logo SSIG',
+        link: 'https://www.ssig.tech/',
     },
     {
         id: 3,
-        src: Partner03.src,
-        alt: 'Partner 03',
-        link: '#',
-    },
-    {
-        id: 4,
-        src: Partner04.src,
-        alt: 'Partner 04',
-        link: '#',
-    },
-    {
-        id: 5,
-        src: Partner05.src,
-        alt: 'Partner 05',
-        link: '#',
-    },
-    {
-        id: 6,
-        src: Partner06.src,
-        alt: 'Partner 06',
-        link: '#',
+        svg: LogoGilmar,
+        alt: 'Logo Gil Santana',
+        link: 'https://www.linkedin.com/company/gsantana/',
     },
 ]
 
 export function PartnersSection() {
     return (
-        <>
-            <section className="flex min-h-[300px] flex-col items-center justify-center bg-section-dark px-7 py-16 font-['DM_Sans'] text-section-dark-foreground">
-                <ul className="grid grid-cols-2 justify-center gap-x-16 gap-y-20 px-8 align-middle lg:flex">
-                    {partners.map((partner) => (
+        <section className="flex min-h-[300px] flex-col items-center justify-center bg-section-dark px-7 py-16 font-['DM_Sans'] text-section-dark-foreground">
+            <ul className="grid grid-cols-1 justify-center gap-x-16 gap-y-20 px-8 align-middle lg:flex lg:w-full lg:justify-around">
+                {partners.map((partner) => {
+                    const Logo = partner.svg
+
+                    return (
                         <li
                             key={partner.id}
                             className="flex justify-center align-middle"
@@ -61,18 +41,17 @@ export function PartnersSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Image
-                                    src={partner.src}
+                                <Logo
+                                    fill="hsl(var(--section-dark-foreground))"
+                                    className="h-20 lg:h-24"
                                     alt={partner.alt}
-                                    width={130}
-                                    height={35}
-                                    unoptimized
+                                    aria-label={partner.alt}
                                 />
                             </a>
                         </li>
-                    ))}
-                </ul>
-            </section>
-        </>
+                    )
+                })}
+            </ul>
+        </section>
     )
 }
