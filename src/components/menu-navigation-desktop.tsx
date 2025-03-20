@@ -30,10 +30,12 @@ export function MenuNavigationDesktop() {
                 </NavigationMenuList>
             </NavigationMenu>
 
-            <Button className="rounded-full text-lg font-bold" size={'lg'}>
-                <Link className="" href="/contato" legacyBehavior passHref>
-                    Fale conosco
-                </Link>
+            <Button
+                asChild
+                className="rounded-full border-2 border-transparent text-lg font-bold focus:border-primary focus:bg-primary/50"
+                size={'lg'}
+            >
+                <Link href="/contato">Fale conosco</Link>
             </Button>
         </div>
     )
