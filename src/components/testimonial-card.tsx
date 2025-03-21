@@ -13,6 +13,7 @@ interface TestimonialCardProps {
     quote: string
     description: string
     author: string
+    authorLink: string
     role: string
     company: string
     companyLink: string
@@ -26,6 +27,7 @@ export function TestimonialCard({
     description,
     image,
     author,
+    authorLink,
     company,
     companyLink,
     role,
@@ -72,14 +74,22 @@ export function TestimonialCard({
             </CardContent>
             <CardFooter className="w-full">
                 <div className="flex flex-col gap-1">
-                    <span className="font-semibold">{author}</span>
+                    <a
+                        href={authorLink}
+                        target="_blank"
+                        className="font-semibold hover:font-bold hover:text-popover-foreground"
+                    >
+                        {author}
+                    </a>
                     <div>
                         <span>{role}</span>,{' '}
-                        <span className="underline">
-                            <a target="_blank" href={companyLink}>
-                                {company}
-                            </a>
-                        </span>
+                        <a
+                            target="_blank"
+                            href={companyLink}
+                            className="hover:font-bold hover:text-popover-foreground"
+                        >
+                            {company}
+                        </a>
                     </div>
                 </div>
             </CardFooter>

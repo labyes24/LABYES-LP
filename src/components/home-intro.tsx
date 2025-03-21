@@ -28,7 +28,7 @@ export function HomeIntro() {
                 <span className="mx-auto w-44 border-b-2 border-ly-dark-azure-600 lg:w-96" />
             </div>
 
-            <DoodleLight className="absolute bottom-8 right-4 h-20 w-20 lg:h-36 lg:w-36" />
+            <DoodleLight className="absolute bottom-4 right-3 h-20 w-20 lg:h-36 lg:w-36" />
         </section>
     )
 }
