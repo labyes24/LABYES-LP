@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Site Lab Yes!**
 
-## Getting Started
+O site institucional do Lab Yes! apresenta a iniciativa como um hub de integração entre recém-formados e o mercado de tecnologia. Através de suas páginas, o site oferece informações detalhadas sobre a missão do Lab, parcerias com empresas e os tipos de projetos práticos realizados pelos participantes. As páginas destacam a proposta de criar um ambiente de trabalho real com clientes reais, proporcionando uma vivência profissional imersiva. Além disso, o site apresenta seções sobre os resultados alcançados, depoimentos de participantes, informações sobre como empresas podem se envolver e como os talentos podem se inscrever para participar da iniciativa.
 
-First, run the development server:
+**_Acesse o site [Lab Yes!](https://lab-yes.com)_**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Objetivos
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Os principais objetivos do **site institucional do Lab Yes!** são:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Apresentar a missão e proposta** da iniciativa, conectando recém-formados ao mercado de tecnologia.
+- **Destacar projetos reais com clientes reais**, proporcionando uma experiência de trabalho autêntica.
+- **Divulgar parcerias** com empresas e oportunidades de colaboração.
+- **Facilitar a inscrição** de talentos e empresas interessadas em participar ou apoiar a iniciativa.
+- **Mostrar os resultados** alcançados pelos participantes e o impacto da iniciativa no mercado de trabalho.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✅Funcionalidades
 
-## Learn More
+As principais funcionalidades do **site institucional do Lab Yes!** incluem:
 
-To learn more about Next.js, take a look at the following resources:
+- **Depoimentos e histórias de sucesso** de participantes que passaram pela experiência do **Lab Yes!**.
+- **Seção de conexões**, destacando empresas e organizações envolvidas.
+- **Formulário de inscrição** para talentos interessados em participar da iniciativa e para empresas que desejam colaborar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Stack utilizada
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.Js
+- Typescript
+- Tailwindcss
 
-## Deploy on Vercel
+## 👥 Autores
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Adriano Souza](https://github.com/silvasouzaadriano) - Tech Lead
+- [Evandro Damaso](https://github.com/dam450) - Squad Lead e Dev Front End | Designer
+- [Francisco Ylderlan](https://github.com/FranciscoYlderlan) - Designer e Dev Front End
+- [Grace Souza](https://github.com/gksouza) - PO | QA Manager | QA Tester
+- [Luís Vinícius](https://www.linkedin.com/in/luisviniciuscerq/) - QA Tester | PR Reviewer
+- [Marcos Silva](https://www.linkedin.com/in/massilva/) - PO | Tech Lead
+- [Thalyta Rangel](https://github.com/ThalytaRangel) - PM | Dev Front End | Designer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    **_(Thalyta, sem você esse site não existiria. Muito obrigada!)_**
+
+## 🗣️ Suporte
+
+Para obter ajuda ou mandar um feedback para nossa equipe, envie um email para labyes23@gmail.com.
