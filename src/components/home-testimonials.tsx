@@ -10,7 +10,7 @@ const testimonials = [
     {
         quote: '“Da promessa à realidade”',
         description:
-            'Desde minha entrada no Lab Yes!, vinha percebendo que era a coisa que eu mais precisava pra sair do Network e ir pra vida real. A experiência do dia a dia me fez um desenvolvedor muito melhor e mais consciente, e devo muito da minha jornada a todos ensinamentos que obtive durante o nosso tempo juntos.',
+            'Desde minha entrada no Lab Yes!, vinha percebendo que tudo o que eu mais precisava pra sair do Network e ir pra vida real e ingressar no mercado de trabalho. A experiência do dia a dia me fez um desenvolvedor muito melhor e mais consciente, e devo muito da minha jornada a todos ensinamentos que obtive durante o nosso tempo juntos.',
         author: 'Cristian Sbardelotto',
         authorLink: 'https://www.linkedin.com/in/cristian-k-sbardelotto/',
         role: 'Desenvolvedor front-end',
@@ -32,7 +32,7 @@ const testimonials = [
     {
         quote: '“Transformação através do aprendizado”',
         description:
-            'O Lab Yes! sem dúvidas foi transformador pra mim. Foi muito bom trabalhar em equipe, conhecer pessoas incríveis e aprender mais sobre as etapas do desenvolvimento. Sem dúvidas estar no Lab Yes! me ajudou e muito a entrar no mercado, todo aprendizado de soft skills, git em grupo, lidar com pedidos de cliente, foram aprendizados fundamentais que levarei para o resto da vida.',
+            'O Lab Yes! sem dúvidas foi transformador pra mim. Foi muito bom trabalhar em equipe, conhecer pessoas incríveis e aprender mais sobre as etapas do desenvolvimento. Sem dúvidas estar no Lab Yes! me ajudou e muito a entrar no mercado, todo aprendizado de soft skills, git em grupo, lidar com pedidos de cliente, foram fundamentais e os levarei para o resto da vida.',
         author: 'Henrico Angolera',
         authorLink: 'https://www.linkedin.com/in/henrico-angolera/',
         role: 'Desenvolvedor Front-end júnior nível III',
