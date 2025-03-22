@@ -27,7 +27,7 @@ export function AboutHistoryTimeline() {
         },
     ]
     return (
-        <div className="flex flex-col items-start justify-center px-20 pb-20 lg:flex-row lg:px-0">
+        <div className="flex flex-col items-start justify-center px-3 pb-20 lg:flex-row lg:px-0">
             {timelineData.map(({ title, description, icon }, index) => (
                 <div
                     key={index}
