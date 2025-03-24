@@ -24,7 +24,7 @@ export function HomeIntro() {
             </div>
 
             <div className="flex flex-col">
-                <Separator />
+                <Separator decorative />
                 <span className="mx-auto w-44 border-b-2 border-ly-dark-azure-600 lg:w-96" />
             </div>
 
