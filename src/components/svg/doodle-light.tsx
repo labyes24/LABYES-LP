@@ -12,6 +12,7 @@ export function DoodleLight({ className }: DoodleLightProps) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={cn('h-6 w-32 flex-shrink-0', className)}
+            aria-hidden="true"
         >
             <g clipPath="url(#clip0_360_3250)">
                 <path
