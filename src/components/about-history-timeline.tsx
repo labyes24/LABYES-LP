@@ -20,7 +20,7 @@ export function AboutHistoryTimeline() {
             icon: Lightbulb,
         },
         {
-            title: 'Primeiros Devs para O início',
+            title: 'O início',
             description: (
                 <>
                     Em março de 2023, com um time pequeno, mas altamente comprometido, superamos
