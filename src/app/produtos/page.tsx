@@ -8,7 +8,7 @@ import rkIcon from '@/assets/rk-icon.svg'
 import { ProjectCard } from '@/components/project-card'
 
 export const metadata: Metadata = {
-    title: 'Projetos',
+    title: 'Produtos',
 }
 
 const projects = [
