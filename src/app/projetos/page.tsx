@@ -55,12 +55,12 @@ export default function ProjectsPage() {
             />
 
             <h2 className="mt-10 text-3xl font-bold lg:text-4xl/[46px]">
-                Projetos
+                Produtos
             </h2>
 
             <p className="mb-9 mt-4 px-4 text-center leading-7 lg:mb-14 lg:max-w-[620px] lg:p-0 lg:text-lg/[30px]">
                 Desenvolvemos soluções personalizadas focadas nas necessidades
-                reais de nossos clientes. O Time Lab Yes! cria produtos
+                reais de nossos clientes. O Time <span className='font-bold'>Lab Yes!</span> cria produtos
                 inovadores e sob medida, transformando desafios em
                 oportunidades.
             </p>
