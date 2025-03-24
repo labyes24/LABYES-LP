@@ -51,40 +51,50 @@ export function TestimonialCard({
             <CardHeader>
                 <div
                     className={cn(
-                        `mb-6 flex h-20 w-20 justify-center rounded-full border-4`,
+                        `mb-6 flex size-20 justify-center overflow-hidden rounded-full border-4`,
                         `${colorSelected}`
                     )}
                 >
                     {image ? (
-                        <Image
-                            className="rounded-full"
-                            src={image}
-                            alt={`Foto de ${author}`}
-                        />
+                        <a
+                            href={authorLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Image
+                                className="rounded-full"
+                                src={image}
+                                alt={`Foto de ${author}`}
+                            />
+                        </a>
                     ) : (
-                        <UserRound className={`h-14 w-14 text-background`} />
+                        <UserRound className={`size-14 text-background`} />
                     )}
                 </div>
                 <CardTitle className="font-bold">
                     <span>{quote}</span>
                 </CardTitle>
             </CardHeader>
-            <CardContent className="leading-7 tracking-wide">
-                <p>{description}</p>
+
+            <CardContent className="flex-1 text-pretty italic leading-6 tracking-wide">
+                <p>&quot;{description}&quot;</p>
             </CardContent>
+
             <CardFooter className="w-full">
                 <div className="flex flex-col gap-1">
                     <a
                         href={authorLink}
+                        rel="noopener noreferrer"
                         target="_blank"
                         className="font-semibold hover:font-bold hover:text-popover-foreground"
                     >
                         {author}
                     </a>
+                    <span className="text-sm">{role}</span>
                     <div>
-                        <span>{role}</span>,{' '}
                         <a
                             target="_blank"
+                            rel="noopener noreferrer"
                             href={companyLink}
                             className="hover:font-bold hover:text-popover-foreground"
                         >
