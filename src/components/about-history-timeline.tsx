@@ -4,28 +4,46 @@ import {
     AboutHistoryTimelineItemProps,
 } from './about-history-timeline-item'
 import { AboutHistoryLine } from './svg/about-history-line'
+import Link from 'next/link'
 
 export function AboutHistoryTimeline() {
     const timelineData: AboutHistoryTimelineItemProps[] = [
         {
             title: 'Ideação',
-            description:
-                'Como parte da comunidade percebi que o mercado real é fechado para novos devs. Com isso, imaginei uma ponte entre o recém-formado e o mercado real, nascia assim o Lab Yes!',
+            description: (
+                <>
+                    Como parte da comunidade, percebemos que o mercado real é fechado para novos devs.
+                    Com isso, imaginamos uma ponte entre os recém-formados e o mercado real,
+                    nascendo assim o <span className='font-bold'>Lab Yes!</span>
+                </>
+            ),
             icon: Lightbulb,
         },
         {
-            title: 'Primeiros Devs',
-            description:
-                'Francisco Ylderlan foi o primeiro dev a acreditar no projeto e a segunda pessoa impulsionadora do Lab Yes!. Em março de 2022 com uma equipe de três pessoas mais o dev sênior Adriano, trilhamos o caminho para um projeto de cliente real.',
+            title: 'Primeiros Devs para O início',
+            description: (
+                <>
+                    Em março de 2023, com um time pequeno, mas altamente comprometido, superamos
+                    desafios e entregamos projetos de sucessos, conquistando a confiança do cliente e
+                    abrindo novas oportunidades para o <span className='font-bold'>Lab Yes!</span>
+                </>
+            ),
             icon: UsersRound,
         },
         {
             title: 'Primeiros Projetos',
-            description:
-                'Fechamos a parceria com a RK Imóveis e com a chegada dos novos membros, começamos o desenvolvimento do nosso primeiro projeto.',
+            description: (
+                <>
+                    Desenvolvemos nove landing pages, incluindo perfis dos corretores, cards de imóveis
+                    com modal e formulários, atendendo às necessidades específicas 
+                    da <Link href="https://www.rkimoveis.com.br/" className='font-bold'>RK Imóveis.</Link> A 
+                    empresa nos impulsionou fortemente permitindo-nos entregar soluções personalizadas e eficazes.
+                </>
+            ),
             icon: PackageCheck,
         },
     ]
+
     return (
         <div className="flex flex-col items-start justify-center px-3 pb-20 lg:flex-row lg:px-0">
             {timelineData.map(({ title, description, icon }, index) => (

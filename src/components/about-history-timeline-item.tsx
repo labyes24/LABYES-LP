@@ -1,7 +1,7 @@
 import { Redo } from 'lucide-react'
 export interface AboutHistoryTimelineItemProps {
     title: string
-    description: string
+    description: React.ReactNode
 
     icon?: React.ElementType
 }
