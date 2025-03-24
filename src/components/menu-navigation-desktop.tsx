@@ -25,7 +25,7 @@ export function MenuNavigationDesktop() {
                         <MenuNavigationLink href="/conexoes" title="Conexões" />
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <MenuNavigationLink href="/projetos" title="Projetos" />
+                        <MenuNavigationLink href="/produtos" title="Produtos" />
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
