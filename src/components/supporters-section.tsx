@@ -6,18 +6,19 @@ import { LogoSSIG } from './svg/logo-ssig'
 const supporters = [
     {
         id: 1,
-        SVG: LogoGilmar,
-        alt: 'Logo Gil Santana',
-    },
-    {
-        id: 2,
         SVG: LogoRK,
         alt: 'Logo RK Imóveis',
     },
     {
-        id: 3,
+        id: 2,
         SVG: LogoSSIG,
         alt: 'Logo SSIG',
+    },
+    {
+        id: 3,
+
+        SVG: LogoGilmar,
+        alt: 'Logo Gil Santana',
     },
 ]
 

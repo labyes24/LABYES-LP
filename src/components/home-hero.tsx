@@ -1,4 +1,4 @@
-import HeroLoopGif from '@/assets/home_hero_image_loop.gif'
+import HeroImage from '@/assets/home_hero_image.webp'
 
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -29,12 +29,15 @@ export function HomeHero() {
                 >
                     <Link href={'/contato'}>
                         Quero Participar
-                        <ArrowRight className="!h-5 !w-5 lg:!h-7 lg:!w-7" />
+                        <ArrowRight
+                            className="!h-5 !w-5 lg:!h-7 lg:!w-7"
+                            role="presentation"
+                        />
                     </Link>
                 </Button>
             </div>
             <Image
-                src={HeroLoopGif}
+                src={HeroImage}
                 alt="Video chamadas em loop"
                 priority
                 unoptimized
@@ -43,7 +46,7 @@ export function HomeHero() {
                 className="hidden object-cover lg:flex"
             />
             <Image
-                src={HeroLoopGif}
+                src={HeroImage}
                 alt="Video chamadas em loop"
                 unoptimized
                 width={325}

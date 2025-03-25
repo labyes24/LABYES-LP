@@ -1,7 +1,6 @@
 import { Mail } from 'lucide-react'
 import Link from 'next/link'
 
-import { IconGithub } from './svg/icon-github'
 import { IconLinkedin } from './svg/icon-linkedin'
 import { LogoLabYes } from './svg/logo-lab-yes'
 import { Button } from './ui/button'
@@ -58,6 +57,7 @@ export function Footer() {
                             className="size-8"
                             strokeWidth={2.5}
                             stroke="hsl(var(--card-foreground))"
+                            role="presentation"
                         />
                         <span className="sr-only">Link para email</span>
                     </Link>
@@ -74,20 +74,6 @@ export function Footer() {
                     >
                         <IconLinkedin />
                         <span className="sr-only">Link do Linkedin</span>
-                    </Link>
-                </Button>
-
-                <Button
-                    className="size-8 rounded-md bg-foreground transition-colors duration-200 hover:bg-primary"
-                    variant={'link'}
-                    asChild
-                >
-                    <Link
-                        href={`${process.env.NEXT_PUBLIC_CLIENT_LINK_GITHUB}`}
-                        target="_blank"
-                    >
-                        <IconGithub />
-                        <span className="sr-only">Link do GitHub</span>
                     </Link>
                 </Button>
             </div>
