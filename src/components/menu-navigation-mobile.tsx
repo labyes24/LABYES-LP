@@ -55,8 +55,8 @@ export function MenuNavigationMobile() {
                             type="mobile"
                         />
                         <MenuNavigationLink
-                            href="/projetos"
-                            title="Projetos"
+                            href="/produtos"
+                            title="Produtos"
                             type="mobile"
                         />
                     </div>
