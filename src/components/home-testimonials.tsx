@@ -11,7 +11,7 @@ const testimonials = [
     {
         quote: 'Da promessa à realidade',
         description:
-            'Desde minha entrada no Lab Yes!, vinha percebendo que tudo o que eu mais precisava pra sair do Network e ir pra vida real e ingressar no mercado de trabalho. A experiência do dia a dia me fez um desenvolvedor muito melhor e mais consciente, e devo muito da minha jornada a todos ensinamentos que obtive durante o nosso tempo juntos.',
+            'Desde minha entrada no Lab Yes!, percebi que era o que eu precisava para deixar o Network e ingressar no mercado de trabalho. A experiência diária me fez um desenvolvedor mais capacitado e consciente.',
         author: 'Cristian Sbardelotto',
         authorLink: 'https://www.linkedin.com/in/cristian-k-sbardelotto/',
         role: 'Desenvolvedor Front-end',
@@ -22,7 +22,7 @@ const testimonials = [
     {
         quote: 'O Caminho para a minha primeira vaga',
         description:
-            'O Lab Yes! foi fundamental na minha jornada. Muito crescimento e exposição ao aprendizado colaborativo, pude praticar, crescer profissionalmente e conquistar a minha primeira vaga, com muito mais confiança. A dedicação de Grace e Adriano foram essenciais, me proporcionando a base e confiança que eu precisava. Sou eternamente grato!',
+            'O Lab Yes! foi essencial para meu crescimento profissional, aprendizado colaborativo e conquista da primeira vaga. A dedicação de Grace e Adriano me deu a base e confiança que eu precisava. Sou grato!',
         author: 'Francisco Ylderlan',
         authorLink: 'https://www.linkedin.com/in/franciscoylderlanoliveira/',
         role: 'Desenvolvedor Full Stack',
@@ -33,7 +33,7 @@ const testimonials = [
     {
         quote: 'Transformação através do aprendizado',
         description:
-            'O Lab Yes! sem dúvidas foi transformador pra mim. Foi muito bom trabalhar em equipe, conhecer pessoas incríveis e aprender mais sobre as etapas do desenvolvimento. Sem dúvidas estar no Lab Yes! me ajudou e muito a entrar no mercado, todo aprendizado de soft skills, git em grupo, lidar com pedidos de cliente, foram fundamentais e os levarei para o resto da vida.',
+            'O Lab Yes! foi transformador. Trabalhar em equipe, aprender sobre desenvolvimento, soft skills e versionamento git em grupo me ajudou a entrar no mercado e levar esses ensinamentos para a vida toda.',
         author: 'Henrico Angolera',
         authorLink: 'https://www.linkedin.com/in/henrico-angolera/',
         role: 'Desenvolvedor Front-end',
