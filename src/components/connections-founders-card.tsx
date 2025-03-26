@@ -26,10 +26,10 @@ export function ConnectionsFoundersCard({
                 <div className="flex select-none items-center justify-center bg-card px-6 py-12 text-center text-card-foreground lg:min-h-[620px] lg:rounded-r-3xl lg:p-20 lg:text-start">
                     <div className="flex min-h-60 flex-col gap-5 lg:gap-10">
                         <h3 className="text-lg font-bold lg:text-2xl">
-                            &quot;{quote}&quot;
+                            {quote}
                         </h3>
-                        <p className="text-sm leading-relaxed lg:text-xl lg:leading-loose">
-                            {description}
+                        <p className="text-sm italic leading-relaxed lg:text-xl lg:leading-loose">
+                            &quot;{description}&quot;
                         </p>
                         <div className="flex flex-col gap-1">
                             <span className="text-base font-semibold lg:text-lg">
