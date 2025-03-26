@@ -12,7 +12,7 @@ export function Header() {
                 className="inline-flex w-fit select-none p-0 hover:cursor-pointer focus:outline-none"
             >
                 <LogoLabYes
-                    className="h-[37px] md:h-[45px]"
+                    className="mr-6 h-[37px] md:h-[45px]"
                     primaryFill="hsl(var(--logo-primary))"
                     secondaryFill="hsl(var(--logo-secondary))"
                     aria-label="logo do lab yes!"
