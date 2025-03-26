@@ -29,6 +29,7 @@ export function ConnectionsSection() {
                 alt="Imagem de Placeholder"
                 height={833}
                 width={1159}
+                unoptimized
             />
 
             <div className="flex flex-col justify-center">
@@ -39,6 +40,7 @@ export function ConnectionsSection() {
                         alt="Imagem de Placeholder"
                         height={1648}
                         width={430}
+                        unoptimized
                     />
                 ) : (
                     <>
@@ -48,6 +50,7 @@ export function ConnectionsSection() {
                             alt="Imagem de Placeholder"
                             height={623}
                             width={430}
+                            unoptimized
                         />
 
                         <div className="flex w-full justify-end px-8 lg:hidden">
