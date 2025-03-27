@@ -27,7 +27,7 @@ export interface Founder {
 const founders: Founder[] = [
     {
         image: Grace,
-        quote: 'Conexão Entre Talentos e o Mercado',
+        quote: 'Conexão entre Talentos e o Mercado',
         description:
             'A ideia do Lab Yes! surgiu a partir da observação do cenário em que o mercado exigia profissionais altamente capacitados, mas, ao mesmo tempo, os recém-formados enfrentavam dificuldades para se inserir. A discrepância entre as habilidades adquiridas e as exigidas era clara.',
         name: 'Grace Kelly O. Souza',
