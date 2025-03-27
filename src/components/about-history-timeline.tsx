@@ -34,7 +34,7 @@ export function AboutHistoryTimeline() {
             icon: UsersRound,
         },
         {
-            title: 'Primeiros Projetos',
+            title: 'Primeiros Produtos',
             description: (
                 <>
                     Desenvolvemos nove landing pages, incluindo perfis dos
