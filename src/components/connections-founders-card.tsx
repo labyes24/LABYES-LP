@@ -13,7 +13,7 @@ export function ConnectionsFoundersCard({
     const { image, description, name, quote, role } = founder
     return (
         <Card className="relative cursor-grab overflow-hidden rounded-3xl border-none bg-card text-card-foreground">
-            <CardContent className="flex flex-col items-stretch justify-between p-0 lg:flex-row">
+            <CardContent className="flex flex-col items-stretch justify-between p-0 lg:min-h-[650px] lg:flex-row">
                 <Image
                     src={image}
                     alt="Fundador imagem"
