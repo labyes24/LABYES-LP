@@ -24,7 +24,7 @@ const projects = [
     {
         title: 'Lab Links',
         description:
-            'Projeto que visa destacar os voluntários que atuaram no Lab Yes!, evidenciando a importância do trabalho colaborativo e a contribuição de cada um no sucesso das iniciativas.',
+            'Produto que visa destacar os voluntários que atuaram no Lab Yes!, evidenciando a importância do trabalho colaborativo e a contribuição de cada um no sucesso das iniciativas.',
         finished: true,
         image: labLinkIcon,
         link: 'https://lab-links.netlify.app/',
