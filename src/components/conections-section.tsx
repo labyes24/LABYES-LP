@@ -19,8 +19,9 @@ export function ConnectionsSection() {
             <h2 className="text-[28px] font-bold leading-8">Conexões</h2>
 
             <p className="max-w-[614px] px-10 py-7 text-center leading-relaxed">
-                O Lab Yes! se fortalece por meio de conexões estratégicas,
-                unindo talentos, empresas e profissionais experientes.
+                O <span className="font-bold">Lab Yes!</span> se fortalece por
+                meio de conexões estratégicas, unindo talentos, empresas e
+                profissionais experientes.
             </p>
 
             <Image

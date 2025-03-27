@@ -10,8 +10,8 @@ const lastProductions = [
     {
         id: 1,
         image: RKIcon,
-        title: 'RK imóveis',
-        subtitle: 'Projeto de landing pages',
+        title: 'RK Imóveis',
+        subtitle: 'Criação de landing pages',
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const lastProductions = [
         id: 3,
         image: LabyesIcon,
         title: 'Site Lab Yes!',
-        subtitle: 'Projeto de landing pages',
+        subtitle: 'Criação de site institucional',
     },
 ]
 
@@ -36,8 +36,8 @@ export function ConnectionsLastProduction() {
                 </h2>
 
                 <p className="text-pretty px-4 font-sans text-base font-normal leading-7 text-section-medium-foreground md:text-lg">
-                    Aqui estão alguns dos produtos desenvolvidos pelo time{' '}
-                    <span className="font-bold">Lab Yes!</span>.
+                    Aqui estão alguns dos produtos desenvolvidos pelo{' '}
+                    <span className="font-bold">Time Lab Yes!</span>.
                 </p>
                 <p className="text-pretty font-sans text-base font-normal leading-7 text-section-medium-foreground md:text-lg">
                     Não deixe de conferir.

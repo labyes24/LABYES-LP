@@ -42,4 +42,4 @@ As principais funcionalidades do **site institucional do Lab Yes!** incluem:
 
 ## 🗣️ Suporte
 
-Para obter ajuda ou mandar um feedback para nossa equipe, envie um email para labyes23@gmail.com.
+Para obter ajuda ou mandar um feedback para nossa equipe, envie um email para contato@lab-yes.com.

@@ -20,10 +20,10 @@ export function ConnectionsFoundersCard({
                     priority
                     width={550}
                     height={620}
-                    className="h-[382px] w-full object-cover lg:flex lg:h-auto lg:w-[45%] lg:rounded-l-3xl"
+                    className="h-[382px] w-full object-cover lg:flex lg:h-auto lg:w-1/2 lg:rounded-l-3xl"
                 />
 
-                <div className="flex select-none items-center justify-center bg-card px-6 py-12 text-center text-card-foreground lg:min-h-[620px] lg:rounded-r-3xl lg:p-20 lg:text-start">
+                <div className="flex select-none items-center justify-center bg-card px-6 py-12 text-center text-card-foreground lg:min-h-[620px] lg:w-1/2 lg:rounded-r-3xl lg:p-20 lg:text-start">
                     <div className="flex min-h-60 flex-col gap-5 lg:gap-10">
                         <h3 className="text-lg font-bold lg:text-2xl">
                             {quote}

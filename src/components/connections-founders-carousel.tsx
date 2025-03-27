@@ -35,7 +35,7 @@ const founders: Founder[] = [
     },
     {
         image: Adriano,
-        quote: 'Lab Yes!: Inclusão para Talentos',
+        quote: 'Inclusão para Talentos',
         description:
             'O Lab Yes! surgiu para apoiar jovens talentos no desenvolvimento profissional e conexão com o mercado. Com o tempo, tornou-se um espaço inclusivo para todas as idades, promovendo aprendizado contínuo, aprimoramento e novas oportunidades na carreira.',
         name: 'Adriano Souza',
