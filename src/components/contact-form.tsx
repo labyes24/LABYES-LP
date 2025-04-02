@@ -120,7 +120,7 @@ export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
                             handleClickButton(type as 'dev' | 'enterprise')
                         }
                     >
-                        {type === 'dev' ? 'Dev Junior' : 'Empresa'}
+                        {type === 'dev' ? 'Talentos' : 'Empresa'}
                     </Button>
                 ))}
             </div>
