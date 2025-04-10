@@ -10,7 +10,7 @@ import { generateRandomToken } from '@/lib/utils'
 
 const userTypeMap = {
     enterprise: 'Empresa',
-    dev: 'Dev Junior',
+    dev: 'Talentos',
 }
 
 export async function sendEmail(

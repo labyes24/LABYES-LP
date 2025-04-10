@@ -30,10 +30,10 @@ export default function ContactsPage() {
                         #boraláserfeliz!
                     </h2>
                     <p className="mb-6">
-                        O Lab Yes! conecta novos desenvolvedores com o mercado
-                        real, oferecendo benefícios tanto para os novos
-                        desenvolvedores quanto para as empresas que buscam
-                        estabelecer parcerias. Aqui estão algumas das vantagens:
+                        O <span className="font-bold">Lab Yes!</span> conecta
+                        novos talentos da área de TI com o mercado real,
+                        oferecendo benefícios tanto para os profissionais quanto
+                        para as empresas que buscam estabelecer parcerias.
                     </p>
                 </div>
 
