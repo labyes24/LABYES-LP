@@ -6,7 +6,7 @@ import {
     NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
     sendNotificationEmail,
 } from '@/lib/node-mailer'
-import { generateRandomToken } from '@/lib/utils'
+// import { generateRandomToken } from '@/lib/utils'
 
 const userTypeMap = {
     enterprise: 'Empresa',
@@ -24,10 +24,10 @@ export async function sendEmail(
 
     const userType = userTypeMap[userTypeKey] || ''
 
-    const randomToken = generateRandomToken()
+    // const randomToken = generateRandomToken()
 
-    const subjectTeam = 'Nova mensagem recebida no Lab Yes! - ' + randomToken
-    const subjectUser = 'Recebemos sua mensagem no Lab Yes! - ' + randomToken
+    const subjectTeam = 'Nova mensagem recebida no Lab Yes!'
+    const subjectUser = 'Oba! Sua mensagem chegou com sucesso. 😊'
 
     try {
         await sendNotificationEmail({
