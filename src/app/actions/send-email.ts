@@ -41,6 +41,8 @@ export async function sendEmail(
             subject: subjectTeam,
             templatePath: NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
             toEmail: process.env.APPLICATION_EMAIL,
+            // Comente a linha acima e descomente a linha abaixo para testar com Mailtrap.
+            // toEmail: email,
         })
 
         await sendNotificationEmail({
