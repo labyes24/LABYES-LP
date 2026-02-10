@@ -38,6 +38,7 @@ export async function sendEmail(
             subject: subjectTeam,
             templatePath: NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
             toEmail: process.env.APPLICATION_EMAIL,
+            ccEmail: process.env.APPLICATION_CC_EMAIL,
         })
 
         await sendNotificationEmail({

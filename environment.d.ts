@@ -9,6 +9,7 @@ declare namespace NodeJS {
         SEND_EMAIL_PROTOCOL: string
         APPLICATION_EMAIL: string
         APPLICATION_EMAIL_PASSWORD: string
+        APPLICATION_CC_EMAIL: string | undefined
 
         NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: string | undefined
     }
