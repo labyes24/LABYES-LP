@@ -17,6 +17,7 @@ interface NotificationEmailParams {
     placeholders: PlaceholdersParams
     toEmail: string
     subject: string
+    ccEmail?: string
 }
 
 const transporter = nodemailer.createTransport({
@@ -49,6 +50,7 @@ async function sendNotificationEmail({
     placeholders,
     toEmail,
     subject,
+    ccEmail,
 }: NotificationEmailParams): Promise<{ success: boolean; error?: string }> {
     try {
         if (!templatePath || !placeholders || !toEmail || !subject) {
@@ -64,6 +66,7 @@ async function sendNotificationEmail({
         await transporter.sendMail({
             from: `Team Lab Yes! <${process.env.APPLICATION_EMAIL}>`,
             to: toEmail,
+            cc: ccEmail,
             subject,
             text: subject,
             html: htmlToSend,
