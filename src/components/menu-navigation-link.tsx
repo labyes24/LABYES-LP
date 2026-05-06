@@ -25,17 +25,16 @@ export function MenuNavigationLink({
     return (
         <>
             {type === 'desktop' ? (
-                <Link href={href} legacyBehavior passHref>
-                    <NavigationMenuLink
-                        data-actual={href === pathname}
-                        className={cn(
-                            `inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-medium transition-colors duration-300 hover:bg-accent focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[actual=true]:bg-accent/50`,
-                            className
-                        )}
-                    >
-                        {title}
-                    </NavigationMenuLink>
-                </Link>
+                <NavigationMenuLink
+                    asChild
+                    data-actual={href === pathname}
+                    className={cn(
+                        `inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-medium transition-colors duration-300 hover:bg-accent focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[actual=true]:bg-accent/50`,
+                        className
+                    )}
+                >
+                    <Link href={href}>{title}</Link>
+                </NavigationMenuLink>
             ) : (
                 <SheetClose asChild>
                     <Link

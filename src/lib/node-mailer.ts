@@ -21,12 +21,12 @@ interface NotificationEmailParams {
 }
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SEND_EMAIL_PROTOCOL,
+    host: process.env.APPLICATION_SMTP_HOST,
     port: 587,
     secure: false,
     auth: {
-        user: process.env.APPLICATION_EMAIL,
-        pass: process.env.APPLICATION_EMAIL_PASSWORD,
+        user: process.env.APPLICATION_SMTP_USER,
+        pass: process.env.APPLICATION_SMTP_PASSWORD,
     },
 })
 
@@ -64,7 +64,7 @@ async function sendNotificationEmail({
         })
 
         await transporter.sendMail({
-            from: `Team Lab Yes! <${process.env.APPLICATION_EMAIL}>`,
+            from: `Team Lab Yes! <${process.env.APPLICATION_EMAIL_SENDER}>`,
             to: toEmail,
             cc: ccEmail,
             subject,
