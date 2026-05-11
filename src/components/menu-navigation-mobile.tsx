@@ -12,19 +12,28 @@ import {
     SheetTrigger,
 } from './ui/sheet'
 
+import { navigation } from '@/lib/navigation'
+
 export function MenuNavigationMobile() {
+    const { links, CTA } = navigation
+
     return (
         <div className="flex lg:hidden">
             <Sheet>
-                <SheetTrigger asChild>
-                    <Button asChild className="p-0" variant={'ghost'}>
-                        <Menu
-                            className="h-8 w-8 flex-shrink-0 text-foreground"
-                            strokeWidth={2}
-                        />
-                    </Button>
+                <SheetTrigger
+                    className="rounded-md p-1 outline-2 focus:outline-none focus-visible:outline-primary"
+                    aria-label="abrir menu de navegação"
+                >
+                    <Menu
+                        className="h-8 w-8 flex-shrink-0 text-foreground"
+                        strokeWidth={2}
+                    />
                 </SheetTrigger>
-                <SheetContent className="flex flex-col gap-6">
+
+                <SheetContent
+                    className="flex flex-col gap-6"
+                    closeSheetSRDescription="Fechar menu"
+                >
                     <SheetHeader>
                         <SheetTitle className="flex justify-center">
                             <LogoLabYes
@@ -37,40 +46,27 @@ export function MenuNavigationMobile() {
                             Navegue pelas nossas páginas, através do menu.
                         </SheetDescription>
                     </SheetHeader>
-                    <div>
-                        <MenuNavigationLink
-                            href="/"
-                            title="Home"
-                            type="mobile"
-                        />
 
-                        <MenuNavigationLink
-                            href="/quemsomos"
-                            title="Quem somos"
-                            type="mobile"
-                        />
-                        <MenuNavigationLink
-                            href="/conexoes"
-                            title="Conexões"
-                            type="mobile"
-                        />
-                        <MenuNavigationLink
-                            href="/produtos"
-                            title="Produtos"
-                            type="mobile"
-                        />
+                    <div className="flex flex-col items-center gap-2">
+                        {links.map((link) => (
+                            <MenuNavigationLink
+                                key={link.href}
+                                href={link.href}
+                                title={link.title}
+                                type="mobile"
+                            />
+                        ))}
                     </div>
+
                     <SheetFooter className="flex flex-row">
                         <Button
-                            type="button"
-                            className="w-full rounded-full bg-primary text-base font-bold text-primary-foreground"
+                            className="w-full rounded-full border-2 border-transparent bg-primary text-base font-bold text-background transition-colors duration-300 focus:border-primary focus:bg-primary/50 focus:text-primary-foreground focus:outline-none"
                             size={'lg'}
                             asChild
                         >
-                            {/* Quando a classe pai possui estilização, a classe pai concatena com sua estilização com o da classe filha */}
                             <MenuNavigationLink
-                                href="/contato"
-                                title="Fale conosco"
+                                href={CTA.href}
+                                title={CTA.title}
                                 type="mobile"
                             />
                         </Button>
