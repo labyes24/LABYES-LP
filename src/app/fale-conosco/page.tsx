@@ -10,12 +10,13 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
+import { navigation } from '@/lib/navigation'
 import { IconEnterprise } from '../../components/svg/icon-enterprise'
 import { IconTalents } from '../../components/svg/icon-talents'
 import { sendEmail } from '../actions/send-email'
 
 export const metadata: Metadata = {
-    title: 'Contatos',
+    title: navigation.CTA.title,
 }
 
 const EMAIL_URL = process.env.NEXT_PUBLIC_CLIENT_LINK_EMAIL || ''
