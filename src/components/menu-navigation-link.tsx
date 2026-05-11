@@ -28,8 +28,9 @@ export function MenuNavigationLink({
                 <NavigationMenuLink
                     asChild
                     data-actual={href === pathname}
+                    aria-current={href === pathname}
                     className={cn(
-                        `inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-medium transition-colors duration-300 hover:bg-accent focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[actual=true]:bg-accent/50`,
+                        `inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-medium outline-2 transition-colors duration-300 hover:bg-accent focus:bg-accent focus:text-accent-foreground focus:outline-none focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 data-[actual=true]:bg-accent/50`,
                         className
                     )}
                 >
@@ -39,6 +40,7 @@ export function MenuNavigationLink({
                 <SheetClose asChild>
                     <Link
                         data-actual={href! === pathname}
+                        aria-current={href === pathname}
                         href={href!}
                         className={
                             className ||
@@ -46,7 +48,7 @@ export function MenuNavigationLink({
                                 'transition-all',
                                 buttonVariants({ variant: 'ghost' }),
                                 pathname === href && 'bg-muted hover:bg-muted',
-                                'w-full justify-center rounded-none text-base font-medium text-foreground/95 data-[actual=true]:text-foreground/80'
+                                'w-full justify-center rounded-lg text-base font-medium text-foreground/95 data-[actual=true]:text-foreground/80'
                             )
                         }
                     >
