@@ -7,35 +7,32 @@ import {
     NavigationMenuList,
 } from './ui/navigation-menu'
 
+import { navigation } from '@/lib/navigation'
+
 export function MenuNavigationDesktop() {
+    const { links, CTA } = navigation
+
     return (
         <div className="hidden items-center justify-center gap-4 lg:flex">
             <NavigationMenu>
                 <NavigationMenuList>
-                    <NavigationMenuItem>
-                        <MenuNavigationLink href="/" title="Home" />
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <MenuNavigationLink
-                            href="/quemsomos"
-                            title="Quem somos"
-                        />
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <MenuNavigationLink href="/conexoes" title="Conexões" />
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <MenuNavigationLink href="/produtos" title="Produtos" />
-                    </NavigationMenuItem>
+                    {links.map((link) => (
+                        <NavigationMenuItem key={link.href}>
+                            <MenuNavigationLink
+                                href={link.href}
+                                title={link.title}
+                            />
+                        </NavigationMenuItem>
+                    ))}
                 </NavigationMenuList>
             </NavigationMenu>
 
             <Button
                 asChild
-                className="rounded-full border-2 border-transparent text-lg font-bold focus:border-primary focus:bg-primary/50"
+                className="rounded-full border-2 border-transparent text-lg font-bold text-background transition-colors duration-300 focus:border-primary focus:bg-primary/50 focus:text-primary-foreground"
                 size={'lg'}
             >
-                <Link href="/contato">Fale conosco</Link>
+                <Link href={CTA.href}>{CTA.title}</Link>
             </Button>
         </div>
     )
