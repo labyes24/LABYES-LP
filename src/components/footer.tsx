@@ -25,24 +25,22 @@ export function Footer() {
             </Link>
 
             <div className="row-start-3 hidden leading-tight md:flex">
-                Copyright © 2025
+                Copyright &copy; {COPYRIGHT_YEAR}
                 <a
-                    className="px-2 hover:text-ring"
-                    href="https://lab-links.netlify.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    className="rounded-sm px-2 outline-2 outline-offset-2 transition-colors duration-200 hover:text-ring focus-visible:text-ring focus-visible:outline focus-visible:outline-ring"
+                    href="https://www.lab-yes.com"
+                    aria-label="lab yes!, ir para página inicial"
                 >
                     Lab Yes!
                 </a>
                 | Todos os direitos reservados.
             </div>
             <div className="row-start-3 mx-auto flex md:hidden">
-                Copyright © 2025
+                Copyright &copy; {COPYRIGHT_YEAR}
                 <a
-                    className="ps-2 hover:text-ring"
-                    href="https://lab-links.netlify.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    className="rounded-sm px-2 outline-2 outline-offset-2 transition-colors duration-200 hover:text-ring focus-visible:text-ring focus-visible:outline focus-visible:outline-ring"
+                    href="https://www.lab-yes.com"
+                    aria-label="lab yes!, ir para página inicial"
                 >
                     Lab Yes!
                 </a>
