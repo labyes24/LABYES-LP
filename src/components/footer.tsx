@@ -5,6 +5,10 @@ import { IconLinkedin } from './svg/icon-linkedin'
 import { LogoLabYes } from './svg/logo-lab-yes'
 import { Button } from './ui/button'
 
+const LINKEDIN_URL = process.env.NEXT_PUBLIC_CLIENT_LINK_LINKEDIN
+const EMAIL_URL = process.env.NEXT_PUBLIC_CLIENT_LINK_EMAIL
+const COPYRIGHT_YEAR = new Date().getFullYear()
+
 export function Footer() {
     return (
         <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-t border-t-foreground/10 py-16 text-foreground md:flex md:h-fit md:justify-between md:gap-6 md:px-36 md:py-8">
