@@ -14,7 +14,8 @@ export function Footer() {
         <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-t border-t-foreground/10 py-16 text-foreground md:flex md:h-fit md:justify-between md:gap-6 md:px-36 md:py-8">
             <Link
                 href={'/'}
-                className="row-start-1 mx-auto w-fit select-none p-0 hover:cursor-pointer md:mx-0"
+                className="row-start-1 mx-auto w-fit select-none rounded-md p-0 outline-2 outline-offset-2 hover:cursor-pointer focus-visible:outline focus-visible:outline-ring md:mx-0"
+                aria-label="Logo Lab Yes!, ir para página inicial"
             >
                 <LogoLabYes
                     className="h-6 md:h-9"
