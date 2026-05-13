@@ -48,36 +48,28 @@ export function Footer() {
 
             <div className="row-start-2 flex items-center justify-center gap-2 md:justify-between">
                 <Button
-                    className="size-8 rounded-md bg-foreground transition-colors duration-200 hover:bg-primary"
+                    className="size-8 rounded-md bg-foreground outline-2 outline-offset-2 transition-colors duration-300 hover:bg-primary focus-visible:bg-primary focus-visible:outline focus-visible:outline-primary"
                     variant={'link'}
                     asChild
                 >
-                    <Link
-                        href={`mailto:${process.env.NEXT_PUBLIC_CLIENT_LINK_EMAIL}`}
-                        target="_blank"
-                    >
+                    <a href={`mailto:${EMAIL_URL}`} target="_blank">
                         <Mail
                             className="size-8"
                             strokeWidth={2.5}
                             stroke="hsl(var(--card-foreground))"
                             role="presentation"
                         />
-                        <span className="sr-only">Link para email</span>
-                    </Link>
+                    </a>
                 </Button>
 
                 <Button
-                    className="size-8 rounded-md bg-foreground transition-colors duration-200 hover:bg-primary"
+                    className="size-8 rounded-md bg-foreground outline-2 outline-offset-2 transition-colors duration-300 hover:bg-primary focus-visible:bg-primary focus-visible:outline focus-visible:outline-primary"
                     variant={'link'}
                     asChild
                 >
-                    <Link
-                        href={`${process.env.NEXT_PUBLIC_CLIENT_LINK_LINKEDIN}`}
-                        target="_blank"
-                    >
+                    <a href={`${LINKEDIN_URL}`} target="_blank">
                         <IconLinkedin />
-                        <span className="sr-only">Link do Linkedin</span>
-                    </Link>
+                    </a>
                 </Button>
             </div>
         </footer>
