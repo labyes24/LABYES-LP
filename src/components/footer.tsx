@@ -5,77 +5,89 @@ import { IconLinkedin } from './svg/icon-linkedin'
 import { LogoLabYes } from './svg/logo-lab-yes'
 import { Button } from './ui/button'
 
+const LINKEDIN_URL = process.env.NEXT_PUBLIC_CLIENT_LINK_LINKEDIN
+const EMAIL_URL = process.env.NEXT_PUBLIC_CLIENT_LINK_EMAIL
+const COPYRIGHT_YEAR = new Date().getFullYear()
+
 export function Footer() {
     return (
-        <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-t border-t-foreground/10 py-16 text-foreground md:flex md:h-fit md:justify-between md:gap-6 md:px-36 md:py-8">
+        <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-t border-t-foreground/10 py-16 text-foreground xl:flex xl:h-fit xl:justify-between xl:gap-6 xl:px-36 xl:py-8">
             <Link
                 href={'/'}
-                className="row-start-1 mx-auto w-fit select-none p-0 hover:cursor-pointer md:mx-0"
+                className="row-start-1 mx-auto w-fit select-none rounded-md p-0 outline-2 outline-offset-2 hover:cursor-pointer focus-visible:outline focus-visible:outline-ring xl:mx-0"
+                aria-label="Logo Lab Yes, ir para página inicial"
             >
                 <LogoLabYes
-                    className="h-6 md:h-9"
+                    className="h-6 xl:h-9"
                     primaryFill="hsl(var(--logo-primary))"
                     secondaryFill="hsl(var(--logo-secondary))"
                 />
             </Link>
 
-            <div className="row-start-3 hidden leading-tight md:flex">
-                Copyright © 2025
-                <a
-                    className="px-2 hover:text-ring"
-                    href="https://lab-links.netlify.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <div className="row-start-3 hidden leading-tight xl:flex">
+                Copyright
+                <span aria-hidden="true" className="px-2">
+                    &copy;
+                </span>
+                {COPYRIGHT_YEAR}
+                <Link
+                    className="rounded-sm px-2 outline-2 outline-offset-2 transition-colors duration-200 hover:text-ring focus-visible:text-ring focus-visible:outline focus-visible:outline-ring"
+                    href="/"
+                    aria-label="lab yes!, ir para página inicial"
                 >
                     Lab Yes!
-                </a>
+                </Link>
                 | Todos os direitos reservados.
             </div>
-            <div className="row-start-3 mx-auto flex md:hidden">
-                Copyright © 2025
-                <a
-                    className="ps-2 hover:text-ring"
-                    href="https://lab-links.netlify.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Lab Yes!
-                </a>
-            </div>
 
-            <div className="row-start-2 flex items-center justify-center gap-2 md:justify-between">
+            <div className="row-start-2 flex items-center justify-center gap-2 xl:justify-between">
                 <Button
-                    className="size-8 rounded-md bg-foreground transition-colors duration-200 hover:bg-primary"
-                    variant={'link'}
+                    className="size-8 rounded-md bg-foreground outline-2 outline-offset-2 transition-colors duration-300 hover:bg-primary focus-visible:bg-primary focus-visible:outline focus-visible:outline-primary"
+                    variant="link"
                     asChild
                 >
-                    <Link
-                        href={`mailto:${process.env.NEXT_PUBLIC_CLIENT_LINK_EMAIL}`}
+                    <a
+                        href={`mailto:${EMAIL_URL}`}
                         target="_blank"
+                        aria-label="enviar email para contato, nova janela"
                     >
                         <Mail
                             className="size-8"
                             strokeWidth={2.5}
                             stroke="hsl(var(--card-foreground))"
-                            role="presentation"
+                            aria-hidden="true"
                         />
-                        <span className="sr-only">Link para email</span>
-                    </Link>
+                    </a>
                 </Button>
 
                 <Button
-                    className="size-8 rounded-md bg-foreground transition-colors duration-200 hover:bg-primary"
-                    variant={'link'}
+                    className="size-8 rounded-md bg-foreground outline-2 outline-offset-2 transition-colors duration-300 hover:bg-primary focus-visible:bg-primary focus-visible:outline focus-visible:outline-primary"
+                    variant="link"
                     asChild
                 >
-                    <Link
-                        href={`${process.env.NEXT_PUBLIC_CLIENT_LINK_LINKEDIN}`}
+                    <a
+                        href={`${LINKEDIN_URL}`}
                         target="_blank"
+                        aria-label="ir para Linkedin Lab Yes, nova janela"
                     >
-                        <IconLinkedin />
-                        <span className="sr-only">Link do Linkedin</span>
-                    </Link>
+                        <IconLinkedin aria-hidden="true" />
+                    </a>
                 </Button>
+            </div>
+
+            <div className="row-start-3 mx-auto flex xl:hidden">
+                Copyright
+                <span aria-hidden="true" className="px-2">
+                    &copy;
+                </span>
+                {COPYRIGHT_YEAR}
+                <Link
+                    className="rounded-sm px-2 outline-2 outline-offset-2 transition-colors duration-200 hover:text-ring focus-visible:text-ring focus-visible:outline focus-visible:outline-ring"
+                    href="/"
+                    aria-label="lab yes, ir para página inicial"
+                >
+                    Lab Yes!
+                </Link>
             </div>
         </footer>
     )
