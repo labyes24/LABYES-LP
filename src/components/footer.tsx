@@ -11,66 +11,83 @@ const COPYRIGHT_YEAR = new Date().getFullYear()
 
 export function Footer() {
     return (
-        <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-t border-t-foreground/10 py-16 text-foreground md:flex md:h-fit md:justify-between md:gap-6 md:px-36 md:py-8">
+        <footer className="grid grid-cols-1 grid-rows-3 items-center gap-8 border-t border-t-foreground/10 py-16 text-foreground xl:flex xl:h-fit xl:justify-between xl:gap-6 xl:px-36 xl:py-8">
             <Link
                 href={'/'}
-                className="row-start-1 mx-auto w-fit select-none rounded-md p-0 outline-2 outline-offset-2 hover:cursor-pointer focus-visible:outline focus-visible:outline-ring md:mx-0"
-                aria-label="Logo Lab Yes!, ir para página inicial"
+                className="row-start-1 mx-auto w-fit select-none rounded-md p-0 outline-2 outline-offset-2 hover:cursor-pointer focus-visible:outline focus-visible:outline-ring xl:mx-0"
+                aria-label="Logo Lab Yes, ir para página inicial"
             >
                 <LogoLabYes
-                    className="h-6 md:h-9"
+                    className="h-6 xl:h-9"
                     primaryFill="hsl(var(--logo-primary))"
                     secondaryFill="hsl(var(--logo-secondary))"
                 />
             </Link>
 
-            <div className="row-start-3 hidden leading-tight md:flex">
-                Copyright &copy; {COPYRIGHT_YEAR}
-                <a
+            <div className="row-start-3 hidden leading-tight xl:flex">
+                Copyright
+                <span aria-hidden="true" className="px-2">
+                    &copy;
+                </span>
+                {COPYRIGHT_YEAR}
+                <Link
                     className="rounded-sm px-2 outline-2 outline-offset-2 transition-colors duration-200 hover:text-ring focus-visible:text-ring focus-visible:outline focus-visible:outline-ring"
-                    href="https://www.lab-yes.com"
+                    href="/"
                     aria-label="lab yes!, ir para página inicial"
                 >
                     Lab Yes!
-                </a>
+                </Link>
                 | Todos os direitos reservados.
             </div>
-            <div className="row-start-3 mx-auto flex md:hidden">
-                Copyright &copy; {COPYRIGHT_YEAR}
-                <a
-                    className="rounded-sm px-2 outline-2 outline-offset-2 transition-colors duration-200 hover:text-ring focus-visible:text-ring focus-visible:outline focus-visible:outline-ring"
-                    href="https://www.lab-yes.com"
-                    aria-label="lab yes!, ir para página inicial"
-                >
-                    Lab Yes!
-                </a>
-            </div>
 
-            <div className="row-start-2 flex items-center justify-center gap-2 md:justify-between">
+            <div className="row-start-2 flex items-center justify-center gap-2 xl:justify-between">
                 <Button
                     className="size-8 rounded-md bg-foreground outline-2 outline-offset-2 transition-colors duration-300 hover:bg-primary focus-visible:bg-primary focus-visible:outline focus-visible:outline-primary"
-                    variant={'link'}
+                    variant="link"
                     asChild
                 >
-                    <a href={`mailto:${EMAIL_URL}`} target="_blank">
+                    <a
+                        href={`mailto:${EMAIL_URL}`}
+                        target="_blank"
+                        aria-label="enviar email para contato, nova janela"
+                    >
                         <Mail
                             className="size-8"
                             strokeWidth={2.5}
                             stroke="hsl(var(--card-foreground))"
-                            role="presentation"
+                            aria-hidden="true"
                         />
                     </a>
                 </Button>
 
                 <Button
                     className="size-8 rounded-md bg-foreground outline-2 outline-offset-2 transition-colors duration-300 hover:bg-primary focus-visible:bg-primary focus-visible:outline focus-visible:outline-primary"
-                    variant={'link'}
+                    variant="link"
                     asChild
                 >
-                    <a href={`${LINKEDIN_URL}`} target="_blank">
-                        <IconLinkedin />
+                    <a
+                        href={`${LINKEDIN_URL}`}
+                        target="_blank"
+                        aria-label="ir para Linkedin Lab Yes, nova janela"
+                    >
+                        <IconLinkedin aria-hidden="true" />
                     </a>
                 </Button>
+            </div>
+
+            <div className="row-start-3 mx-auto flex xl:hidden">
+                Copyright
+                <span aria-hidden="true" className="px-2">
+                    &copy;
+                </span>
+                {COPYRIGHT_YEAR}
+                <Link
+                    className="rounded-sm px-2 outline-2 outline-offset-2 transition-colors duration-200 hover:text-ring focus-visible:text-ring focus-visible:outline focus-visible:outline-ring"
+                    href="/"
+                    aria-label="lab yes, ir para página inicial"
+                >
+                    Lab Yes!
+                </Link>
             </div>
         </footer>
     )
