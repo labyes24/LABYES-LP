@@ -5,7 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from './ui/button'
 
+import { navigation } from '@/lib/navigation'
+
 export function HomeHero() {
+    const { CTA } = navigation
+
     return (
         <section className="flex flex-col items-center justify-between gap-10 bg-section-dark px-6 py-16 text-section-dark-foreground lg:flex-row lg:px-28 lg:py-32">
             <div className="flex flex-col justify-center gap-10 lg:justify-start">
@@ -27,7 +31,7 @@ export function HomeHero() {
                     size={'lg'}
                     asChild
                 >
-                    <Link href={'/contato'}>
+                    <Link href={CTA.href}>
                         Quero Participar
                         <ArrowRight
                             className="!h-5 !w-5 lg:!h-7 lg:!w-7"
