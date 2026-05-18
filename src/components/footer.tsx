@@ -49,13 +49,12 @@ export function Footer() {
                     <a
                         href={`mailto:${EMAIL_URL}`}
                         target="_blank"
-                        aria-label="enviar email para contato, nova janela"
+                        aria-label="enviar email para contato"
                     >
                         <Mail
                             className="size-8"
                             strokeWidth={2.5}
                             stroke="hsl(var(--card-foreground))"
-                            aria-hidden="true"
                         />
                     </a>
                 </Button>
@@ -68,9 +67,9 @@ export function Footer() {
                     <a
                         href={`${LINKEDIN_URL}`}
                         target="_blank"
-                        aria-label="ir para Linkedin Lab Yes, nova janela"
+                        aria-label="ir para Linkedin Lab Yes, nova aba"
                     >
-                        <IconLinkedin aria-hidden="true" />
+                        <IconLinkedin />
                     </a>
                 </Button>
             </div>
