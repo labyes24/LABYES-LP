@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 
 import { navigation } from '@/lib/navigation'
+import { BlackBeltsSection } from './sections/contact-us-blackbelts'
 import { ContactUsHeroSection } from './sections/contact-us-hero'
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export default function ContactUsPage() {
     return (
         <>
             <ContactUsHeroSection />
+            <BlackBeltsSection />
         </>
     )
 }
