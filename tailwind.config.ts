@@ -24,6 +24,7 @@ export default {
                 'ly-dark-azure-600': '#33475B',
                 'ly-dark-azure-700': '#1E2536',
                 'ly-dark-azure-800': '#1B202A',
+                'ly-dark-azure-850': '#1A2540',
                 'ly-dark-azure-transparent': '#33475BE6',
                 'ly-gray-50': '#F2F1FA',
                 'ly-gray-100': '#EAF0F6',
