@@ -6,23 +6,25 @@ import { LogoLabYes } from './svg/logo-lab-yes'
 
 export function Header() {
     return (
-        <header className="sticky left-0 right-0 top-0 z-50 flex h-[72px] items-center justify-between border-b border-b-foreground/10 bg-background p-6 md:h-[110px] md:px-32">
-            <h1>
-                <Link
-                    href={'/'}
-                    className="mr-6 inline-flex w-fit select-none rounded-sm p-0 outline-2 hover:cursor-pointer focus:outline-none focus-visible:outline-primary"
-                    aria-label="Logo do Lab Yes!, ir para a página inicial"
-                >
-                    <LogoLabYes
-                        className="h-[37px] md:h-[45px]"
-                        primaryFill="hsl(var(--logo-primary))"
-                        secondaryFill="hsl(var(--logo-secondary))"
-                    />
-                </Link>
-            </h1>
+        <header className="sticky left-0 right-0 top-0 z-50 flex h-[72px] items-center border-b border-b-foreground/10 bg-background p-6 md:h-[110px] md:px-32 lg:px-14">
+            <div className="m-auto flex h-full w-full max-w-[1184px] items-center justify-between border-none">
+                <h1 className="flex items-center">
+                    <Link
+                        href={'/'}
+                        className="mr-6 inline-flex w-fit select-none rounded-sm p-0 outline-2 hover:cursor-pointer focus:outline-none focus-visible:outline-primary"
+                        aria-label="Logo do Lab Yes!, ir para a página inicial"
+                    >
+                        <LogoLabYes
+                            className="h-[37px] md:h-[45px]"
+                            primaryFill="hsl(var(--logo-primary))"
+                            secondaryFill="hsl(var(--logo-secondary))"
+                        />
+                    </Link>
+                </h1>
 
-            <MenuNavigationMobile />
-            <MenuNavigationDesktop />
+                <MenuNavigationMobile />
+                <MenuNavigationDesktop />
+            </div>
         </header>
     )
 }
