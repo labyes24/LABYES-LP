@@ -1,16 +1,11 @@
 import 'server-only'
 
 import { HtmlFileHandler } from '@/providers/html-handler'
+import type { ContactData } from '@/schema/contact-schema'
 import path from 'node:path'
 import nodemailer from 'nodemailer'
 
-interface PlaceholdersParams {
-    dev_enterprise: string
-    sender_name: string
-    name: string
-    email: string
-    message: string
-}
+type PlaceholdersParams = Partial<ContactData>
 
 interface NotificationEmailParams {
     templatePath: string
@@ -68,7 +63,6 @@ async function sendNotificationEmail({
             to: toEmail,
             cc: ccEmail,
             subject,
-            text: subject,
             html: htmlToSend,
         })
 
