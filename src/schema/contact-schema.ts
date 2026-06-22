@@ -3,19 +3,22 @@ import * as z from 'zod'
 const contactSchema = z.object({
     name: z
         .string()
-        .nonempty('O nome é obrigatório')
-        .min(3, 'O nome deve conter pelo menos 3 caracteres'),
+        .nonempty('Informe seu nome.')
+        .min(2, 'O nome deve ter pelo menos 2 caracteres.'),
     email: z
         .string()
-        .nonempty('O e-mail é obrigatório')
-        .email('E-mail inválido'),
-    linkedin: z.string().nonempty('O LinkedIn é obrigatório'),
-    github: z.string().nonempty('O Github é obrigatório'),
-    findOut: z.string().nonempty('Por favor, informe como conheceu o Lab Yes'),
+        .nonempty('Informe seu e-mail.')
+        .email('Digite um e-mail válido.'),
+    linkedin: z.string().nonempty('Informe o link do seu LinkedIn.'),
+    github: z.string().nonempty('Informe seu GitHub ou portfólio.'),
+    findOut: z.string().nonempty('Selecione uma opção.'),
     message: z
         .string()
-        .min(10, 'A resposta deve conter pelo menos 10 caracteres')
-        .nonempty('Por favor, conte um pouco sobre você'),
+        .nonempty('Preencha este campo.')
+        .pipe(z.string().min(10, 'O texto deve ter no mínimo 10 caracteres.'))
+        .pipe(
+            z.string().max(500, 'O texto deve ter no máximo 500 caracteres.')
+        ),
 })
 
 type ContactData = z.infer<typeof contactSchema>
