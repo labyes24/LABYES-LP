@@ -101,7 +101,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
             onSubmit={handleSubmit(onSubmit)}
             id="contact-form"
             className={cn(
-                'm-auto flex max-w-[650px] flex-col gap-4',
+                'm-auto flex max-w-[600px] flex-col gap-4 lg:max-w-[650px]',
                 className
             )}
         >
@@ -113,7 +113,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                         className="min-h-[42px] rounded-full"
                         id="name"
                         autoComplete="name"
-                        placeholder="seu nome"
+                        placeholder="Grace Kelly"
                         {...register('name')}
                         aria-invalid={errors.name ? 'true' : 'false'}
                     />
@@ -125,7 +125,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     <Label htmlFor="email">E-mail</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="email@gmail.com"
+                        placeholder="seuemail@exemplo.com"
                         id="email"
                         autoComplete="email"
                         {...register('email')}
@@ -141,7 +141,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     <Label htmlFor="linkedin">Linkedin</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="linkedin.com/in/lbys/"
+                        placeholder="https://linkedin.com/in/seu-perfil"
                         id="linkedin"
                         {...register('linkedin')}
                         aria-invalid={errors.linkedin ? 'true' : 'false'}
@@ -154,7 +154,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     <Label htmlFor="github">Github ou Portfolio</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="github.com/seu-usuario "
+                        placeholder="https://github.com/seu-perfil"
                         id="github"
                         {...register('github')}
                         aria-invalid={errors.github ? 'true' : 'false'}
@@ -182,7 +182,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                                     className="h-10 w-full rounded-full"
                                     id="findOut"
                                 >
-                                    <SelectValue placeholder="selecione..." />
+                                    <SelectValue placeholder="Escolha uma opção" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
@@ -216,7 +216,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 <Textarea
                     className="min-h-40 resize-none overflow-y-hidden rounded-[40px] p-6"
                     id="message"
-                    maxLength={500}
+                    maxLength={501}
                     rows={5}
                     placeholder="Conte um pouco sobre você"
                     {...register('message')}
