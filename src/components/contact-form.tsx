@@ -105,12 +105,12 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 className
             )}
         >
-            <div className="flex w-full flex-col gap-4 md:flex-row">
+            <div className="flex w-full flex-col gap-4 lg:flex-row">
                 {/* Name */}
                 <div className="flex w-full flex-col gap-1.5">
                     <Label htmlFor="name">Nome</Label>
                     <Input
-                        className="min-h-[42px] rounded-full bg-ly-white px-4 py-2 text-ly-dark-azure-850 placeholder:italic placeholder:text-ly-dark-azure-600/70"
+                        className="min-h-[42px] rounded-full"
                         id="name"
                         autoComplete="name"
                         placeholder="seu nome"
@@ -124,7 +124,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 <div className="group/input-group flex w-full flex-col gap-1.5">
                     <Label htmlFor="email">E-mail</Label>
                     <Input
-                        className="min-h-[42px] rounded-full bg-ly-white px-4 py-2 text-ly-dark-azure-850 placeholder:italic placeholder:text-ly-dark-azure-600/70"
+                        className="min-h-[42px] rounded-full"
                         placeholder="email@gmail.com"
                         id="email"
                         autoComplete="email"
@@ -135,12 +135,12 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 </div>
             </div>
 
-            <div className="flex w-full flex-col gap-4 md:flex-row">
+            <div className="flex w-full flex-col gap-4 lg:flex-row">
                 {/* Linkedin */}
                 <div className="flex w-full flex-col gap-1.5">
                     <Label htmlFor="linkedin">Linkedin</Label>
                     <Input
-                        className="min-h-[42px] rounded-full bg-ly-white text-ly-dark-azure-850 placeholder:text-ly-dark-azure-transparent"
+                        className="min-h-[42px] rounded-full"
                         placeholder="linkedin.com/in/lbys/"
                         id="linkedin"
                         {...register('linkedin')}
@@ -153,7 +153,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 <div className="flex w-full flex-col gap-1.5">
                     <Label htmlFor="github">Github ou Portfolio</Label>
                     <Input
-                        className="min-h-[42px] rounded-full bg-ly-white text-ly-dark-azure-850 placeholder:text-ly-dark-azure-transparent"
+                        className="min-h-[42px] rounded-full"
                         placeholder="github.com/seu-usuario "
                         id="github"
                         {...register('github')}
@@ -179,7 +179,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                                     aria-invalid={
                                         fieldState.invalid ? 'true' : 'false'
                                     }
-                                    className="h-10 w-full rounded-full bg-ly-white text-ly-dark-azure-850 placeholder:text-ly-dark-azure-transparent"
+                                    className="h-10 w-full rounded-full"
                                     id="findOut"
                                 >
                                     <SelectValue placeholder="selecione..." />
@@ -189,8 +189,11 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                                         <SelectItem value="Linkedin">
                                             Linkedin
                                         </SelectItem>
-                                        <SelectItem value="Youtube">
-                                            Youtube
+                                        <SelectItem value="Site">
+                                            Site
+                                        </SelectItem>
+                                        <SelectItem value="Indicação">
+                                            Indicação
                                         </SelectItem>
                                         <SelectItem value="Outros">
                                             Outros
@@ -211,7 +214,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     motiva a buscar a maestria com a gente?
                 </Label>
                 <Textarea
-                    className="min-h-40 resize-none overflow-y-hidden rounded-[40px] bg-ly-white p-6 text-ly-dark-azure-850 placeholder:text-ly-dark-azure-transparent"
+                    className="min-h-40 resize-none overflow-y-hidden rounded-[40px] p-6"
                     id="message"
                     maxLength={500}
                     rows={5}
