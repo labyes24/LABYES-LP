@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scrollbar-gutter: stable;
+}
+
+html body[data-scroll-locked] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 body {
     font-family: DM Sans, sans-serif;
 }
@@ -34,7 +46,7 @@ body {
         --muted-foreground: 0 0% 99.22%;
         --accent: 210 28% 28%;
         --accent-foreground: 0 0% 99.22%;
-        --destructive: 0 84.2% 60.2%;
+        --destructive: 5.81 100% 63.53%;
         --destructive-foreground: 60 9.1% 97.8%;
         --border: 20 5.9% 90%;
         --input: 210 40% 94%;
