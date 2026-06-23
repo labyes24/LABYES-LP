@@ -2,13 +2,12 @@ import 'server-only'
 
 import { HtmlFileHandler } from '@/providers/html-handler'
 import type { ContactData } from '@/schema/contact-schema'
-import path from 'node:path'
 import nodemailer from 'nodemailer'
 
 type PlaceholdersParams = Partial<ContactData>
 
 interface NotificationEmailParams {
-    templatePath: string
+    template: string
     placeholders: PlaceholdersParams
     toEmail: string
     subject: string
@@ -23,42 +22,27 @@ const transporter = nodemailer.createTransport({
         user: process.env.APPLICATION_SMTP_USER,
         pass: process.env.APPLICATION_SMTP_PASSWORD,
     },
+    pool: true,
 })
 
-const NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH = path.resolve(
-    process.cwd(),
-    'src',
-    'components',
-    'templates',
-    'notification-team-email.html'
-)
-const CONFIRMATION_USER_EMAIL_TEMPLATE_PATH = path.resolve(
-    process.cwd(),
-    'src',
-    'components',
-    'templates',
-    'confirmation-user-email.html'
-)
-
 async function sendNotificationEmail({
-    templatePath,
+    template,
     placeholders,
     toEmail,
     subject,
     ccEmail,
 }: NotificationEmailParams): Promise<{ success: boolean; error?: string }> {
     try {
-        if (!templatePath || !placeholders || !toEmail || !subject) {
+        if (!template || !placeholders || !toEmail || !subject) {
             throw new Error('Parâmetros incompletos.')
         }
 
-        const htmlTemplate = await HtmlFileHandler.readHTMLFile(templatePath)
         const htmlToSend = HtmlFileHandler.updateHTMLContent({
-            htmlString: htmlTemplate,
+            htmlString: template,
             placeholders,
         })
 
-        await transporter.sendMail({
+        const mailResult = await transporter.sendMail({
             from: `Team Lab Yes! <${process.env.APPLICATION_EMAIL_SENDER}>`,
             to: toEmail,
             cc: ccEmail,
@@ -66,16 +50,16 @@ async function sendNotificationEmail({
             html: htmlToSend,
         })
 
+        if (!mailResult.accepted || mailResult.accepted.length === 0) {
+            throw new Error('Sending email failed.')
+        }
+
         return { success: true }
     } catch (error) {
         console.log(error)
-        return { success: false, error: `Erro ao enviar e-mail: ${error}` }
+        return { success: false, error: `${error}` }
     }
 }
 
-export {
-    CONFIRMATION_USER_EMAIL_TEMPLATE_PATH,
-    NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
-    sendNotificationEmail,
-}
+export { sendNotificationEmail }
 export type { NotificationEmailParams, PlaceholdersParams }
