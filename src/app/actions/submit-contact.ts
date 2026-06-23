@@ -1,11 +1,8 @@
 'use server'
 
-import {
-    CONFIRMATION_USER_EMAIL_TEMPLATE_PATH,
-    NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
-    sendNotificationEmail,
-} from '@/lib/node-mailer'
+import { sendNotificationEmail } from '@/lib/node-mailer'
 import { ContactData, contactSchema } from '@/schema/contact-schema'
+import { TEAM_TEMPLATE, USER_TEMPLATE } from '@/templates'
 
 export async function submitContact(data: ContactData) {
     const parsedData = contactSchema.safeParse(data)
@@ -25,7 +22,7 @@ export async function submitContact(data: ContactData) {
 
     try {
         // Send notification email to the team
-        await sendNotificationEmail({
+        const teamEmailResult = await sendNotificationEmail({
             placeholders: {
                 email,
                 name,
@@ -35,20 +32,35 @@ export async function submitContact(data: ContactData) {
                 findOut,
             },
             subject: SUBJECT_TEAM,
-            templatePath: NOTIFICATION_TEAM_EMAIL_TEMPLATE_PATH,
+            template: TEAM_TEMPLATE,
             toEmail: process.env.APPLICATION_TO_EMAIL!,
             ccEmail: process.env.APPLICATION_CC_EMAIL,
         })
+        if (!teamEmailResult.success) {
+            console.error('Error sending team email:', teamEmailResult.error)
+            return {
+                success: false,
+                error: 'Failed to send team notification email.',
+            }
+        }
 
         // Send confirmation email to the user
-        await sendNotificationEmail({
+        const userEmailResult = await sendNotificationEmail({
             placeholders: {
                 name,
             },
             subject: SUBJECT_USER,
-            templatePath: CONFIRMATION_USER_EMAIL_TEMPLATE_PATH,
+            template: USER_TEMPLATE,
             toEmail: email,
         })
+
+        if (!userEmailResult.success) {
+            console.error('Error sending user email:', userEmailResult.error)
+            return {
+                success: false,
+                error: 'Failed to send user confirmation email.',
+            }
+        }
 
         return { success: true }
     } catch (error) {
@@ -56,7 +68,7 @@ export async function submitContact(data: ContactData) {
 
         return {
             success: false,
-            error: `Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.`,
+            error: 'Failed to send notification emails.',
         }
     }
 }
