@@ -56,8 +56,6 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
     }
 
     const onSubmit = async (data: ContactData) => {
-        console.log('chamando onSubmit com dados:', data)
-
         const coolDownTime = new Promise((resolve) => setTimeout(resolve, 1000))
 
         try {
@@ -65,8 +63,6 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 submitContact(data),
                 coolDownTime,
             ])
-
-            console.log('Resultado do submitContact:', result)
 
             if (!result.success) {
                 setFormMessage({
@@ -76,17 +72,16 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                         'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.',
                 })
             } else {
-                reset()
-
                 setFormMessage({
                     id: nextMessageId(),
                     type: 'success',
                     message:
                         'Mensagem enviada com sucesso! Entraremos em contato.',
                 })
+
+                reset()
             }
-        } catch (error) {
-            console.error('Network or execution error:', error)
+        } catch (e) {
             setFormMessage({
                 id: nextMessageId(),
                 type: 'error',
