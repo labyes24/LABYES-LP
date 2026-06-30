@@ -7,12 +7,12 @@ const InputError = React.forwardRef<
     React.ComponentProps<'span'> & { message?: string }
 >(({ className, message, ...props }, ref) => {
     return (
-        <div className="items-left flex h-5">
+        <div className="items-left flex min-h-5">
             {message && (
                 <span
                     role="alert"
                     className={cn(
-                        'w-full p-0 text-sm invalid:ring-destructive focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-ly-white/50 disabled:opacity-50 md:text-sm',
+                        'min-h-5 w-full p-0 text-sm/[1.1] invalid:ring-destructive focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-ly-white/50 disabled:opacity-50',
                         className
                     )}
                     ref={ref}
