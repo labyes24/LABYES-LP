@@ -37,13 +37,13 @@ export function ContactUsFormSection() {
             <Image
                 src={icons.ZigzagArrow}
                 alt="Zigzag Arrow"
-                className="absolute left-[8px] top-[51%] -z-10 h-auto w-auto delay-100 duration-1000 animate-in fade-in sm:left-[15px] sm:translate-y-1/2 sm:scale-[125%] xl:left-[226px] xl:top-[408px] xl:scale-[168%]"
+                className="absolute -left-[8px] top-[668px] -z-10 h-auto w-auto rotate-[28deg] scale-[70%] delay-100 duration-1000 animate-in fade-in sm:left-[15px] sm:top-[581px] sm:translate-y-1/2 sm:rotate-0 sm:scale-[125%] lg:top-[51%] xl:left-[226px] xl:top-[408px] xl:scale-[168%]"
                 role="presentation"
             />
             <Image
                 src={icons.VSCode}
                 alt="VSCode"
-                className="absolute right-[8px] top-[51%] -z-10 h-auto w-auto delay-150 duration-1000 animate-in fade-in sm:right-[20px] sm:translate-y-1/2 sm:scale-[150%] xl:right-[204px] xl:top-[415px] xl:scale-[200%]"
+                className="absolute right-[10px] top-[623px] -z-10 h-auto w-auto delay-150 duration-1000 animate-in fade-in sm:right-[20px] sm:top-[571px] sm:translate-y-1/2 sm:scale-[150%] lg:top-[51%] xl:right-[204px] xl:top-[415px] xl:scale-[200%]"
                 role="presentation"
             />
 
