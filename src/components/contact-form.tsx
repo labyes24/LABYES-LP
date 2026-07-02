@@ -106,7 +106,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                         className="min-h-[42px] rounded-full"
                         id="name"
                         autoComplete="name"
-                        placeholder="Laura Soares"
+                        placeholder="Seu nome"
                         {...register('name')}
                         aria-invalid={errors.name ? 'true' : 'false'}
                         aria-describedby={
