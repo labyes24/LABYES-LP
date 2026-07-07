@@ -49,18 +49,20 @@ const FormMessage = forwardRef<
     }, [message, messageId])
 
     if (!isMounted || !message) {
-        return <div className="relative flex h-10 items-center" />
+        return (
+            <div className="flex h-0 items-center transition-[height] duration-100" />
+        )
     }
 
     return (
-        <div className="relative flex h-10 items-center">
+        <div className="mb-3 flex h-10 items-center transition-[height] duration-100">
             {message && (
                 <span
                     data-type={type}
                     role="alert"
                     className={cn(
-                        'min-h-10 w-full rounded-full bg-[#37C370] px-6 py-3 text-center text-sm font-semibold leading-none text-[#1E2536] opacity-100 transition-opacity duration-500 data-[type=error]:bg-[#FE7460] data-[type=error]:text-[#1E2536] sm:text-lg sm:leading-none',
-                        !isVisible && 'opacity-0',
+                        'min-h-10 w-full rounded-full bg-[#37C370] px-6 py-3 text-center text-sm font-semibold leading-none text-[#1E2536] opacity-0 transition-colors duration-700 data-[type=error]:bg-[#FE7460] data-[type=error]:text-[#1E2536] sm:text-lg sm:leading-none',
+                        isVisible && 'opacity-100',
                         className
                     )}
                     ref={ref}
