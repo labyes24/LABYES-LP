@@ -19,6 +19,30 @@ type BeltIconProps = {
     color: keyof typeof BeltColorImage
 } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'width' | 'height'>
 
+function BeltCardHeader({
+    children,
+    className,
+    ...rest
+}: { children: React.ReactNode } & React.HTMLAttributes<HTMLDivElement>) {
+    return (
+        <div className={cn('flex items-center gap-2', className)} {...rest}>
+            {children}
+        </div>
+    )
+}
+
+function BeltIconTitle({
+    children,
+    className,
+    ...rest
+}: { children: React.ReactNode } & React.HTMLAttributes<HTMLSpanElement>) {
+    return (
+        <span className={cn('text-sm leading-[1.285]', className)} {...rest}>
+            {children}
+        </span>
+    )
+}
+
 function BeltIcon({ color, alt = '', className, ...rest }: BeltIconProps) {
     return (
         <Image
@@ -32,7 +56,7 @@ function BeltIcon({ color, alt = '', className, ...rest }: BeltIconProps) {
     )
 }
 
-function BeltContent({
+function BeltCardContent({
     children,
     className,
     ...rest
@@ -40,13 +64,16 @@ function BeltContent({
     children: React.ReactNode
 } & React.HTMLAttributes<HTMLDivElement>) {
     return (
-        <div className={cn('flex flex-col gap-1.5', className)} {...rest}>
+        <div
+            className={cn('flex flex-col items-center gap-2', className)}
+            {...rest}
+        >
             {children}
         </div>
     )
 }
 
-function BeltTitle({
+function BeltCardTitle({
     children,
     className,
     ...rest
@@ -55,7 +82,10 @@ function BeltTitle({
 } & React.HTMLAttributes<HTMLHeadingElement>) {
     return (
         <h3
-            className={cn('w-full text-base leading-tight', className)}
+            className={cn(
+                'w-full text-center text-base font-bold leading-tight',
+                className
+            )}
             {...rest}
         >
             {children}
@@ -63,7 +93,7 @@ function BeltTitle({
     )
 }
 
-function BeltDescription({
+function BeltCardDescription({
     children,
     className,
     ...rest
@@ -71,7 +101,13 @@ function BeltDescription({
     children: React.ReactNode
 } & React.HTMLAttributes<HTMLParagraphElement>) {
     return (
-        <p className={cn('w-full text-xs leading-tight', className)} {...rest}>
+        <p
+            className={cn(
+                'w-full text-center text-xs leading-[1.166]',
+                className
+            )}
+            {...rest}
+        >
             {children}
         </p>
     )
@@ -85,7 +121,7 @@ function BeltCard({
     return (
         <div
             className={cn(
-                'flex gap-4 rounded-lg bg-ly-dark-azure-850 p-6 sm:flex-grow sm:basis-[296px] sm:flex-row xl:max-w-[240px] xl:flex-1 xl:flex-col xl:gap-2 xl:p-4',
+                'flex flex-col items-center gap-4 rounded-2xl border-2 border-ly-white bg-[#273443] p-6 sm:flex-grow sm:basis-[296px] xl:max-w-[240px] xl:flex-1 xl:flex-col xl:gap-2 xl:rounded-3xl xl:px-3.5 xl:py-4',
                 className
             )}
             {...rest}
@@ -95,4 +131,12 @@ function BeltCard({
     )
 }
 
-export { BeltCard, BeltContent, BeltDescription, BeltIcon, BeltTitle }
+export {
+    BeltCard,
+    BeltCardContent,
+    BeltCardDescription,
+    BeltCardHeader,
+    BeltCardTitle,
+    BeltIcon,
+    BeltIconTitle,
+}
