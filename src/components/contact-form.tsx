@@ -8,8 +8,6 @@ import { FormMessage } from '@/components/ui/form-message'
 import { Input } from '@/components/ui/input'
 import { InputError } from '@/components/ui/input-error'
 import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-
 import {
     Select,
     SelectContent,
@@ -18,6 +16,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select'
+import { Textarea } from '@/components/ui/textarea'
 
 import { submitContact } from '@/app/actions/submit-contact'
 import { cn } from '@/lib/utils'
@@ -124,7 +123,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     <Label htmlFor="email">E-mail</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="seuemail@exemplo.com"
+                        placeholder="e-mail@exemplo.com"
                         id="email"
                         autoComplete="email"
                         {...register('email')}
@@ -259,15 +258,17 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 />
             </div>
 
-            <FormMessage
-                type={formMessage?.type}
-                message={formMessage?.message}
-                messageId={formMessage?.id}
-            />
+            <div>
+                <FormMessage
+                    type={formMessage?.type}
+                    message={formMessage?.message}
+                    messageId={formMessage?.id}
+                />
 
-            <p className="py-2 text-center text-lg font-bold leading-5 text-muted-foreground">
-                Estamos prontos para ajudar você a alcançar seus objetivos!
-            </p>
+                <p className="py-2 text-center text-lg font-bold leading-5 text-muted-foreground">
+                    Estamos prontos para ajudar você a alcançar seus objetivos!
+                </p>
+            </div>
 
             <Button
                 className="h-12 rounded-full text-lg font-bold leading-none transition-colors duration-300 disabled:bg-primary disabled:text-ly-dark-azure-800 disabled:opacity-100"
