@@ -19,7 +19,10 @@ function SelectGroup({
     return (
         <SelectPrimitive.Group
             data-slot="select-group"
-            className={cn('scroll-my-1 p-1', className)}
+            className={cn(
+                'scroll-my-1 rounded-lg border border-[#EAF0F6] bg-[#0E1626] p-1 text-[#F2F1FA]',
+                className
+            )}
             {...props}
         />
     )
@@ -121,6 +124,7 @@ function SelectItem({
             data-slot="select-item"
             className={cn(
                 "outline-hidden not-data-[variant=destructive]:focus:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 relative flex min-h-10 w-full cursor-default select-none items-center gap-1.5 rounded-md py-1 pl-1.5 pr-8 text-sm focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+                'focus:outline focus:outline-2 focus:outline-ring',
                 className
             )}
             {...props}
