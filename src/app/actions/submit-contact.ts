@@ -4,7 +4,9 @@ import { sendNotificationEmail } from '@/lib/node-mailer'
 import { ContactData, contactSchema } from '@/schema/contact-schema'
 import { TEAM_TEMPLATE, USER_TEMPLATE } from '@/templates'
 
-export async function submitContact(data: ContactData) {
+export async function submitContact(
+    data: ContactData
+): Promise<{ success: true } | { success: false; error: string }> {
     const parsedData = contactSchema.safeParse(data)
 
     if (!parsedData.success) {

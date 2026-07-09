@@ -1,9 +1,11 @@
 import {
     BeltCard,
-    BeltContent,
-    BeltDescription,
+    BeltCardContent,
+    BeltCardDescription,
+    BeltCardHeader,
+    BeltCardTitle,
     BeltIcon,
-    BeltTitle,
+    BeltIconTitle,
 } from '@/components/belt-card'
 
 export function BlackBeltsSection() {
@@ -22,72 +24,96 @@ export function BlackBeltsSection() {
 
             <div
                 id="black-belts"
-                className="mt-6 flex flex-col gap-2 sm:mx-auto sm:max-w-[600px] sm:flex-row sm:flex-wrap sm:justify-center sm:gap-1.5 xl:mt-12 xl:max-w-[1224px]"
+                className="mx-auto mt-6 flex flex-col gap-2 sm:max-w-[600px] sm:flex-row sm:flex-wrap sm:justify-center sm:gap-1.5 xl:mt-12 xl:max-w-[1224px]"
             >
                 <BeltCard>
-                    <BeltIcon color="white" aria-describedby="faixa-branca" />
-                    <BeltContent>
-                        <BeltTitle id="faixa-branca">
-                            Faixa Branca: O Sobrevivente
-                        </BeltTitle>
-                        <BeltDescription>
+                    <BeltCardHeader>
+                        <BeltIcon
+                            color="white"
+                            aria-describedby="faixa-branca"
+                        />
+                        <BeltIconTitle id="faixa-branca">
+                            Faixa Branca
+                        </BeltIconTitle>
+                    </BeltCardHeader>
+                    <BeltCardContent>
+                        <BeltCardTitle>O Sobrevivente</BeltCardTitle>
+                        <BeltCardDescription>
                             O início de tudo, onde o objetivo não é aprender
                             tudo, mas sim caminhar devagar e sempre.
-                        </BeltDescription>
-                    </BeltContent>
+                        </BeltCardDescription>
+                    </BeltCardContent>
                 </BeltCard>
 
                 <BeltCard>
-                    <BeltIcon color="blue" aria-describedby="faixa-azul" />
-                    <BeltContent>
-                        <BeltTitle id="faixa-azul">
-                            Faixa Azul: O Coletor de Técnicas
-                        </BeltTitle>
-                        <BeltDescription>
+                    <BeltCardHeader>
+                        <BeltIcon color="blue" aria-describedby="faixa-azul" />
+                        <BeltIconTitle id="faixa-azul">
+                            Faixa Azul
+                        </BeltIconTitle>
+                    </BeltCardHeader>
+                    <BeltCardContent>
+                        <BeltCardTitle>O Coletor de Técnicas</BeltCardTitle>
+                        <BeltCardDescription>
                             Aqui você começa a se aprimorar, mas geralmente
                             tenta fazer tudo ao mesmo tempo.
-                        </BeltDescription>
-                    </BeltContent>
+                        </BeltCardDescription>
+                    </BeltCardContent>
                 </BeltCard>
 
                 <BeltCard>
-                    <BeltIcon color="pink" aria-describedby="faixa-roxa" />
-                    <BeltContent>
-                        <BeltTitle id="faixa-roxa">
-                            Faixa Roxa: O Estrategista
-                        </BeltTitle>
-                        <BeltDescription>
+                    <BeltCardHeader>
+                        <BeltIcon color="pink" aria-describedby="faixa-roxa" />
+                        <BeltIconTitle id="faixa-roxa">
+                            Faixa Roxa
+                        </BeltIconTitle>
+                    </BeltCardHeader>
+                    <BeltCardContent>
+                        <BeltCardTitle>O Estrategista</BeltCardTitle>
+                        <BeltCardDescription>
                             É onde você descobre o seu &quot;jogo&quot;. Você
                             para de reagir e começa a ser mais assertivo.
-                        </BeltDescription>
-                    </BeltContent>
+                        </BeltCardDescription>
+                    </BeltCardContent>
                 </BeltCard>
 
                 <BeltCard>
-                    <BeltIcon color="brown" aria-describedby="faixa-marrom" />
-                    <BeltContent>
-                        <BeltTitle id="faixa-marrom">
-                            Faixa Marrom: O Refinador
-                        </BeltTitle>
-                        <BeltDescription>
+                    <BeltCardHeader>
+                        <BeltIcon
+                            color="brown"
+                            aria-describedby="faixa-marrom"
+                        />
+                        <BeltIconTitle id="faixa-marrom">
+                            Faixa Marrom
+                        </BeltIconTitle>
+                    </BeltCardHeader>
+                    <BeltCardContent>
+                        <BeltCardTitle>O Refinador</BeltCardTitle>
+                        <BeltCardDescription>
                             Você pensa que já sabe quase tudo, mas agora está
                             ajustando a pressão e entendendo que ainda tem muito
                             pela frente.
-                        </BeltDescription>
-                    </BeltContent>
+                        </BeltCardDescription>
+                    </BeltCardContent>
                 </BeltCard>
 
                 <BeltCard>
-                    <BeltIcon color="black" aria-describedby="faixa-preta" />
-                    <BeltContent>
-                        <BeltTitle id="faixa-preta">
-                            Faixa Preta: O Eterno Aprendiz
-                        </BeltTitle>
-                        <BeltDescription>
+                    <BeltCardHeader>
+                        <BeltIcon
+                            color="black"
+                            aria-describedby="faixa-preta"
+                        />
+                        <BeltIconTitle id="faixa-preta">
+                            Faixa Preta
+                        </BeltIconTitle>
+                    </BeltCardHeader>
+                    <BeltCardContent>
+                        <BeltCardTitle>O Eterno Aprendiz</BeltCardTitle>
+                        <BeltCardDescription>
                             Onde o aprendizado realmente recomeça, mas com uma
                             base sólida.
-                        </BeltDescription>
-                    </BeltContent>
+                        </BeltCardDescription>
+                    </BeltCardContent>
                 </BeltCard>
             </div>
         </section>

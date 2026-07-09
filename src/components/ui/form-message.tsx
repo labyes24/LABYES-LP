@@ -1,6 +1,5 @@
 'use client'
 
-import { X } from 'lucide-react'
 import * as React from 'react'
 import { forwardRef, useEffect, useState } from 'react'
 
@@ -50,33 +49,27 @@ const FormMessage = forwardRef<
     }, [message, messageId])
 
     if (!isMounted || !message) {
-        return <div className="relative flex min-h-10 items-center" />
+        return (
+            <div className="flex h-0 items-center transition-[height] duration-100" />
+        )
     }
 
     return (
-        <div className="relative flex min-h-10 items-center">
+        <div className="mb-3 flex h-10 items-center transition-[height] duration-100">
             {message && (
-                <>
-                    <span
-                        data-type={type}
-                        role="alert"
-                        className={cn(
-                            'min-h-10 w-full rounded-full bg-[#1DA656] px-6 py-3 pr-11 text-sm leading-none text-ly-white opacity-100 transition-opacity duration-500 data-[type=error]:bg-destructive data-[type=error]:text-ly-white sm:text-lg sm:leading-none',
-                            !isVisible && 'opacity-0',
-                            className
-                        )}
-                        ref={ref}
-                        {...props}
-                    >
-                        {message}
-                    </span>
-                    <X
-                        className={cn(
-                            'absolute right-5 top-1/2 size-4 -translate-y-1/2',
-                            !isVisible && 'opacity-0'
-                        )}
-                    />
-                </>
+                <span
+                    data-type={type}
+                    role="alert"
+                    className={cn(
+                        'min-h-10 w-full rounded-full bg-[#37C370] px-6 py-3 text-center text-sm font-semibold leading-none text-[#1E2536] opacity-0 transition-colors duration-700 data-[type=error]:bg-[#FE7460] data-[type=error]:text-[#1E2536] sm:text-lg sm:leading-none',
+                        isVisible && 'opacity-100',
+                        className
+                    )}
+                    ref={ref}
+                    {...props}
+                >
+                    {message}
+                </span>
             )}
         </div>
     )

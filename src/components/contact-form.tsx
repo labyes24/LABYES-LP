@@ -8,8 +8,6 @@ import { FormMessage } from '@/components/ui/form-message'
 import { Input } from '@/components/ui/input'
 import { InputError } from '@/components/ui/input-error'
 import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-
 import {
     Select,
     SelectContent,
@@ -18,6 +16,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select'
+import { Textarea } from '@/components/ui/textarea'
 
 import { submitContact } from '@/app/actions/submit-contact'
 import { cn } from '@/lib/utils'
@@ -68,15 +67,13 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                 setFormMessage({
                     id: nextMessageId(),
                     type: 'error',
-                    message:
-                        'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.',
+                    message: 'Falha no envio. Tente novamente.',
                 })
             } else {
                 setFormMessage({
                     id: nextMessageId(),
                     type: 'success',
-                    message:
-                        'Mensagem enviada com sucesso! Entraremos em contato.',
+                    message: 'Dados enviados! Entraremos em contato.',
                 })
 
                 reset()
@@ -108,11 +105,17 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                         className="min-h-[42px] rounded-full"
                         id="name"
                         autoComplete="name"
-                        placeholder="Grace Kelly"
+                        placeholder="Seu nome"
                         {...register('name')}
                         aria-invalid={errors.name ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.name ? 'name-error' : undefined
+                        }
                     />
-                    <InputError message={errors.name?.message} />
+                    <InputError
+                        message={errors.name?.message}
+                        id="name-error"
+                    />
                 </div>
 
                 {/* E-mail */}
@@ -120,47 +123,65 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     <Label htmlFor="email">E-mail</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="seuemail@exemplo.com"
+                        placeholder="e-mail@exemplo.com"
                         id="email"
                         autoComplete="email"
                         {...register('email')}
                         aria-invalid={errors.email ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.email ? 'email-error' : undefined
+                        }
                     />
-                    <InputError message={errors.email?.message} />
+                    <InputError
+                        message={errors.email?.message}
+                        id="email-error"
+                    />
                 </div>
             </div>
 
             <div className="flex w-full flex-col gap-4 lg:flex-row">
                 {/* Linkedin */}
                 <div className="flex w-full flex-col gap-1.5">
-                    <Label htmlFor="linkedin">Linkedin</Label>
+                    <Label htmlFor="linkedin">LinkedIn</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
                         placeholder="https://linkedin.com/in/seu-perfil"
                         id="linkedin"
                         {...register('linkedin')}
                         aria-invalid={errors.linkedin ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.linkedin ? 'linkedin-error' : undefined
+                        }
                     />
-                    <InputError message={errors.linkedin?.message} />
+                    <InputError
+                        message={errors.linkedin?.message}
+                        id="linkedin-error"
+                    />
                 </div>
 
                 {/* Github */}
                 <div className="flex w-full flex-col gap-1.5">
-                    <Label htmlFor="github">Github ou Portfolio</Label>
+                    <Label htmlFor="github">Github ou Portfólio</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="https://github.com/seu-perfil"
+                        placeholder="https://..."
                         id="github"
                         {...register('github')}
                         aria-invalid={errors.github ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.github ? 'github-error' : undefined
+                        }
                     />
-                    <InputError message={errors.github?.message} />
+                    <InputError
+                        message={errors.github?.message}
+                        id="github-error"
+                    />
                 </div>
             </div>
 
             {/* where found out */}
             <div className="flex flex-col gap-1.5">
-                <Label htmlFor="findOut">Como conheceu o Lab Yes?</Label>
+                <Label htmlFor="findOut">Como conheceu o Lab Yes!?</Label>
                 <Controller
                     name="findOut"
                     control={control}
@@ -169,10 +190,18 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                             <Select
                                 value={field.value}
                                 onValueChange={field.onChange}
+                                aria-invalid={
+                                    fieldState.invalid ? 'true' : 'false'
+                                }
                             >
                                 <SelectTrigger
                                     aria-invalid={
                                         fieldState.invalid ? 'true' : 'false'
+                                    }
+                                    aria-describedby={
+                                        fieldState.invalid
+                                            ? 'findOut-error'
+                                            : undefined
                                     }
                                     className="h-10 w-full rounded-full"
                                     id="findOut"
@@ -181,8 +210,8 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
-                                        <SelectItem value="Linkedin">
-                                            Linkedin
+                                        <SelectItem value="LinkedIn">
+                                            LinkedIn
                                         </SelectItem>
                                         <SelectItem value="Site">
                                             Site
@@ -196,7 +225,10 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
-                            <InputError message={fieldState.error?.message} />
+                            <InputError
+                                message={fieldState.error?.message}
+                                id="findOut-error"
+                            />
                         </>
                     )}
                 />
@@ -213,22 +245,30 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     id="message"
                     maxLength={501}
                     rows={5}
-                    placeholder="Conte um pouco sobre você"
+                    placeholder="Sou faixa roxa e busco o Lab Yes! para refinar minha estratégia em projetos reais e entender melhor o dia a dia de um time multidisciplinar."
                     {...register('message')}
                     aria-invalid={errors.message ? 'true' : 'false'}
+                    aria-describedby={
+                        errors.message ? 'message-error' : undefined
+                    }
                 />
-                <InputError message={errors.message?.message} />
+                <InputError
+                    message={errors.message?.message}
+                    id="message-error"
+                />
             </div>
 
-            <FormMessage
-                type={formMessage?.type}
-                message={formMessage?.message}
-                messageId={formMessage?.id}
-            />
+            <div>
+                <FormMessage
+                    type={formMessage?.type}
+                    message={formMessage?.message}
+                    messageId={formMessage?.id}
+                />
 
-            <p className="py-2 text-center text-lg font-bold leading-5 text-muted-foreground">
-                Estamos prontos para ajudar você a alcançar seus objetivos!
-            </p>
+                <p className="py-2 text-center text-lg font-bold leading-5 text-muted-foreground">
+                    Estamos prontos para ajudar você a alcançar seus objetivos!
+                </p>
+            </div>
 
             <Button
                 className="h-12 rounded-full text-lg font-bold leading-none transition-colors duration-300 disabled:bg-primary disabled:text-ly-dark-azure-800 disabled:opacity-100"
