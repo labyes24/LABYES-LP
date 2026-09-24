@@ -4,7 +4,16 @@ const contactSchema = z.object({
     name: z
         .string()
         .nonempty('Informe seu nome.')
-        .min(2, 'O nome deve ter pelo menos 2 caracteres.'),
+        .min(2, 'O nome deve ter pelo menos 2 caracteres.')
+        .pipe(z.string().max(50, 'O nome deve ter no máximo 50 caracteres.'))
+        .pipe(
+            z
+                .string()
+                .regex(
+                    /^\p{L}+(?:[\s'-]\p{L}+)*$/u,
+                    'O nome contém caracteres não permitidos.'
+                )
+        ),
     email: z
         .string()
         .nonempty('Informe seu e-mail. Ex.: nome@gmail.com')
