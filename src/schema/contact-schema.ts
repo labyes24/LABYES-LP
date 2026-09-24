@@ -18,7 +18,7 @@ const contactSchema = z.object({
                 .string()
                 .regex(
                     /^https:\/\/(www\.)?linkedin\.com\/.*$/,
-                    'O link deve ser do LinkedIn.'
+                    'O link deve ser https://linkedin.com/in/seuperfil'
                 )
         ),
     github: z
