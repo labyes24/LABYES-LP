@@ -123,7 +123,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     <Label htmlFor="email">E-mail</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="e-mail@exemplo.com"
+                        placeholder="seu e-mail@exemplo.com"
                         id="email"
                         autoComplete="email"
                         {...register('email')}
