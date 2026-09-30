@@ -277,10 +277,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     placeholder="Sou faixa roxa e busco o Lab Yes! para refinar minha estratégia em projetos reais e entender melhor o dia a dia de um time multidisciplinar."
                     {...register('message', {
                         onBlur: (e) => {
-                            setValue(
-                                'message',
-                                e.target.value.trim().replace(/\s+/g, ' ')
-                            )
+                            setValue('message', e.target.value.trim())
                         },
                     })}
                     aria-invalid={errors.message ? 'true' : 'false'}
