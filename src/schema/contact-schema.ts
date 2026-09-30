@@ -19,6 +19,7 @@ const contactSchema = z.object({
     email: z
         .string()
         .nonempty('Informe seu e-mail. Ex.: nome@gmail.com')
+        .trim()
         .email('Insira um e-mail válido. Ex.: nome@gmail.com'),
 
     linkedin: z
@@ -41,7 +42,7 @@ const contactSchema = z.object({
                     }
                 },
                 { message: 'O link deve ser https://linkedin.com/in/seuperfil' }
-                )
+            )
         ),
 
     github: z
@@ -54,9 +55,11 @@ const contactSchema = z.object({
         .or(z.literal('')),
 
     findOut: z.string().nonempty('Selecione uma opção.'),
+
     message: z
         .string()
         .nonempty('Preencha este campo.')
+        .trim()
         .pipe(z.string().min(50, 'Mínimo de 50 caracteres.'))
         .pipe(z.string().max(500, 'Limite de 500 caracteres excedido.')),
 })
