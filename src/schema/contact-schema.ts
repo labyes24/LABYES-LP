@@ -45,8 +45,14 @@ const contactSchema = z.object({
         ),
 
     github: z
-        .url('Formato inválido. Use o link com https://')
+        .string()
+        .trim()
+        .url({
+            protocol: /^https?$/,
+            message: 'Formato inválido. Use o link com https://',
+        })
         .or(z.literal('')),
+
     findOut: z.string().nonempty('Selecione uma opção.'),
     message: z
         .string()
