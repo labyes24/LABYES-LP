@@ -20,18 +20,30 @@ const contactSchema = z.object({
         .string()
         .nonempty('Informe seu e-mail. Ex.: nome@gmail.com')
         .email('Insira um e-mail válido. Ex.: nome@gmail.com'),
+
     linkedin: z
         .string()
         .nonempty('Insira o link: https://linkedin.com/in/seu-perfil')
+        .trim()
         .pipe(z.url('URL inválida. Use https://linkedin.com/in/nome'))
         .pipe(
-            z
-                .string()
-                .regex(
-                    /^https:\/\/(www\.)?linkedin\.com\/.*$/,
-                    'O link deve ser https://linkedin.com/in/seuperfil'
+            z.string().refine(
+                (url) => {
+                    try {
+                        const parsed = new URL(url)
+                        return (
+                            parsed.protocol === 'https:' &&
+                            parsed.hostname.endsWith('linkedin.com') &&
+                            parsed.pathname.startsWith('/in/')
+                        )
+                    } catch {
+                        return false
+                    }
+                },
+                { message: 'O link deve ser https://linkedin.com/in/seuperfil' }
                 )
         ),
+
     github: z
         .url('Formato inválido. Use o link com https://')
         .or(z.literal('')),
