@@ -1,5 +1,8 @@
 import * as z from 'zod'
 
+const NAME_VALIDATION_REGEX =
+    /^[\p{L}\p{M}]+\.?(?:[\s\-_'`‘’][\p{L}\p{M}]+\.?)*$/u
+
 const contactSchema = z.object({
     name: z
         .string()
@@ -11,7 +14,7 @@ const contactSchema = z.object({
             z
                 .string()
                 .regex(
-                    /^[\p{L}\p{M}\s\-_.'`]+$/u,
+                    NAME_VALIDATION_REGEX,
                     'O nome contém caracteres não permitidos.'
                 )
         ),
