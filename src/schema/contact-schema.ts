@@ -1,7 +1,7 @@
 import * as z from 'zod'
 
 const NAME_VALIDATION_REGEX =
-    /^[\p{L}\p{M}]+\.?(?:[\s\-_'`‘’][\p{L}\p{M}]+\.?)*$/u
+    /^[\p{L}\p{M}]+(?:(?:\.\s?|[\s\-_'`‘’])[\p{L}\p{M}]+)*\.?$/u
 
 const contactSchema = z.object({
     name: z
