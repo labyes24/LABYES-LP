@@ -29,7 +29,8 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
         handleSubmit,
         reset,
         control,
-        formState: { errors, isSubmitting },
+        setValue,
+        formState: { errors, isSubmitting, isSubmitted },
     } = useForm({
         resolver: zodResolver(contactSchema),
         defaultValues: {
@@ -78,7 +79,7 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
 
                 reset()
             }
-        } catch (e) {
+        } catch {
             setFormMessage({
                 id: nextMessageId(),
                 type: 'error',
@@ -106,7 +107,23 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                         id="name"
                         autoComplete="name"
                         placeholder="Seu nome"
-                        {...register('name')}
+                        {...register('name', {
+                            onBlur: (e) => {
+                                const sanitizedValue = e.target.value
+                                    .trim()
+                                    .replace(/\s+/g, ' ')
+
+                                if (isSubmitted) {
+                                    setValue('name', sanitizedValue, {
+                                        shouldValidate: true,
+                                    })
+                                } else {
+                                    setValue('name', sanitizedValue, {
+                                        shouldValidate: false,
+                                    })
+                                }
+                            },
+                        })}
                         aria-invalid={errors.name ? 'true' : 'false'}
                         aria-describedby={
                             errors.name ? 'name-error' : undefined
@@ -123,10 +140,14 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     <Label htmlFor="email">E-mail</Label>
                     <Input
                         className="min-h-[42px] rounded-full"
-                        placeholder="e-mail@exemplo.com"
+                        placeholder="seu e-mail@exemplo.com"
                         id="email"
                         autoComplete="email"
-                        {...register('email')}
+                        {...register('email', {
+                            onBlur: (e) => {
+                                setValue('email', e.target.value.trim())
+                            },
+                        })}
                         aria-invalid={errors.email ? 'true' : 'false'}
                         aria-describedby={
                             errors.email ? 'email-error' : undefined
@@ -147,7 +168,11 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                         className="min-h-[42px] rounded-full"
                         placeholder="https://linkedin.com/in/seu-perfil"
                         id="linkedin"
-                        {...register('linkedin')}
+                        {...register('linkedin', {
+                            onBlur: (e) => {
+                                setValue('linkedin', e.target.value.trim())
+                            },
+                        })}
                         aria-invalid={errors.linkedin ? 'true' : 'false'}
                         aria-describedby={
                             errors.linkedin ? 'linkedin-error' : undefined
@@ -166,7 +191,11 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                         className="min-h-[42px] rounded-full"
                         placeholder="https://..."
                         id="github"
-                        {...register('github')}
+                        {...register('github', {
+                            onBlur: (e) => {
+                                setValue('github', e.target.value.trim())
+                            },
+                        })}
                         aria-invalid={errors.github ? 'true' : 'false'}
                         aria-describedby={
                             errors.github ? 'github-error' : undefined
@@ -246,7 +275,11 @@ export function ContactForm({ className }: React.ComponentProps<'form'>) {
                     maxLength={501}
                     rows={5}
                     placeholder="Sou faixa roxa e busco o Lab Yes! para refinar minha estratégia em projetos reais e entender melhor o dia a dia de um time multidisciplinar."
-                    {...register('message')}
+                    {...register('message', {
+                        onBlur: (e) => {
+                            setValue('message', e.target.value.trim())
+                        },
+                    })}
                     aria-invalid={errors.message ? 'true' : 'false'}
                     aria-describedby={
                         errors.message ? 'message-error' : undefined
