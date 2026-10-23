@@ -12,6 +12,12 @@ const userTypeMap = {
     dev: 'Talentos',
 }
 
+// Lista de e-mails bloqueados
+const EMAIL_BLACKLIST: string[] = [
+    'tracyliveira@gmail.com',
+    'breed_rock@hotmail.com',
+]
+
 export async function sendEmail(
     prevState: FormStateType,
     formData: FormData,
@@ -20,6 +26,18 @@ export async function sendEmail(
     const name = formData.get('name') as string
     const email = formData.get('email') as string
     const message = formData.get('message') as string
+
+    // Validação de segurança / Blacklist
+    if (email) {
+        const normalizedEmail = email.trim().toLowerCase()
+        if (EMAIL_BLACKLIST.includes(normalizedEmail)) {
+            console.warn(
+                `[Blacklist Triggered] Tentativa de envio bloqueada para o e-mail: ${email}`
+            )
+            // Simula o sucesso sem disparar nenhum e-mail
+            return { ...prevState, success: true }
+        }
+    }
 
     const userType = userTypeMap[userTypeKey] || ''
 
