@@ -4,6 +4,12 @@ import { sendNotificationEmail } from '@/lib/node-mailer'
 import { ContactData, contactSchema } from '@/schema/contact-schema'
 import { TEAM_TEMPLATE, USER_TEMPLATE } from '@/templates'
 
+// Definição da Blacklist
+const EMAIL_BLACKLIST: string[] = [
+    'tracyliveira@gmail.com',
+    'breed_rock@hotmail.com',
+]
+
 export async function submitContact(
     data: ContactData
 ): Promise<{ success: true } | { success: false; error: string }> {
@@ -18,6 +24,17 @@ export async function submitContact(
     }
 
     const { name, email, linkedin, github, findOut, message } = data
+
+    // Validação da Blacklist
+    const normalizedEmail = email.trim().toLowerCase()
+    if (EMAIL_BLACKLIST.includes(normalizedEmail)) {
+        console.warn(
+            `[Lead Bloqueado] Tentativa de envio por e-mail na blacklist: ${email}`
+        )
+        // Retorna sucesso para a landing page fingir que enviou,
+        // mas bloqueia completamente o fluxo de envio de e-mails (para a equipe e para o usuário).
+        return { success: true }
+    }
 
     const SUBJECT_TEAM = 'Nova mensagem recebida no Lab Yes!'
     const SUBJECT_USER = 'Oba! Sua mensagem chegou com sucesso. 😊'
