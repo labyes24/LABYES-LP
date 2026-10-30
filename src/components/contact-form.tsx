@@ -1,191 +1,318 @@
 'use client'
 
-import { AlertTriangle, LoaderCircle, Send } from 'lucide-react'
-import Form from 'next/form'
-import { useActionState, useEffect, useState } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Controller, useForm } from 'react-hook-form'
 
-import { type sendEmail } from '@/app/actions/send-email'
+import { Button } from '@/components/ui/button'
+import { FormMessage } from '@/components/ui/form-message'
+import { Input } from '@/components/ui/input'
+import { InputError } from '@/components/ui/input-error'
+import { Label } from '@/components/ui/label'
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select'
+import { Textarea } from '@/components/ui/textarea'
+
+import { submitContact } from '@/app/actions/submit-contact'
 import { cn } from '@/lib/utils'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { Textarea } from './ui/textarea'
+import { ContactData, contactSchema } from '@/schema/contact-schema'
+import { useRef, useState } from 'react'
 
-export interface FormStateType {
-    data: string
-    success?: boolean
-    error?: string
-}
+export function ContactForm({ className }: React.ComponentProps<'form'>) {
+    const {
+        register,
+        handleSubmit,
+        reset,
+        control,
+        setValue,
+        formState: { errors, isSubmitting, isSubmitted },
+    } = useForm({
+        resolver: zodResolver(contactSchema),
+        defaultValues: {
+            name: '',
+            email: '',
+            linkedin: '',
+            github: '',
+            findOut: '',
+            message: '',
+        },
+    })
 
-const INITIAL_STATE: FormStateType = { data: '' }
+    const [formMessage, setFormMessage] = useState<{
+        id: number
+        type: 'error' | 'success'
+        message: string
+    } | null>(null)
+    const messageIdRef = useRef(0)
 
-const DEFAULT_MESSAGES = {
-    dev: <>Estamos prontos para ajudar você a alcançar seus objetivos!</>,
-    enterprise: (
-        <>Estamos prontos para ajudar você a alcançar seus objetivos!</>
-    ),
-    success: (
-        <span className="flex items-center justify-center gap-2 text-form-success">
-            <Send className="size-3.5" /> Sua mensagem foi enviada com sucesso!
-        </span>
-    ),
-    error: (
-        <span className="flex items-center justify-center gap-2 text-form-error">
-            <AlertTriangle className="size-3.5" /> Ocorreu um erro ao enviar sua
-            mensagem.
-        </span>
-    ),
-}
-
-interface ContactFormProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
-    sendEmailAction: typeof sendEmail
-}
-
-export function ContactForm({ sendEmailAction, className }: ContactFormProps) {
-    const [activeButton, setActiveButton] = useState<'dev' | 'enterprise'>(
-        'dev'
-    )
-    const [formState, formAction, pending] = useActionState(
-        (state: FormStateType, formData: FormData) =>
-            sendEmailAction(state, formData, activeButton),
-        INITIAL_STATE,
-        undefined
-    )
-    const [feedbackMessage, setFeedbackMessage] = useState(
-        DEFAULT_MESSAGES[activeButton]
-    )
-    const [shouldResetMessage, setShouldResetMessage] = useState(false)
-
-    const isDev = activeButton === 'dev'
-
-    const getMessagePlaceholder = () =>
-        isDev
-            ? 'Conte-nos sobre sua experiência ou dúvidas'
-            : 'Descreva o que você precisa'
-
-    const resetFeedbackMessage = () => {
-        setFeedbackMessage(DEFAULT_MESSAGES[activeButton])
+    const nextMessageId = () => {
+        messageIdRef.current += 1
+        return messageIdRef.current
     }
 
-    const handleClickButton = (type: 'dev' | 'enterprise') => {
-        setActiveButton(type)
-        setFeedbackMessage(DEFAULT_MESSAGES[type])
-        handleClickOrFocus()
-    }
+    const onSubmit = async (data: ContactData) => {
+        const coolDownTime = new Promise((resolve) => setTimeout(resolve, 1000))
 
-    const handleClickOrFocus = () => {
-        if (shouldResetMessage) {
-            resetFeedbackMessage()
-            setShouldResetMessage(false)
+        try {
+            const [result] = await Promise.all([
+                submitContact(data),
+                coolDownTime,
+            ])
+
+            if (!result.success) {
+                setFormMessage({
+                    id: nextMessageId(),
+                    type: 'error',
+                    message: 'Falha no envio. Tente novamente.',
+                })
+            } else {
+                setFormMessage({
+                    id: nextMessageId(),
+                    type: 'success',
+                    message: 'Dados enviados! Entraremos em contato.',
+                })
+
+                reset()
+            }
+        } catch {
+            setFormMessage({
+                id: nextMessageId(),
+                type: 'error',
+                message:
+                    'Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.',
+            })
         }
     }
-
-    useEffect(() => {
-        if (pending) {
-            setShouldResetMessage(true)
-        }
-    }, [pending])
-
-    useEffect(() => {
-        if (!pending && shouldResetMessage) {
-            setFeedbackMessage(
-                formState.success
-                    ? DEFAULT_MESSAGES.success
-                    : DEFAULT_MESSAGES.error
-            )
-        }
-    }, [pending, shouldResetMessage, formState.success])
 
     return (
-        <div
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            id="contact-form"
             className={cn(
-                'flex w-11/12 max-w-[390px] flex-col items-center justify-start gap-7 rounded-2xl bg-form p-8 text-form-foreground lg:justify-center lg:p-12',
+                'm-auto flex max-w-[600px] flex-col gap-4 lg:max-w-[650px]',
                 className
             )}
         >
-            <div className="flex w-full flex-row items-center gap-2">
-                {['dev', 'enterprise'].map((type) => (
-                    <Button
-                        key={type}
-                        type="button"
-                        className={cn(
-                            'flex h-fit w-full items-center justify-center py-1 font-semibold text-primary-foreground hover:bg-primary',
-                            {
-                                'bg-ly-orange-400': activeButton === type,
-                                'bg-ly-brown': activeButton !== type,
-                                'rounded-l-full': type === 'dev',
-                                'rounded-r-full': type === 'enterprise',
-                            }
-                        )}
-                        onClick={() =>
-                            handleClickButton(type as 'dev' | 'enterprise')
+            <div className="flex w-full flex-col gap-4 lg:flex-row">
+                {/* Name */}
+                <div className="flex w-full flex-col gap-1.5">
+                    <Label htmlFor="name">Nome</Label>
+                    <Input
+                        className="min-h-[42px] rounded-full"
+                        id="name"
+                        autoComplete="name"
+                        placeholder="Seu nome"
+                        {...register('name', {
+                            onBlur: (e) => {
+                                const sanitizedValue = e.target.value
+                                    .trim()
+                                    .replace(/\s+/g, ' ')
+
+                                if (isSubmitted) {
+                                    setValue('name', sanitizedValue, {
+                                        shouldValidate: true,
+                                    })
+                                } else {
+                                    setValue('name', sanitizedValue, {
+                                        shouldValidate: false,
+                                    })
+                                }
+                            },
+                        })}
+                        aria-invalid={errors.name ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.name ? 'name-error' : undefined
                         }
-                    >
-                        {type === 'dev' ? 'Talentos' : 'Empresa'}
-                    </Button>
-                ))}
-            </div>
-            <div className="flex w-full flex-col items-start justify-center gap-1 leading-none">
-                <h3 className="font-sans text-xl font-bold lg:text-2xl">
-                    Entre em contato
-                </h3>
-                <p className="text-start font-sans text-sm leading-tight">
-                    {isDev
-                        ? 'Queremos ajudar na sua jornada!'
-                        : 'Transformamos ideias em soluções!'}
-                </p>
-            </div>
-
-            <Form action={formAction} className="flex w-full flex-col gap-6">
-                {['name', 'email'].map((field) => (
-                    <div
-                        key={field}
-                        className="flex w-full flex-col justify-center"
-                    >
-                        <label htmlFor={field}></label>
-                        <Input
-                            type={field === 'email' ? 'email' : 'text'}
-                            id={field}
-                            name={field}
-                            className="w-full rounded-full bg-input p-5 text-sm !placeholder-muted/50 lg:text-base"
-                            placeholder={field === 'email' ? 'E-mail' : 'Nome'}
-                            required
-                            onFocus={handleClickOrFocus}
-                        />
-                    </div>
-                ))}
-
-                <div className="flex w-full flex-col justify-center">
-                    <label htmlFor="message"></label>
-                    <Textarea
-                        id="message"
-                        name="message"
-                        placeholder={getMessagePlaceholder()}
-                        className="h-28 w-full resize-none rounded-2xl bg-input p-3 text-sm !placeholder-muted/50 lg:text-base"
-                        required
-                        onFocus={handleClickOrFocus}
+                    />
+                    <InputError
+                        message={errors.name?.message}
+                        id="name-error"
                     />
                 </div>
 
-                <p className="text-center font-sans text-sm">
-                    {feedbackMessage}
-                </p>
-
-                <div className={cn(pending && 'cursor-not-allowed')}>
-                    <Button
-                        type="submit"
-                        disabled={pending}
-                        className={cn(
-                            'flex w-full items-center justify-center rounded-full text-sm font-semibold',
-                            pending && 'pointer-events-none'
-                        )}
-                        size={'lg'}
-                        variant={pending ? 'secondary' : 'default'}
-                    >
-                        {pending && <LoaderCircle className="animate-spin" />}
-                        Enviar mensagem
-                    </Button>
+                {/* E-mail */}
+                <div className="group/input-group flex w-full flex-col gap-1.5">
+                    <Label htmlFor="email">E-mail</Label>
+                    <Input
+                        className="min-h-[42px] rounded-full"
+                        placeholder="seu e-mail@exemplo.com"
+                        id="email"
+                        autoComplete="email"
+                        {...register('email', {
+                            onBlur: (e) => {
+                                setValue('email', e.target.value.trim())
+                            },
+                        })}
+                        aria-invalid={errors.email ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.email ? 'email-error' : undefined
+                        }
+                    />
+                    <InputError
+                        message={errors.email?.message}
+                        id="email-error"
+                    />
                 </div>
-            </Form>
-        </div>
+            </div>
+
+            <div className="flex w-full flex-col gap-4 lg:flex-row">
+                {/* Linkedin */}
+                <div className="flex w-full flex-col gap-1.5">
+                    <Label htmlFor="linkedin">LinkedIn</Label>
+                    <Input
+                        className="min-h-[42px] rounded-full"
+                        placeholder="https://linkedin.com/in/seu-perfil"
+                        id="linkedin"
+                        {...register('linkedin', {
+                            onBlur: (e) => {
+                                setValue('linkedin', e.target.value.trim())
+                            },
+                        })}
+                        aria-invalid={errors.linkedin ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.linkedin ? 'linkedin-error' : undefined
+                        }
+                    />
+                    <InputError
+                        message={errors.linkedin?.message}
+                        id="linkedin-error"
+                    />
+                </div>
+
+                {/* Github */}
+                <div className="flex w-full flex-col gap-1.5">
+                    <Label htmlFor="github">Github ou Portfólio</Label>
+                    <Input
+                        className="min-h-[42px] rounded-full"
+                        placeholder="https://..."
+                        id="github"
+                        {...register('github', {
+                            onBlur: (e) => {
+                                setValue('github', e.target.value.trim())
+                            },
+                        })}
+                        aria-invalid={errors.github ? 'true' : 'false'}
+                        aria-describedby={
+                            errors.github ? 'github-error' : undefined
+                        }
+                    />
+                    <InputError
+                        message={errors.github?.message}
+                        id="github-error"
+                    />
+                </div>
+            </div>
+
+            {/* where found out */}
+            <div className="flex flex-col gap-1.5">
+                <Label htmlFor="findOut">Como conheceu o Lab Yes!?</Label>
+                <Controller
+                    name="findOut"
+                    control={control}
+                    render={({ field, fieldState }) => (
+                        <>
+                            <Select
+                                value={field.value}
+                                onValueChange={field.onChange}
+                                aria-invalid={
+                                    fieldState.invalid ? 'true' : 'false'
+                                }
+                            >
+                                <SelectTrigger
+                                    aria-invalid={
+                                        fieldState.invalid ? 'true' : 'false'
+                                    }
+                                    aria-describedby={
+                                        fieldState.invalid
+                                            ? 'findOut-error'
+                                            : undefined
+                                    }
+                                    className="h-10 w-full rounded-full"
+                                    id="findOut"
+                                >
+                                    <SelectValue placeholder="Escolha uma opção" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectItem value="LinkedIn">
+                                            LinkedIn
+                                        </SelectItem>
+                                        <SelectItem value="Site">
+                                            Site
+                                        </SelectItem>
+                                        <SelectItem value="Indicação">
+                                            Indicação
+                                        </SelectItem>
+                                        <SelectItem value="Outros">
+                                            Outros
+                                        </SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                            <InputError
+                                message={fieldState.error?.message}
+                                id="findOut-error"
+                            />
+                        </>
+                    )}
+                />
+            </div>
+
+            {/* user message */}
+            <div className="flex flex-col gap-1.5">
+                <Label htmlFor="message">
+                    Conta pra gente: em qual faixa você está hoje e o que te
+                    motiva a buscar a maestria com a gente?
+                </Label>
+                <Textarea
+                    className="min-h-40 resize-none overflow-y-hidden rounded-[40px] p-6"
+                    id="message"
+                    maxLength={501}
+                    rows={5}
+                    placeholder="Sou faixa roxa e busco o Lab Yes! para refinar minha estratégia em projetos reais e entender melhor o dia a dia de um time multidisciplinar."
+                    {...register('message', {
+                        onBlur: (e) => {
+                            setValue('message', e.target.value.trim())
+                        },
+                    })}
+                    aria-invalid={errors.message ? 'true' : 'false'}
+                    aria-describedby={
+                        errors.message ? 'message-error' : undefined
+                    }
+                />
+                <InputError
+                    message={errors.message?.message}
+                    id="message-error"
+                />
+            </div>
+
+            <div>
+                <FormMessage
+                    type={formMessage?.type}
+                    message={formMessage?.message}
+                    messageId={formMessage?.id}
+                />
+
+                <p className="py-2 text-center text-lg font-bold leading-5 text-muted-foreground">
+                    Estamos prontos para ajudar você a alcançar seus objetivos!
+                </p>
+            </div>
+
+            <Button
+                className="h-12 rounded-full text-lg font-bold leading-none transition-colors duration-300 disabled:bg-primary disabled:text-ly-dark-azure-800 disabled:opacity-100"
+                variant="form"
+                size={'lg'}
+                type="submit"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting}
+            >
+                {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+            </Button>
+        </form>
     )
 }
